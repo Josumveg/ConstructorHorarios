@@ -1,0 +1,17 @@
+# Artefactos de compilacion
+build/
+bin/
+*.o
+*.obj
+*.exe
+*.out
+
+# Editores / IDEs
+.vscode/
+.idea/
+.claude/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
