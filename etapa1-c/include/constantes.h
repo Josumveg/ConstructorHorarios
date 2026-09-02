@@ -23,7 +23,10 @@
 #define MAX_CURSOS        150  /* cursos totales en el catalogo (2 carreras x 4 semestres) */
 
 /* ---- Lectura de archivos ---- */
-#define MAX_LINEA         512  /* tamano de buffer para leer una linea de entrada */
+/* Los 3 archivos (catalogo, historial, salida) son JSON: se leen completos
+ * a memoria (no linea por linea) y se parsean/serializan desde ahi. */
+#define MAX_LINEA         512     /* buffer generico para strings intermedios (ej. mensajes de error) */
+#define MAX_TAMANO_JSON   65536   /* tamano maximo (bytes) de un archivo JSON de entrada a cargar en memoria */
 
 /* ---- Codigos de retorno para funciones de carga/exportacion ---- */
 #define EXITO             0
@@ -32,8 +35,9 @@
 #define ERROR_MEMORIA     3   /* se supero algun MAX_* definido arriba */
 
 /* ---- Rutas por defecto (pueden sobreescribirse via argumentos de main) ---- */
-#define RUTA_CATALOGO_DEFECTO    "data/catalogo.txt"
-#define RUTA_HISTORIAL_DEFECTO   "data/historial.txt"
+/* Formato acordado por el equipo: JSON para los 3 archivos. */
+#define RUTA_CATALOGO_DEFECTO    "data/catalogo.json"
+#define RUTA_HISTORIAL_DEFECTO   "data/historial.json"
 #define RUTA_SALIDA_DEFECTO      "data/catalogo_salida.json"
 
 #endif /* CONSTANTES_H */

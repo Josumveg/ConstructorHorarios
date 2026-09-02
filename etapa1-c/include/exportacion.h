@@ -11,7 +11,8 @@
  */
 
 /* Exporta el catalogo completo (con los 8 campos minimos requeridos) a
- * 'ruta_salida', en el formato que el equipo elija (ej. JSON o CSV).
+ * 'ruta_salida', en formato JSON (formato acordado por el equipo para los
+ * 3 archivos del contrato: catalogo, historial y salida).
  * Retorna EXITO o un codigo de error definido en constantes.h. */
 int exportar_catalogo(const Catalogo *catalogo, const char *ruta_salida);
 

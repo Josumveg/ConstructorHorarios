@@ -33,7 +33,8 @@ Jose, Pablo, Javier, Sebastian.
 │   ├── choques.c
 │   ├── requisitos.c
 │   └── exportacion.c
-├── data/                # archivos de entrada (catalogo, historial) y salida
+├── data/                # archivos de entrada (catalogo, historial) y salida — todos JSON
+├── lib/cjson/           # cJSON vendorizada (parseo/serializacion de JSON), ver lib/cjson/README.md
 ├── Makefile
 └── distribucion-tareas-etapa1-cemestre.md
 ```
@@ -59,12 +60,12 @@ make run        # compila y ejecuta con las rutas por defecto de constantes.h
 make clean      # borra los artefactos de compilacion (build/, bin/)
 ```
 
-Rutas por defecto (ver `include/constantes.h`): `data/catalogo.txt`,
-`data/historial.txt`, `data/catalogo_salida.json`. También se pueden pasar
-como argumentos:
+Rutas por defecto (ver `include/constantes.h`): `data/catalogo.json`,
+`data/historial.json`, `data/catalogo_salida.json`. Los 3 son JSON. También
+se pueden pasar como argumentos:
 
 ```bash
-./bin/cemestre data/catalogo.txt data/historial.txt data/catalogo_salida.json
+./bin/cemestre data/catalogo.json data/historial.json data/catalogo_salida.json
 ```
 
 ## Estado actual
@@ -79,10 +80,11 @@ Pendientes de equipo antes de programar en serio:
 
 - Confirmar/ajustar los `struct` de `estructuras.h` y los límites de
   `constantes.h` según el dataset real.
-- Acordar el formato del archivo de entrada (catálogo e historial) — ver
-  [`data/README.md`](data/README.md).
-- Elegir y justificar el formato de salida (JSON o CSV) — responsabilidad
-  de Sebastian, pero debe quedar documentado para todo el equipo.
+- Ya se decidió que catálogo, historial y salida son **JSON**; falta
+  acordar el esquema exacto de campos — ver [`data/README.md`](data/README.md).
+- Ya se decidió usar **cJSON** (vendorizada en [`lib/cjson/`](lib/cjson/README.md))
+  para parsear/serializar JSON en C, en vez de escribir un parser propio —
+  ver la justificación en [`lib/cjson/README.md`](lib/cjson/README.md).
 
 ## Flujo de trabajo
 
