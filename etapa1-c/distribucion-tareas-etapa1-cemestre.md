@@ -15,7 +15,7 @@ El programa en C debe:
 3. Detectar choques de horario entre grupos/cursos.
 4. Determinar si el estudiante puede matricular cada curso (requisitos + correquisitos).
 5. Por ser grupo de 4: detectar ciclos en el grafo de requisitos mediante DFS.
-6. Exportar el catálogo completo, con todos los campos requeridos, a un archivo de salida (formato a elección del grupo, ej. JSON o CSV) que servirá de contrato para la etapa de Racket.
+6. Exportar el catálogo completo, con todos los campos requeridos, a un archivo de salida (formato a elección del grupo; **el equipo decidió JSON** tanto para la entrada como para la salida, ver `data/README.md`) que servirá de contrato para la etapa de Racket.
 
 No debe armar horarios, optimizar según preferencias, ni tener interfaz: el resultado es únicamente un archivo.
 
@@ -71,10 +71,10 @@ Esto es solo una propuesta de partida: revísenla en equipo antes de programar, 
 
 | # | Módulo | Funciones principales | Responsable | Rubro relacionado |
 |---|--------|------------------------|-------------|--------------------|
-| 1 | Estructuras, constantes y carga de archivos | `cargar_catalogo()`, `cargar_historial()`, parseo de líneas, manejo de errores de archivo/formato, `liberar_catalogo()`, `liberar_historial()` | **Jose** | Carga de datos (10) + Memoria/estructuras (15) |
+| 1 | Estructuras, constantes y carga de archivos | `cargar_catalogo()`, `cargar_historial()`, parseo de JSON, manejo de errores de archivo/formato, `liberar_catalogo()`, `liberar_historial()` | **Jose** | Carga de datos (10) + Memoria/estructuras (15) |
 | 2 | Choques de horario | `bloques_se_solapan()`, `grupos_chocan()`, `calcular_choques(Catalogo*)` | **Pablo** | Choques de horario (16) |
 | 3 | Requisitos y correquisitos | `estudiante_aprobo()`, `cumple_requisitos()`, `cumple_correquisitos()`, `determinar_matriculable()`, construcción del grafo de requisitos (lista de adyacencia) | **Javier** | Requisitos/correquisitos (20) |
-| 4 | Formato de salida, exportación y ciclos | Diseño y justificación del formato (JSON/CSV), `exportar_catalogo()`, `dfs_detectar_ciclo()`, `detectar_ciclos(Catalogo*)` (usa el grafo que construye Javier) | **Sebastian** | Formato de salida (9) + Ciclos (15, extra por grupo de 4) |
+| 4 | Formato de salida, exportación y ciclos | Diseño del esquema JSON de salida y justificación de la decisión, `exportar_catalogo()`, `dfs_detectar_ciclo()`, `detectar_ciclos(Catalogo*)` (usa el grafo que construye Javier) | **Sebastian** | Formato de salida (9) + Ciclos (15, extra por grupo de 4) |
 
 ---
 
