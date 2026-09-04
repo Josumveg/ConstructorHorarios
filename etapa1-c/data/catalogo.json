@@ -1,0 +1,1864 @@
+{
+  "cursos": [
+    {
+      "codigo": "CE1101",
+      "nombre": "Introducción a la Programación",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE1104",
+      "nombre": "Fundamentos de Sistemas Computacionales",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [],
+      "correquisitos": [
+        "CE1101"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "MA1102",
+      "nombre": "Cálculo Diferencial e Integral",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "MA0101"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1950 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 1950 },
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1030, "hora_fin": 1220 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "MA1403",
+      "nombre": "Matemática Discreta",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 1950 },
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "QU1102",
+      "nombre": "Laboratorio de Química Básica I",
+      "creditos": 1,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [
+        "QU1106"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "QU1106",
+      "nombre": "Química Básica I",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [
+        "QU1102"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "SE1100",
+      "nombre": "Actividad Cultural I",
+      "creditos": 0,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1800, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "SE1200",
+      "nombre": "Actividad Deportiva I",
+      "creditos": 0,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE1103",
+      "nombre": "Algoritmos y Estructuras de Datos I",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "CE1101",
+        "CE1104",
+        "MA1403"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE1105",
+      "nombre": "Principios de Modelado en Ingeniería",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "CE1104"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1900, "hora_fin": 2050 },
+            { "dia": "J", "hora_inicio": 1900, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CI1407",
+      "nombre": "Habilidades de Comunicación en Ingeniería",
+      "creditos": 2,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CS1502",
+      "nombre": "Introducción a la Técnica Ciencia y Tecnología",
+      "creditos": 1,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "FI1101",
+      "nombre": "Física General I",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "MA1102"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "FI1201",
+      "nombre": "Laboratorio Física General I",
+      "creditos": 1,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [
+        "FI1101"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "MA1103",
+      "nombre": "Cálculo y Álgebra Lineal",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "MA1102"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1600, "hora_fin": 1750 },
+            { "dia": "K", "hora_inicio": 1600, "hora_fin": 1750 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "SE1400",
+      "nombre": "Actividad Cultural-Deportiva",
+      "creditos": 0,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE2103",
+      "nombre": "Algoritmos y Estructuras de Datos II",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "CE1103",
+        "CE1105"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1900, "hora_fin": 2050 },
+            { "dia": "V", "hora_inicio": 1900, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CS2101",
+      "nombre": "Ambiente Humano",
+      "creditos": 2,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "CI1107"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1750 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "EL2113",
+      "nombre": "Circuitos Eléctricos en Corriente Continua",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "FI1101",
+        "MA1102"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "FH1000",
+      "nombre": "Centros de Formación Humanística",
+      "creditos": 0,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "S", "hora_inicio": 730, "hora_fin": 1220 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "FI1102",
+      "nombre": "Física General II",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "FI1101"
+      ],
+      "correquisitos": [
+        "MA1102"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "FI1202",
+      "nombre": "Laboratorio Física General II",
+      "creditos": 1,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "FI1201"
+      ],
+      "correquisitos": [
+        "FI1102"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "MA2104",
+      "nombre": "Cálculo Superior",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
+      "requisitos": [
+        "MA1103"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 1950 },
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "S", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1800, "hora_fin": 1950 },
+            { "dia": "V", "hora_inicio": 1800, "hora_fin": 1950 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE1106",
+      "nombre": "Paradigmas de Programación",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "CE2103"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CE2201",
+      "nombre": "Laboratorio de Circuitos Eléctricos",
+      "creditos": 1,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "FI1202"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "EL2114",
+      "nombre": "Circuitos Eléctricos en Corriente Alterna",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "EL2113"
+      ],
+      "correquisitos": [
+        "EL2207"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "EL2207",
+      "nombre": "Elementos Activos",
+      "creditos": 4,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "EL2113"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "PI2609",
+      "nombre": "Probabilidad y Estadística",
+      "creditos": 2,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [
+        "MA2104"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "SO4604",
+      "nombre": "Seguridad y Salud Ocupacional",
+      "creditos": 3,
+      "carreras": ["Ingeniería en Computadores"],
+      "requisitos": [],
+      "correquisitos": [
+        "FI1102"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "CI1106",
+      "nombre": "Comunicación Escrita",
+      "creditos": 2,
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "CI1230",
+      "nombre": "Inglés I",
+      "creditos": 2,
+      "requisitos": [
+        "CI0200",
+        "CI0202"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "MA0101",
+      "nombre": "Matemática General",
+      "creditos": 2,
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1600, "hora_fin": 1750 },
+            { "dia": "K", "hora_inicio": 1600, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1750 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1220 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 1950 },
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "MI2101",
+      "nombre": "Dibujo Técnico",
+      "creditos": 3,
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1700, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "CI1107",
+      "nombre": "Comunicación Oral",
+      "creditos": 1,
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "CI1231",
+      "nombre": "Inglés II",
+      "creditos": 2,
+      "requisitos": [
+        "CI1230"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1600, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "PI3501",
+      "nombre": "Costos Industriales I",
+      "creditos": 3,
+      "requisitos": [
+        "CS1502",
+        "MA0101"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1550 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "QU1104",
+      "nombre": "Laboratorio de Química Básica II",
+      "creditos": 1,
+      "requisitos": [],
+      "correquisitos": [
+        "QU1107"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "QU1107",
+      "nombre": "Química Básica II",
+      "creditos": 3,
+      "requisitos": [
+        "QU1102",
+        "QU1106"
+      ],
+      "correquisitos": [
+        "QU1104"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 920 },
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 920 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "CA2125",
+      "nombre": "Elementos de Computación",
+      "creditos": 3,
+      "requisitos": [],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1900, "hora_fin": 2050 },
+            { "dia": "K", "hora_inicio": 1900, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "V", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1900, "hora_fin": 2050 },
+            { "dia": "K", "hora_inicio": 1900, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "PI3502",
+      "nombre": "Costos Industriales II",
+      "creditos": 3,
+      "requisitos": [
+        "PI3501"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 730, "hora_fin": 1020 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "CS2303",
+      "nombre": "Relaciones Laborales",
+      "creditos": 2,
+      "requisitos": [
+        "CS2101"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1950 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1220 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1800, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "FI2103",
+      "nombre": "Física General III",
+      "creditos": 3,
+      "requisitos": [
+        "FI1101",
+        "MA1102"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1500, "hora_fin": 1650 },
+            { "dia": "V", "hora_inicio": 1500, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 },
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 },
+            { "dia": "K", "hora_inicio": 930, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 },
+            { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "MI2109",
+      "nombre": "Estática",
+      "creditos": 3,
+      "requisitos": [
+        "FI1101",
+        "FI1201"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "L", "hora_inicio": 1700, "hora_fin": 2050 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 5,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "PI2304",
+      "nombre": "Estudio del Trabajo I",
+      "creditos": 3,
+      "requisitos": [
+        "MI2101",
+        "PI3501"
+      ],
+      "correquisitos": [
+        "PI2610"
+      ],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1300, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "K", "hora_inicio": 1300, "hora_fin": 1650 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    },
+    {
+      "codigo": "PI2610",
+      "nombre": "Probabilidad y Estadística I",
+      "creditos": 3,
+      "requisitos": [
+        "CA2125",
+        "MA1102"
+      ],
+      "correquisitos": [],
+      "grupos": [
+        {
+          "numero_grupo": 1,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 730, "hora_fin": 1120 }
+          ]
+        },
+        {
+          "numero_grupo": 2,
+          "bloques": [
+            { "dia": "V", "hora_inicio": 1300, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 3,
+          "bloques": [
+            { "dia": "J", "hora_inicio": 1300, "hora_fin": 1650 }
+          ]
+        },
+        {
+          "numero_grupo": 4,
+          "bloques": [
+            { "dia": "M", "hora_inicio": 1700, "hora_fin": 2050 }
+          ]
+        }
+      ],
+      "carreras": ["Ingeniería en Producción Industrial"]
+    }
+  ]
+}
