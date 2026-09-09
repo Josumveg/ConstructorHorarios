@@ -37,10 +37,18 @@ int grupos_chocan(const Grupo *g1, const Grupo *g2) {
         return 0;
     }
 
-    /* TODO: comparar cada bloque de g1 contra cada bloque de g2 */
+    for (int i = 0; i < g1->cantidad_bloques; i++) {
+        for (int j = 0; j < g2->cantidad_bloques; j++) {
+
+            if (bloques_se_solapan(&g1->bloques[i],
+                                   &g2->bloques[j])) {
+                return 1;
+            }
+        }
+    }
+
     return 0;
 }
-
 void calcular_choques(Catalogo *catalogo) {
     if (catalogo == NULL) {
         return;
