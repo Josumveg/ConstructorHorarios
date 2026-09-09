@@ -20,7 +20,15 @@ int bloques_se_solapan(const BloqueHorario *a, const BloqueHorario *b) {
         return 0;
     }
 
-    /* TODO: comparar a->dia == b->dia y solapamiento de horas */
+    if (a->dia != b->dia) {
+        return 0;
+    }
+
+    if (a->hora_inicio < b->hora_fin &&
+        b->hora_inicio < a->hora_fin) {
+        return 1;
+    }
+
     return 0;
 }
 

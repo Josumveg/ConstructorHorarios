@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
 
     Catalogo catalogo;
     Historial historial;
-
     if (cargar_catalogo(ruta_catalogo, &catalogo) != EXITO) {
         fprintf(stderr, "Error cargando catalogo: %s\n", ruta_catalogo);
         return 1;
