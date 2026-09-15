@@ -20,7 +20,15 @@ int bloques_se_solapan(const BloqueHorario *a, const BloqueHorario *b) {
         return 0;
     }
 
-    /* TODO: comparar a->dia == b->dia y solapamiento de horas */
+    if (a->dia != b->dia) {
+        return 0;
+    }
+
+    if (a->hora_inicio < b->hora_fin &&
+        b->hora_inicio < a->hora_fin) {
+        return 1;
+    }
+
     return 0;
 }
 
@@ -29,14 +37,48 @@ int grupos_chocan(const Grupo *g1, const Grupo *g2) {
         return 0;
     }
 
-    /* TODO: comparar cada bloque de g1 contra cada bloque de g2 */
+    for (int i = 0; i < g1->cantidad_bloques; i++) {
+        for (int j = 0; j < g2->cantidad_bloques; j++) {
+
+            if (bloques_se_solapan(&g1->bloques[i],
+                                   &g2->bloques[j])) {
+                return 1;
+            }
+        }
+    }
+
     return 0;
 }
-
 void calcular_choques(Catalogo *catalogo) {
     if (catalogo == NULL) {
         return;
     }
 
-    /* TODO: recorrer catalogo->cursos y actualizar choca_con_otro */
+    /* Inicializar todos los cursos como sin choque */
+    for (int i = 0; i < catalogo->cantidad_cursos; i++) {
+        catalogo->cursos[i].choca_con_otro = 0;
+    }
+
+    /* Comparar cada curso con los cursos siguientes */
+    for (int i = 0; i < catalogo->cantidad_cursos; i++) {
+
+        for (int j = i + 1; j < catalogo->cantidad_cursos; j++) {
+
+            Curso *curso1 = &catalogo->cursos[i];
+            Curso *curso2 = &catalogo->cursos[j];
+
+            for (int g1 = 0; g1 < curso1->cantidad_grupos; g1++) {
+
+                for (int g2 = 0; g2 < curso2->cantidad_grupos; g2++) {
+
+                    if (grupos_chocan(&curso1->grupos[g1],
+                                      &curso2->grupos[g2])) {
+
+                        curso1->choca_con_otro = 1;
+                        curso2->choca_con_otro = 1;
+                    }
+                }
+            }
+        }
+    }
 }
