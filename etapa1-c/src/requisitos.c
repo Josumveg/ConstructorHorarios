@@ -13,10 +13,11 @@
  *     la vez, o basta con estar matriculable) e implementar cumple_correquisitos.
  *   - Implementar determinar_matriculable combinando requisitos + correquisitos
  *     (y posiblemente choca_con_otro, segun se acuerde con Pablo).
+ *   - Implementar construir_grafo_requisitos para que Sebastian pueda
+ *     recorrerlo con DFS y detectar ciclos.
  */
 
-/* Busca el indice de un curso dentro del catalogo por su codigo exacto.
- * Retorna el indice si lo encuentra, o -1 si no existe en el catalogo. */
+/* Busca el índice de un curso dentro del cátalogo por su codigo exacto, y lo retorna.*/
 static int buscar_indice_curso(const Catalogo *catalogo, const char *codigo) {
     int i;
 
@@ -29,41 +30,89 @@ static int buscar_indice_curso(const Catalogo *catalogo, const char *codigo) {
     return -1;
 }
 
+/* Recorre el historial comparando cada código aprobado con codigo_curso. Retorna 1 si el estudiante ya aprobó el curso o 0 si no lo encuentra */
 int estudiante_aprobo(const Historial *historial, const char *codigo_curso) {
+    int i;
+
     if (historial == NULL || codigo_curso == NULL) {
         return 0;
     }
 
-    /* TODO: recorrer historial->aprobados buscando codigo_curso */
+    for (i = 0; i < historial->cantidad_aprobados; i++) {
+        if (strcmp(historial->aprobados[i], codigo_curso) == 0) {
+            return 1;
+        }
+    }
+
     return 0;
 }
 
+/* Recorre los requisitos del curso y verifica con estudiante_aprobo() que cada uno aparezca en el historial. 
+ * Retorna 1 si todos estan aprobados o si el curso no tiene requisitos, y 0 si falta al menos un curso. */
 int cumple_requisitos(const Curso *curso, const Historial *historial) {
+    int i;
+
     if (curso == NULL || historial == NULL) {
         return 0;
     }
 
-    /* TODO: verificar que estudiante_aprobo() sea true para cada requisito */
-    return 0;
+    for (i = 0; i < curso->cantidad_requisitos; i++) {
+        if (!estudiante_aprobo(historial, curso->requisitos[i])) {
+            return 0;
+        }
+    }
+
+    return 1;
 }
 
-int cumple_correquisitos(const Curso *curso, const Historial *historial) {
-    if (curso == NULL || historial == NULL) {
+/* Recorre los correquisitos del curso y verifica con estudiante_aprobo() que cada uno aparezca en el historial. 
+ * Retorna 1 si todos estan aprobados o si el curso no tiene correquisitos, y 0 si falta alguno no está aprobado*/
+int cumple_correquisitos(const Curso *curso, const Historial *historial, const Catalogo *catalogo) {
+    int i;
+
+    if (curso == NULL || historial == NULL || catalogo == NULL) {
         return 0;
     }
 
-    /* TODO: verificar correquisitos segun la semantica que acuerde el equipo */
-    return 0;
+    for (i = 0; i < curso->cantidad_correquisitos; i++) {
+        const char *codigo_correq = curso->correquisitos[i];
+
+        /* ya aprobado o esta en el cátalogo, y se podría matricular junto con 'curso' */
+        if (estudiante_aprobo(historial, codigo_correq)) {
+            continue;
+        }
+        if (buscar_indice_curso(catalogo, codigo_correq) == -1) {
+            return 0;
+        }
+    }
+
+    return 1;
 }
 
+/* Recorre el cátalogo y escribe el campo matriculable de cada curso donde:
+ * 1 si el curso todavía no esta aprobado y cumple sus requisitos y correquisitos, 
+ * 0 en cualquier otro caso. Los cursos ya aprobados quedan en 0 porque no se vuelven a matricular. */
 void determinar_matriculable(Catalogo *catalogo, const Historial *historial) {
+    int i;
+
     if (catalogo == NULL || historial == NULL) {
         return;
     }
 
-    /* TODO: recorrer catalogo->cursos y actualizar curso->matriculable */
+    for (i = 0; i < catalogo->cantidad_cursos; i++) {
+        Curso *curso = &catalogo->cursos[i];
+
+        if (estudiante_aprobo(historial, curso->codigo)) {
+            curso->matriculable = 0;
+            continue;
+        }
+
+        curso->matriculable = cumple_requisitos(curso, historial) && cumple_correquisitos(curso, historial, catalogo);
+    }
 }
 
+/* Construye la lista de adyacencia del grafo de requisitos donde por cada curso
+ * del cátalogo traduce cada código de requisito al índice que ese curso ocupa dentro de catalogo->cursos[], y lo guarda como una arista. */
 void construir_grafo_requisitos(const Catalogo *catalogo, GrafoRequisitos *grafo) {
     int cantidad_cursos;
     int i, j;

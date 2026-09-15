@@ -28,8 +28,8 @@ int estudiante_aprobo(const Historial *historial, const char *codigo_curso);
 /* Retorna 1 si el estudiante cumple todos los requisitos de 'curso'. */
 int cumple_requisitos(const Curso *curso, const Historial *historial);
 
-/* Retorna 1 si el estudiante cumple/matricula los correquisitos de 'curso'. */
-int cumple_correquisitos(const Curso *curso, const Historial *historial);
+/* Retorna 1 si el estudiante cumple/matricula los correquisitos de 'curso', o si un correquisito existe en catálogo */
+int cumple_correquisitos(const Curso *curso, const Historial *historial, const Catalogo *catalogo);
 
 /* Recorre el catalogo y marca curso->matriculable en cada Curso. */
 void determinar_matriculable(Catalogo *catalogo, const Historial *historial);
