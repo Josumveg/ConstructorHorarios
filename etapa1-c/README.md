@@ -102,3 +102,45 @@ Pendientes de equipo antes de programar en serio:
   a `main` como entrega final.
 - Más detalle de cronograma, checklist de entregables y recolección de
   datos en [distribucion-tareas-etapa1-cemestre.md](distribucion-tareas-etapa1-cemestre.md).
+
+## Exportación y detección de ciclos — Sebastián
+
+La exportación utiliza cJSON y conserva todos los cursos, carreras,
+requisitos, correquisitos, grupos y bloques horarios. Los indicadores
+choca_con_otro y matriculable se escriben como booleanos JSON.
+
+Se eligió JSON porque representa directamente la estructura de cursos,
+grupos y horarios, y permite que la etapa de Racket lea los datos sin
+necesitar un formato de texto personalizado.
+
+La detección de ciclos utiliza el grafo de requisitos construido por
+el módulo de requisitos. Mediante DFS se mantienen los nodos visitados
+y los que siguen en la pila activa. Una conexión hacia un nodo de esa
+pila identifica un ciclo, cuyo recorrido se imprime con los códigos
+de los cursos involucrados.
+
+Se recorren todos los componentes del grafo. Los correquisitos no se
+incluyen en esta detección, ya que pueden representar matrícula simultánea.
+
+### Caso límite
+
+CI1230 tiene los requisitos CI0200 y CI0202, que no están en el catálogo.
+El constructor del grafo advierte y omite esas conexiones, pero la
+exportación conserva ambos códigos. No se pueden detectar ciclos que
+dependan de cursos ausentes del catálogo.
+
+### Validación realizada
+
+- Compilación del programa completo.
+- Revisión del JSON exportado: 45 cursos y 206 grupos.
+- Cadena sin ciclos y requisito compartido sin falsos positivos.
+- Ciclo de tres cursos y autorrequisito.
+- Ciclo en un componente separado.
+- Llamada directa al DFS y limpieza de la pila activa.
+- Catálogo vacío y argumento nulo.
+
+Las pruebas de ciclos están en:
+tests/exportacion-ciclos/test_exportacion.c
+
+La validación completa de matriculabilidad queda pendiente de integrar
+la implementación correspondiente del equipo.
