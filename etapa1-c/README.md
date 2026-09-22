@@ -200,35 +200,52 @@ Archivos: `include/choques.h`, `src/choques.c`.
 
 #### 4.2.1 Arquitectura
 
-<!-- PABLO: que hace el modulo y donde entra en el flujo. Las tres funciones
-     (bloques_se_solapan, grupos_chocan, calcular_choques) y como se apoyan una
-     en otra: bloque -> grupo -> catalogo. Que escribe: el campo
-     choca_con_otro de cada Curso. -->
+este modulo es el encargado de  determinar si existen dos o mas cursos con el mismo horario en el catalgo de los cursos, se ejecuta luego de cargar el catalogo.
 
+el modulo esta dividido en tres funciones: `bloques_se_solapan()`, esta recibe dos bloques de horarios, es decir, determina si los intervalos de tiempo interfieren el uno con el otro, mismo dia y a la misma hora o una hora que interfiera, por ejemplo bloque 7:30/9:30 y 8:20/10:30
+ `grupos_chocan()`: esta funcion recibe dos grupos y compara los bloques horarios reutilizando `bloques_se_solapan()` paea determinar si existe solapamiento de un par de horarios
+ `calcular_choques()`: recorre los cursos del catalogo y compara los grupos de cada par de curso utilizando las funciones anteriores, si una de las funciones salta esta funcion modifica el campo `choca_con_otro` de ambos cursos en el catalogo.
+
+la responsabilidad del modulo es unicamente de detectar conglictos y registrarlos en el catalogo para su utilidad en las siguientes etapas del proyecti
 #### 4.2.2 Decisiones de diseño
 
-<!-- PABLO: justificar. Puntos sugeridos:
-     - La comparacion usa intervalo semiabierto [inicio, fin): un curso que
-       termina a las 9:20 y otro que empieza a las 9:20 NO chocan. Explicar
-       por que es lo correcto.
-     - Por que el formato HHMM como entero permite comparar horas con < y >
-       sin convertir nada.
-     - Que significa exactamente "chocar" en esta implementacion: se comparan
-       cursos DISTINTOS entre si (el ciclo interno arranca en j = i+1), no los
-       grupos de un mismo curso.
-     - LIMITACION IMPORTANTE que conviene documentar: con el dataset real los
-       45 cursos quedan marcados con choca_con_otro = 1, porque basta con que
-       un grupo cualquiera de un curso choque con un grupo cualquiera de otro.
-       A nivel de grupo solo el 11% de las combinaciones chocan. Explicar que
-       el campo cumple el minimo que pide el enunciado, y que la resolucion
-       fina (elegir un grupo por curso) le corresponde a la etapa de Racket. -->
+##### Intervalos de horario
+para deteerminar si dos bloques se solapan se utiliza un intervalo tipo: `[hora_inicio, hora_fin)`.
 
+esto con el fin de que si un curso termina a las 9:30 y otro empieza a esa misma hora no se considera como un choque de horarios
+se utiliza la siguiente condicion `inicioA < finB && inicioB < finA` verifica que ambos bloques se llevan el msmo dia, dos bloques con las mismas horas pero diferente dia no representa un conflicto
+##### Representación de las horas
+Las horas se almacenan como números enteros en formato HHMM. Por ejemplo:
+
+- `730` representa las 7:30.
+- `920` representa las 9:20.
+- `1500` representa las 15:00.
+no es necesario convertir estas horas a minutos, ya que el valor entero mantiene el orden cornologico
+##### Comparación entre cursos distintos
+se detectan choques solo entre grupos pertenecientes a cursos distintos, un estudiante solo escogeria un grupo de un mismo curso para matricular
 #### 4.2.3 Estructuras de datos
 
-<!-- PABLO: que campos de BloqueHorario, Grupo y Curso usa el modulo. No
-     define estructuras propias: trabaja sobre las compartidas. Explicar por
-     que no necesito ninguna estructura auxiliar. -->
+El módulo de choques no define estructuras de datos propias. Utiliza las
+estructuras compartidas definidas en `estructuras.h`.
 
+Las principales estructuras utilizadas son:
+
+- `BloqueHorario`: utiliza los campos `dia`, `hora_inicio` y `hora_fin` para
+  determinar si dos bloques se superponen.
+
+- `Grupo`: utiliza el arreglo `bloques` y el campo `cantidad_bloques` para
+  comparar todos los bloques de dos grupos.
+
+- `Curso`: utiliza el arreglo `grupos`, `cantidad_grupos` y el campo
+  `choca_con_otro`. Este último es el resultado que modifica el módulo.
+
+- `Catalogo`: utiliza el arreglo de cursos y `cantidad_cursos` para recorrer
+  todos los pares de cursos que deben compararse.
+
+No fue necesario crear una estructura auxiliar para almacenar los choques,
+porque el requerimiento de esta etapa únicamente necesita registrar si un curso
+presenta o no al menos un conflicto. El resultado puede almacenarse directamente
+en el campo `choca_con_otro` de cada `Curso`.
 ---
 
 ### 4.3 Módulo de requisitos y matriculabilidad — Javier
@@ -289,59 +306,56 @@ Archivos: `include/exportacion.h`, `src/exportacion.c`.
 
 #### 4.4.1 Arquitectura
 
-La exportación utiliza cJSON y conserva todos los cursos, carreras, requisitos,
-correquisitos, grupos y bloques horarios. Los indicadores `choca_con_otro` y
-`matriculable` se escriben como booleanos JSON.
+El módulo exporta el catálogo completo mediante cJSON y detecta ciclos
+utilizando el grafo construido por el módulo de requisitos.
 
-La detección de ciclos utiliza el grafo de requisitos construido por el módulo
-de requisitos. Mediante DFS se mantienen los nodos visitados y los que siguen
-en la pila activa; una conexión hacia un nodo de esa pila identifica un ciclo,
-cuyo recorrido se imprime con los códigos de los cursos involucrados. Se
-recorren todos los componentes del grafo.
+Funciones públicas:
+- exportar_catalogo(): guarda los cursos y el reporte de ciclos en JSON.
+- dfs_detectar_ciclo(): busca ciclos alcanzables desde un nodo.
+- detectar_ciclos(): recorre todos los componentes y reporta los ciclos
+  en terminal.
 
-<!-- SEBASTIAN: agregar si hace falta las funciones publicas (exportar_catalogo,
-     dfs_detectar_ciclo, detectar_ciclos) y en que orden las llama main.c. -->
+En main.c, después de calcular choques y matriculabilidad, se llama a
+detectar_ciclos() y luego a exportar_catalogo(). La exportación calcula
+su propio reporte.
 
 #### 4.4.2 Decisiones de diseño
 
-Se eligió JSON porque representa directamente la estructura de cursos, grupos y
-horarios, y permite que la etapa de Racket lea los datos sin necesitar un
-formato de texto personalizado.
+Se utiliza JSON para representar cursos, grupos y horarios y facilitar
+su lectura desde Racket. Se conserva todo el catálogo, incluidos cursos
+no matriculables, y los indicadores se escriben como booleanos.
 
-Los correquisitos no se incluyen en la detección de ciclos, ya que pueden
-representar matrícula simultánea. Incluirlos haría que los pares mutuos del
-dataset (`QU1102`↔`QU1106`, `QU1104`↔`QU1107`) se reportaran como ciclos
-falsos.
+Antes de serializar se validan los contadores y terminadores de cadenas.
+El JSON se construye antes de abrir el destino para evitar truncarlo si
+falla una asignación de memoria. Un error durante la escritura sí puede
+dejar un archivo parcial.
 
-<!-- SEBASTIAN: valdria la pena documentar tambien:
-     - Por que el JSON completo se construye en memoria ANTES de abrir el
-       archivo de salida (no queda un archivo a medias si algo falla).
-     - Por que se validan los limites y terminadores del catalogo
-       (catalogo_valido) antes de serializar.
-     - Por que los ciclos van en el archivo de salida ademas de imprimirse
-       en terminal. -->
+Los correquisitos no participan en el DFS porque pueden representar
+matrícula simultánea. Los ciclos se reportan tanto en terminal como en
+el archivo de salida.
 
 #### 4.4.3 Estructuras de datos
 
-La salida JSON incluye, además de `cursos`, los campos `ciclos` y `hay_ciclos`.
-Cada elemento de `ciclos` contiene los códigos de un recorrido cerrado
-detectado mediante DFS, repitiendo el código inicial al final. Si no se
-detectan ciclos se exportan `[]` y `false`, respectivamente.
+El DFS utiliza:
+- visitados: nodos ya explorados.
+- en_pila: nodos activos en el recorrido; volver a uno identifica un ciclo.
+- camino: permite recuperar los códigos involucrados.
 
-<!-- SEBASTIAN: describir tambien las estructuras internas del DFS (los
-     arreglos visitados, en_pila y camino) y por que hacen falta los tres. -->
+La salida contiene cursos, ciclos y hay_ciclos. Cada ciclo repite
+su código inicial al final, por ejemplo ["A", "B", "A"]. Si no hay ciclos,
+se exportan [] y false. Se reportan los caminos cerrados encontrados
+por DFS, no todas las combinaciones posibles de ciclos simples.
 
 ---
 
 ## 5. Casos límite encontrados
 
-<!-- EQUIPO: el enunciado (2.2.2) pide UN caso limite real y como se resolvio.
-     Abajo esta el que documento Sebastian. En data/README.md hay varios mas
-     ya documentados (los codigos SE y FH que no existen en la oferta real, los
-     cursos con mas secciones que MAX_GRUPOS, los conflictos entre los dos
-     planes de estudio); si se quiere, enlazarlos desde aqui en vez de
-     repetirlos. -->
+CI1230 requiere CI0200 y CI0202, ausentes del catálogo. El grafo
+omite esas conexiones y emite avisos; la exportación conserva los códigos.
 
+La validación los busca en el historial. Como no aparecen aprobados en
+el historial de prueba, CI1230 queda no matriculable. No se pueden
+detectar ciclos que atraviesen cursos ausentes del catálogo.
 **Requisitos que no existen en el catálogo.** `CI1230` (Inglés I) declara los
 requisitos `CI0200` y `CI0202`, cursos de nivelación que no están en el
 catálogo de los primeros 4 semestres. Son los únicos dos casos del dataset: de
@@ -361,24 +375,14 @@ cursos ausentes del catálogo.
 
 ## 6. Justificación del formato de salida
 
-<!-- EQUIPO: el enunciado (2.2.3) pide que la justificacion este "ligada a una
-     decision de diseno real", no una defensa generica de JSON. Lo que ya esta
-     escrito abajo es el punto de partida; conviene agregar al menos una de
-     estas decisiones concretas:
-     - Por que los nombres de campo del JSON son identicos a los de los struct.
-     - Por que 'carreras' se agrego al esquema aunque el enunciado no lo pide
-       (el catalogo mezcla dos carreras en un solo archivo).
-     - Por que choca_con_otro y matriculable son booleanos JSON nativos y no
-       0/1, pensando en quien lee el archivo desde Racket.
-     - Por que 'ciclos' y 'hay_ciclos' van al mismo nivel que 'cursos' y no
-       dentro de cada curso.
-     - Por que el archivo de salida repite todo el catalogo de entrada en vez
-       de traer solo los campos calculados. -->
+JSON conserva la estructura anidada y los nombres de los campos del
+catálogo. carreras permite identificar cursos compartidos sin duplicarlos,
+y los booleanos facilitan interpretar los resultados desde Racket.
 
-El archivo de salida usa el mismo formato JSON que las entradas. Se eligió
-porque representa directamente la estructura anidada de cursos, grupos y
-bloques horarios, y porque la etapa de Racket puede leerlo sin escribir un
-parser para un formato de texto propio.
+ciclos y hay_ciclos se ubican junto a cursos porque describen relaciones
+entre varios cursos. La salida incluye el catálogo completo para que la
+siguiente etapa no necesite combinarlo con el archivo de entrada.
+
 
 El esquema completo del archivo de salida está en
 [`data/README.md`](data/README.md).
@@ -403,8 +407,6 @@ gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
     ./build/test_grafo
 ```
 
-<!-- EQUIPO: agregar aqui los comandos de las pruebas de exportacion/ciclos y,
-     si se escriben, las de carga y choques. -->
 
 ### Valores de referencia sobre el dataset real
 
