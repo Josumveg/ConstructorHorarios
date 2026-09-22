@@ -1,6 +1,6 @@
 # CEmestre — Etapa 1 (Paradigma Imperativo, C)
 
-> Parte 1 de 4 del proyecto [CEmestre](../README.md). Las demás etapas (Racket,
+> Parte 1 de 4 del proyecto [Semestre](../README.md). Las demás etapas (Racket,
 > Prolog, Java) viven en sus propias carpetas al nivel raíz del repositorio.
 
 Programa en C que, a partir del catálogo de cursos de dos carreras y el
