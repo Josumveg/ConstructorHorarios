@@ -4,13 +4,7 @@
 #include "constantes.h"
 
 /*
- * Structs base del proyecto CEmestre - Etapa 1.
- *
- * Esta es la propuesta de partida acordada en distribucion-tareas-etapa1-cemestre.md.
- * Es el "contrato" contra el que trabajan los 4 modulos (carga, choques,
- * requisitos y exportacion/ciclos): si alguien necesita cambiar un campo,
- * se coordina con el equipo antes de modificar este archivo, porque afecta
- * a todos los demas modulos.
+ * Structs base del proyecto - Etapa 1.
  */
 
 /* Un bloque de horario dentro de un grupo (ej. lunes 7:00-9:00) */
@@ -32,6 +26,14 @@ typedef struct {
     char codigo[MAX_LONG_CODIGO];
     char nombre[MAX_LONG_NOMBRE];
     int creditos;
+
+    /* Carreras a las que pertenece el curso. Casi siempre una sola, pero
+     * un curso puede ser compartido entre las 2 carreras del catalogo
+     * (ej. PI2609 lo imparte Produccion Industrial pero tambien esta en
+     * el plan de Computadores) - por eso es un arreglo y no un solo campo,
+     * para no duplicar la entrada del curso. */
+    char carreras[MAX_CARRERAS][MAX_LONG_NOMBRE_CARRERA];
+    int cantidad_carreras;
 
     Grupo grupos[MAX_GRUPOS];
     int cantidad_grupos;

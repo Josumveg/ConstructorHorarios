@@ -7,7 +7,6 @@
 /*
  * Modulo: Formato de salida, exportacion y ciclos
  * Responsable: Sebastian
- * Rubro: Formato de salida (9) + Ciclos (15, extra por grupo de 4)
  */
 
 /* Exporta el catalogo completo (con los 8 campos minimos requeridos) a

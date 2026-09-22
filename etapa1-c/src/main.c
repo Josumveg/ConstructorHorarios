@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
 
     Catalogo catalogo;
     Historial historial;
-
     if (cargar_catalogo(ruta_catalogo, &catalogo) != EXITO) {
         fprintf(stderr, "Error cargando catalogo: %s\n", ruta_catalogo);
         return 1;
@@ -38,7 +37,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    /* TODO (equipo): una vez que cada modulo este listo, conectar aqui: */
+    /* Los tres modulos trabajan sobre las mismas estructuras en memoria.
+     * La exportacion va siempre de ultima, porque necesita los campos
+     * choca_con_otro y matriculable ya calculados. */
     calcular_choques(&catalogo);
     determinar_matriculable(&catalogo, &historial);
     detectar_ciclos(&catalogo);
