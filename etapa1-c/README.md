@@ -134,17 +134,39 @@ curso `CI1230`.
 Definidas en `include/estructuras.h`, con los límites en `include/constantes.h`.
 Son el contrato contra el que trabajan los cuatro módulos.
 
-<!-- EQUIPO (idealmente Jose, que definió los structs):
-     Explicar cada struct y por qué se modeló así. Puntos a cubrir:
-     - BloqueHorario: por que el dia es un char y las horas son int en formato
-       HHMM en vez de strings, y por que se usa 'K' para martes.
-     - Grupo: por que un grupo tiene un arreglo de bloques y no uno solo.
-     - Curso: por que 'carreras' es un arreglo (cursos compartidos entre los dos
-       planes) en vez de duplicar la entrada del curso.
-     - Catalogo e Historial: por que arreglos estaticos y no memoria dinamica,
-       y que implica eso para liberar_catalogo/liberar_historial.
-     - Mencionar por que las constantes viven en un archivo aparte
-       (es requisito explicito del enunciado). -->
+Los structs se acordaron entre los cuatro desde el primer commit, antes de
+repartir los módulos, para que todos trabajaran contra el mismo contrato.
+
+**`BloqueHorario`.** `dia` es un solo `char` y no un string porque solo puede
+tomar seis valores fijos (`'L','K','M','J','V','S'`); un `char` es más barato
+y compararlo es una sola instrucción. Se usa `'K'` para martes porque `'M'` ya
+está ocupado por miércoles. `hora_inicio`/`hora_fin` se guardan como `int` en
+formato `HHMM` (`730` = 7:30, `1500` = 15:00) en vez de un string `"07:30"`,
+para poder compararlas directo con `<`/`>` sin parsear nada — que es
+justo lo que necesita el módulo de choques.
+
+**`Grupo`.** Tiene un arreglo de `BloqueHorario` y no un solo bloque porque un
+mismo grupo se puede reunir varios días distintos. Por ejemplo, `CE1101` grupo
+1 tiene clase martes y jueves: son dos bloques del mismo grupo, no dos grupos.
+
+**`Curso`.** `carreras` es un arreglo (`carreras[MAX_CARRERAS]`) y no un solo
+campo porque hay cursos que pertenecen a las dos carreras del catálogo a la
+vez — `MA1102` lo llevan tanto Computadores como Producción Industrial.
+Guardarlo así evita duplicar la entrada completa del curso una vez por
+carrera.
+
+**`Catalogo` e `Historial`.** Los dos usan arreglos de tamaño fijo
+(`Curso cursos[MAX_CURSOS]`, `char aprobados[MAX_CURSOS][MAX_LONG_CODIGO]`) en
+vez de memoria reservada con `malloc`. A cambio de un tope fijo de cursos
+(`MAX_CURSOS`), no hay ningún puntero dentro de estos structs — por eso
+`liberar_catalogo()` y `liberar_historial()` no llaman a `free()` en ningún
+lado, solo reinician `cantidad_cursos`/`cantidad_aprobados` a 0.
+
+**Constantes en archivo aparte.** Todos los límites (`MAX_CURSOS`,
+`MAX_GRUPOS`, `MAX_LONG_CODIGO`, etc.) están en `constantes.h` y no como
+números sueltos dentro de `estructuras.h`. Es requisito explícito del
+enunciado (punto 6 de "Aspectos operativos") y de paso permite ajustar los
+topes sin tocar la forma de los structs.
 
 ## 4. Módulos
 
@@ -154,33 +176,88 @@ Archivos: `include/carga.h`, `src/carga.c`.
 
 #### 4.1.1 Arquitectura
 
-<!-- JOSE: que hace el modulo dentro del flujo, que recibe y que entrega.
-     Mencionar las funciones publicas (cargar_catalogo, cargar_historial,
-     liberar_catalogo, liberar_historial) y los helpers internos
-     (leer_archivo_completo, copiar_seguro, cargar_lista_codigos,
-     cargar_curso). Quien lo llama: main.c, antes que todos los demas. -->
+El módulo de carga es el primer paso del flujo: `main.c` lo llama antes que a
+cualquier otro módulo, porque choques y requisitos necesitan el catálogo y el
+historial ya en memoria para trabajar. Recibe la ruta de dos archivos JSON
+(`catalogo.json`, `historial.json`) y entrega las estructuras `Catalogo` y
+`Historial` ya llenas.
+
+Expone 4 funciones públicas (declaradas en `carga.h`): `cargar_catalogo()`,
+`cargar_historial()`, `liberar_catalogo()` y `liberar_historial()`.
+Internamente se apoya en 4 funciones `static` que no están en el header
+porque ningún otro módulo las necesita:
+
+- `leer_archivo_completo()`: abre el archivo y lo lee entero a un buffer.
+- `copiar_seguro()`: copia un string a un campo fijo del struct sin
+  desbordarlo.
+- `cargar_lista_codigos()`: copia un arreglo JSON de strings a un arreglo de
+  códigos del struct — la reutilizan requisitos, correquisitos y aprobados.
+- `cargar_curso()`: arma un `Curso` completo a partir de un nodo del arreglo
+  `"cursos"` del JSON, apoyándose en las tres anteriores.
 
 #### 4.1.2 Decisiones de diseño
 
-<!-- JOSE: justificar con ejemplos del dataset. Puntos sugeridos:
-     - Por que cJSON vendorizada en lugar de un parser propio
-       (ver lib/cjson/README.md) y que implica para la compilacion.
-     - Por que se lee el archivo completo a memoria con MAX_TAMANO_JSON
-       en vez de parsear linea por linea.
-     - Por que se abre en modo binario "rb" y no en modo texto.
-     - Por que se usa strncpy con terminador explicito (copiar_seguro)
-       en vez de strcpy.
-     - Que campos se consideran obligatorios (codigo, nombre, creditos ->
-       ERROR_FORMATO si faltan) y cuales opcionales (grupos, requisitos y
-       correquisitos vacios son validos, no son error).
-     - Los codigos de error de constantes.h y cuando se devuelve cada uno. -->
+**cJSON en vez de un parser propio.** Un parser de JSON que soporte objetos
+anidados (curso → grupos → bloques) es un proyecto aparte, y un bug ahí
+afecta a los otros tres módulos que dependen de que el catálogo cargue bien.
+Se vendorizó cJSON en `lib/cjson/` (justificación completa en
+[`lib/cjson/README.md`](lib/cjson/README.md)); en el `Makefile` esto significa
+compilar `lib/cjson/cJSON.c` como un archivo más del proyecto y enlazarlo al
+ejecutable, sin `-Wall -Wextra` porque es código de terceros que no se va a
+tocar.
+
+**Archivo completo a memoria, no línea por línea.** JSON no es un formato por
+líneas: un curso puede estar repartido en muchas líneas o en una sola según
+cómo se guardó el archivo. `leer_archivo_completo()` lee todo de una vez a un
+buffer con `malloc`, respetando el tope `MAX_TAMANO_JSON` de `constantes.h`
+para no reservar memoria sin límite si el archivo viniera corrupto o
+gigante. Ese buffer se libera con `free()` apenas termina el parseo, no queda
+guardado en ningún struct.
+
+**Modo binario (`"rb"`), no texto.** Con `"rb"`, el tamaño que reporta
+`ftell()` coincide exacto con lo que después lee `fread()`. En modo texto,
+Windows traduce los saltos de línea (`\r\n` → `\n`) y ese conteo queda
+desalineado.
+
+**`copiar_seguro()` en vez de `strcpy()`.** `strcpy()` no sabe el tamaño del
+buffer destino; si un nombre de curso en el JSON fuera más largo que
+`MAX_LONG_NOMBRE`, escribiría fuera de los límites del struct.
+`copiar_seguro()` usa `strncpy()` y agrega el `'\0'` final a mano, porque
+`strncpy()` no lo garantiza cuando el string de origen es igual o más largo
+que el límite.
+
+**Campos obligatorios vs. opcionales.** `codigo`, `nombre` y `creditos` son
+obligatorios: si a un curso le falta alguno, `cargar_curso()` corta el
+parseo completo con `ERROR_FORMATO`. `carreras`, `requisitos`,
+`correquisitos` y `grupos` pueden venir vacíos (`[]`) sin que sea un error —
+en el dataset real hay cursos sin requisitos (`CE1101`) o sin correquisitos,
+y eso es un dato válido, no uno faltante.
+
+**Códigos de retorno.** `ERROR_ARCHIVO` si el archivo no existe o no se puede
+leer; `ERROR_FORMATO` si el JSON no es válido, si falta la clave esperada
+(`"cursos"` o `"aprobados"`), o si a un curso le falta un campo obligatorio;
+`ERROR_MEMORIA` si el catálogo trae más cursos de los que caben en
+`MAX_CURSOS`. `EXITO` en cualquier otro caso.
 
 #### 4.1.3 Estructuras de datos
 
-<!-- JOSE: como se mapea el JSON a los structs. El detalle importante es que
-     los nombres de campo del JSON son identicos a los de los struct, a
-     proposito, para que el parseo sea un mapeo directo. Mencionar el caso del
-     campo 'dia', que en JSON es string de un caracter y en el struct es char. -->
+Los nombres de campo del JSON (esquema completo en
+[`data/data_doc.md`](data/data_doc.md)) son idénticos a los del struct a
+propósito — `codigo`, `nombre`, `creditos`, `carreras`, `requisitos`,
+`correquisitos`, `grupos`, `numero_grupo`, `bloques`, `dia`, `hora_inicio`,
+`hora_fin` — así que `cargar_curso()` es un mapeo directo: por cada campo del
+struct hay un `cJSON_GetObjectItemCaseSensitive()` con exactamente el mismo
+nombre, sin tabla de traducción de por medio.
+
+El único campo que cambia de tipo en el mapeo es `dia`: en el JSON es un
+string de un carácter (`"M"`, por ejemplo), porque JSON no tiene un tipo
+char, pero en `BloqueHorario` es un `char`. `cargar_curso()` toma el primer
+carácter de ese string (`valuestring[0]`) y lo guarda directo.
+
+`choca_con_otro` y `matriculable` son los únicos dos campos de `Curso` que no
+vienen del JSON de entrada — los calculan los módulos de choques y
+requisitos más adelante. Se inicializan en 0 al cargar, para que ningún curso
+quede con memoria sin inicializar antes de que esos módulos corran.
 
 ### 4.2 Módulo de choques de horario — Pablo
 
