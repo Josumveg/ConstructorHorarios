@@ -4,13 +4,7 @@
 #include "constantes.h"
 
 /*
- * Structs base del proyecto CEmestre - Etapa 1.
- *
- * Esta es la propuesta de partida acordada en distribucion-tareas-etapa1-cemestre.md.
- * Es el "contrato" contra el que trabajan los 4 modulos (carga, choques,
- * requisitos y exportacion/ciclos): si alguien necesita cambiar un campo,
- * se coordina con el equipo antes de modificar este archivo, porque afecta
- * a todos los demas modulos.
+ * Structs base del proyecto - Etapa 1.
  */
 
 /* Un bloque de horario dentro de un grupo (ej. lunes 7:00-9:00) */

@@ -23,24 +23,25 @@ La distribución de tareas y el cronograma están en
 
 ## Cómo está organizado este documento
 
-El enunciado pide documentar arquitectura (2.1), decisiones de diseño (2.2) y
-estructuras de datos (2.3). Este README los cubre así:
+El README está dividido en las siguientes secciones. La última columna indica a
+qué punto de los entregables del enunciado corresponde cada una.
 
-| Punto del enunciado | Dónde está |
-|---|---|
-| 2.1 Arquitectura del proyecto | Sección 1, y el apartado *Arquitectura* de cada módulo en la sección 4 |
-| 2.2 Decisiones de diseño | Sección 3 (transversales) y el apartado *Decisiones de diseño* de cada módulo |
-| 2.2.2 Caso límite real | Sección 5 |
-| 2.2.3 Justificación del formato de salida | Sección 6 |
-| 2.3 Estructuras de datos | Sección 2 (compartidas) y el apartado *Estructuras de datos* de cada módulo |
-
----
+| Sección | Contenido |
+|---|---|---|
+| 1. Arquitectura del proyecto | Flujo del programa, estructura de archivos, entradas y salida |
+| 2. Compilar y ejecutar | Requisitos, comandos de compilación y ejecución |
+| 3. Estructuras de datos compartidas | Los structs base de `estructuras.h` y sus límites | 
+| 4. Módulos | Un apartado por integrante, cada uno con su arquitectura, decisiones de diseño y estructuras de datos | 
+| 5. Casos límite encontrados | Requisitos que no existen en el catálogo y cómo se resolvieron | 
+| 6. Justificación del formato de salida | Por qué JSON y qué decisiones de diseño lo motivaron | 
+| 7. Pruebas | Cómo compilarlas y ejecutarlas, y los valores de referencia del dataset | 
+| 8. Flujo de trabajo del repositorio | Ramas, pull requests e integración | 
 
 ## 1. Arquitectura del proyecto
 
 ### 1.1 Flujo del programa
 
-El sistema no es un único ejecutable: cada etapa del proyecto es un programa
+El sistema completo no se conforma por un único ejecutable, ya que cada etapa del proyecto es un programa
 independiente que lee y escribe archivos. Esta etapa toma dos archivos JSON de
 entrada, los procesa en memoria a través de cuatro módulos encadenados, y
 produce un tercer archivo JSON.
@@ -58,45 +59,40 @@ flowchart TD
 ```
 
 `main.c` encadena los módulos en ese orden. Cada uno recibe las estructuras en
-memoria, agrega su resultado y se lo pasa al siguiente; ninguno lee ni escribe
-archivos salvo el primero y el último.
-
-<!-- EQUIPO: si cambia el orden de llamadas en main.c, actualizar el diagrama. -->
+memoria, agrega su resultado y se lo pasa al siguiente.
 
 ### 1.2 Estructura de archivos
 
 ```
 .
 ├── include/
-│   ├── constantes.h     # limites, codigos de error y rutas por defecto
+│   ├── constantes.h     # limites, códigos de error y rutas por defecto
 │   ├── estructuras.h    # structs base: BloqueHorario, Grupo, Curso, Catalogo, Historial
-│   ├── carga.h          # Modulo 1 (Jose): carga de catalogo/historial
+│   ├── carga.h          # Modulo 1 (Jose): carga de catálogo/historial
 │   ├── choques.h        # Modulo 2 (Pablo): choques de horario
 │   ├── requisitos.h     # Modulo 3 (Javier): requisitos/correquisitos + grafo
-│   └── exportacion.h    # Modulo 4 (Sebastian): exportacion + deteccion de ciclos
+│   └── exportacion.h    # Modulo 4 (Sebastian): exportación + detección de ciclos
 ├── src/
-│   ├── main.c           # integracion de los 4 modulos
+│   ├── main.c           # integración de los 4 módulos
 │   ├── carga.c
 │   ├── choques.c
 │   ├── requisitos.c
 │   └── exportacion.c
 ├── data/                # archivos de entrada y salida, todos JSON
-├── docs/                # documentacion detallada por modulo
-├── tests/               # pruebas por modulo
-├── lib/cjson/           # cJSON vendorizada (parseo/serializacion de JSON)
+├── tests/               # pruebas modulares
+├── lib/cjson/           # cJSON vendorizada 
 ├── Makefile
 └── distribucion-tareas-etapa1-cemestre.md
 ```
 
 Cada módulo tiene su header en `include/` con las declaraciones públicas y su
-implementación en `src/`. Los headers son el contrato entre módulos: un cambio
-ahí afecta a todo el equipo.
+implementación en `src/`. 
 
 ### 1.3 Entradas y salida
 
-Los tres archivos son JSON. El esquema completo de cada uno —nombres de campo,
-anidamiento, tipos, y cómo se recolectaron y limpiaron los datos— está
-documentado en **[`data/README.md`](data/README.md)**.
+Los tres archivos son JSON. El esquema completo de cada uno: nombres de campo,
+anidamiento, tipos, y cómo se recolectaron y limpiaron los datos está
+documentado en **[`data/data_doc.md`](data/data_doc.md)**.
 
 | Archivo | Rol |
 |---|---|
@@ -104,15 +100,13 @@ documentado en **[`data/README.md`](data/README.md)**.
 | `data/historial.json` | Entrada. 25 códigos de cursos ya aprobados por un estudiante de prueba. |
 | `data/catalogo_salida.json` | Salida. El catálogo completo más los campos calculados. Contrato con la etapa 2. |
 
----
-
 ## 2. Compilar y ejecutar
 
 Requiere `gcc` y `make`.
 
 > **Windows:** correr `make` desde **Git Bash** (no PowerShell ni cmd.exe). El
-> Makefile usa comandos estilo Unix (`rm -rf`, `mkdir -p`); si `make` no
-> encuentra un shell POSIX (`sh.exe`) en el PATH, cae de vuelta a `cmd.exe`,
+> Makefile usa comandos estilo Unix (`rm -rf`, `mkdir -p`) 
+> si `make` no encuentra un shell POSIX (`sh.exe`) en el PATH, cae de vuelta a `cmd.exe`,
 > que no entiende esos comandos y falla con errores como
 > `CreateProcess(NULL, rm -rf build bin, ...) failed`. Git Bash ya viene
 > instalado junto con Git y resuelve esto sin tocar el Makefile.
@@ -133,9 +127,7 @@ como argumentos:
 
 El programa imprime por `stderr` un aviso por cada requisito que no logra
 resolver dentro del catálogo. Con el dataset actual son dos avisos, ambos del
-curso `CI1230`; no son errores (ver sección 5).
-
----
+curso `CI1230`.
 
 ## 3. Estructuras de datos compartidas
 
@@ -153,8 +145,6 @@ Son el contrato contra el que trabajan los cuatro módulos.
        y que implica eso para liberar_catalogo/liberar_historial.
      - Mencionar por que las constantes viven en un archivo aparte
        (es requisito explicito del enunciado). -->
-
----
 
 ## 4. Módulos
 
@@ -192,37 +182,39 @@ Archivos: `include/carga.h`, `src/carga.c`.
      proposito, para que el parseo sea un mapeo directo. Mencionar el caso del
      campo 'dia', que en JSON es string de un caracter y en el struct es char. -->
 
----
-
 ### 4.2 Módulo de choques de horario — Pablo
 
 Archivos: `include/choques.h`, `src/choques.c`.
 
 #### 4.2.1 Arquitectura
 
-este modulo es el encargado de  determinar si existen dos o mas cursos con el mismo horario en el catalgo de los cursos, se ejecuta luego de cargar el catalogo.
+Este módulo es el encargado de  determinar si existen dos o mas cursos con el mismo horario en el catalgo de los cursos, se ejecuta luego de cargar el catálogo.
 
-el modulo esta dividido en tres funciones: `bloques_se_solapan()`, esta recibe dos bloques de horarios, es decir, determina si los intervalos de tiempo interfieren el uno con el otro, mismo dia y a la misma hora o una hora que interfiera, por ejemplo bloque 7:30/9:30 y 8:20/10:30
- `grupos_chocan()`: esta funcion recibe dos grupos y compara los bloques horarios reutilizando `bloques_se_solapan()` paea determinar si existe solapamiento de un par de horarios
- `calcular_choques()`: recorre los cursos del catalogo y compara los grupos de cada par de curso utilizando las funciones anteriores, si una de las funciones salta esta funcion modifica el campo `choca_con_otro` de ambos cursos en el catalogo.
+El módulo esta dividido en tres funciones: `bloques_se_solapan()`, esta recibe dos bloques de horarios, es decir, determina si los intervalos de tiempo interfieren el uno con el otro, mismo día y a la misma hora o una hora que interfiera, por ejemplo bloque 7:30/9:30 y 8:20/10:30
+ `grupos_chocan()`: esta funcion recibe dos grupos y compara los bloques horarios reutilizando `bloques_se_solapan()` para determinar si existe solapamiento de un par de horarios
+ `calcular_choques()`: recorre los cursos del catálogo y compara los grupos de cada par de curso utilizando las funciones anteriores, si una de las funciones salta esta función modifica el campo `choca_con_otro` de ambos cursos en el catálogo.
 
-la responsabilidad del modulo es unicamente de detectar conglictos y registrarlos en el catalogo para su utilidad en las siguientes etapas del proyecti
+la responsabilidad del módulo es unicamente de detectar conglictos y registrarlos en el catálogo para su utilidad en las siguientes etapas del proyecto.
+
 #### 4.2.2 Decisiones de diseño
 
 ##### Intervalos de horario
-para deteerminar si dos bloques se solapan se utiliza un intervalo tipo: `[hora_inicio, hora_fin)`.
+Para deteerminar si dos bloques se solapan se utiliza un intervalo tipo: `[hora_inicio, hora_fin)`.
 
-esto con el fin de que si un curso termina a las 9:30 y otro empieza a esa misma hora no se considera como un choque de horarios
-se utiliza la siguiente condicion `inicioA < finB && inicioB < finA` verifica que ambos bloques se llevan el msmo dia, dos bloques con las mismas horas pero diferente dia no representa un conflicto
+Esto con el fin de que si un curso termina a las 9:30 y otro empieza a esa misma hora no se considera como un choque de horarios.
+Se utiliza la siguiente condición `inicioA < finB && inicioB < finA`, verifica que ambos bloques se llevan el mismo día, dos bloques con las mismas horas pero diferente dia no representa un conflicto
+
 ##### Representación de las horas
 Las horas se almacenan como números enteros en formato HHMM. Por ejemplo:
 
 - `730` representa las 7:30.
 - `920` representa las 9:20.
 - `1500` representa las 15:00.
-no es necesario convertir estas horas a minutos, ya que el valor entero mantiene el orden cornologico
+No es necesario convertir estas horas a minutos, ya que el valor entero mantiene el orden cronológico.
+
 ##### Comparación entre cursos distintos
-se detectan choques solo entre grupos pertenecientes a cursos distintos, un estudiante solo escogeria un grupo de un mismo curso para matricular
+Se detectan choques solo entre grupos pertenecientes a cursos distintos, un estudiante solo escogería un grupo de un mismo curso para matricular.
+
 #### 4.2.3 Estructuras de datos
 
 El módulo de choques no define estructuras de datos propias. Utiliza las
@@ -245,8 +237,7 @@ Las principales estructuras utilizadas son:
 No fue necesario crear una estructura auxiliar para almacenar los choques,
 porque el requerimiento de esta etapa únicamente necesita registrar si un curso
 presenta o no al menos un conflicto. El resultado puede almacenarse directamente
-en el campo `choca_con_otro` de cada `Curso`.
----
+en el campo `choca_con_otro` de cada curso.
 
 ### 4.3 Módulo de requisitos y matriculabilidad — Javier
 
@@ -256,7 +247,7 @@ Este módulo define, para cada curso de catálogo, si el estudiante puede matric
 según los requisitos y correquisitos del mismo.
 Esto se logra comparando los requisitos y correquisitos declarados por
 el curso contra el historial de cursos aprobados, y queda escrita en el campo
-`matriculable` de cada `Curso`.
+`matriculable` de cada curso.
 
 Además, construye el **grafo de requisitos**, una lista de adyacencia donde cada
 curso apunta a los cursos que son requisito directo suyo.
@@ -297,7 +288,7 @@ tiene, y `cantidad_nodos` el total de nodos. Una arista `i -> j` se lee como
 De las estructuras compartidas lee `codigo`, `requisitos[]`, `correquisitos[]`
 y `aprobados[]`, y define únicamente `matriculable`.
 
-Sobre el dataset real define **12 cursos matriculables de 45**, y un grafo de 45
+Sobre el dataset real define 12 cursos matriculables de 45, y un grafo de 45
 nodos con 35 aristas.
 
 ### 4.4 Módulo de exportación y detección de ciclos — Sebastián
@@ -346,8 +337,6 @@ su código inicial al final, por ejemplo ["A", "B", "A"]. Si no hay ciclos,
 se exportan [] y false. Se reportan los caminos cerrados encontrados
 por DFS, no todas las combinaciones posibles de ciclos simples.
 
----
-
 ## 5. Casos límite encontrados
 
 CI1230 requiere CI0200 y CI0202, ausentes del catálogo. El grafo
@@ -356,56 +345,78 @@ omite esas conexiones y emite avisos; la exportación conserva los códigos.
 La validación los busca en el historial. Como no aparecen aprobados en
 el historial de prueba, CI1230 queda no matriculable. No se pueden
 detectar ciclos que atraviesen cursos ausentes del catálogo.
-**Requisitos que no existen en el catálogo.** `CI1230` (Inglés I) declara los
+Requisitos que no existen en el catálogo: `CI1230` (Inglés I) declara los
 requisitos `CI0200` y `CI0202`, cursos de nivelación que no están en el
-catálogo de los primeros 4 semestres. Son los únicos dos casos del dataset: de
-los 37 requisitos declarados, 35 se resuelven y estos 2 no.
+catálogo de los primeros 4 semestres. 
+Son los únicos dos casos del dataset de los 37 requisitos declarados, 35 se resuelven y estos 2 no.
 
-El grafo **omite** esas aristas y avisa por `stderr`, porque no puede apuntar a
-un nodo inexistente; la exportación **conserva** ambos códigos en el archivo de
-salida; y la validación de requisitos **sí los cuenta como incumplidos**, así
+El grafo omite esas aristas y avisa por `stderr`, porque no puede apuntar a
+un nodo inexistente. La exportación conserva ambos códigos en el archivo de
+salida; y la validación de requisitos sí los cuenta como incumplidos, así
 que `CI1230` queda con `matriculable: false`. El tratamiento distinto en cada
-módulo es deliberado: el grafo sirve para verificar integridad de los datos y
+módulo es deliberado, ya que el grafo sirve para verificar integridad de los datos y
 la validación para decidir matrícula.
-
-La consecuencia conocida es que no se pueden detectar ciclos que dependan de
-cursos ausentes del catálogo.
-
----
 
 ## 6. Justificación del formato de salida
 
 JSON conserva la estructura anidada y los nombres de los campos del
-catálogo. carreras permite identificar cursos compartidos sin duplicarlos,
+catálogo. Carreras permite identificar cursos compartidos sin duplicarlos,
 y los booleanos facilitan interpretar los resultados desde Racket.
 
-ciclos y hay_ciclos se ubican junto a cursos porque describen relaciones
+Ciclos y hay_ciclos se ubican junto a cursos porque describen relaciones
 entre varios cursos. La salida incluye el catálogo completo para que la
 siguiente etapa no necesite combinarlo con el archivo de entrada.
 
-
 El esquema completo del archivo de salida está en
-[`data/README.md`](data/README.md).
-
----
+[`data/data_doc.md`](data/data_doc.md).
 
 ## 7. Pruebas
 
 Cada módulo tiene sus pruebas en `tests/`, en una carpeta por módulo. Se
-compilan por separado y no dependen de los archivos de datos: arman las
-estructuras a mano en memoria.
+compilan por separado y la mayoría arma las estructuras a mano en memoria, sin
+depender de los archivos de datos. La única excepción es
+`test_ciclos_json.c`, que sí carga `data/catalogo.json` para verificar la
+exportación sobre el catálogo real.
+
+Todos los comandos se ejecutan desde `etapa1-c/`.
 
 ```bash
-# requisitos y correquisitos (Javier)
+# requisitos y correquisitos (Javier) — 8 casos
 gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
     tests/requisitos/test_requisitos.c src/requisitos.c -o build/test_requisitos && \
     ./build/test_requisitos
 
-# grafo de requisitos (Javier)
+# grafo de requisitos (Javier) — 4 casos
 gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
     tests/grafo-requisitos/test_grafo.c src/requisitos.c -o build/test_grafo && \
     ./build/test_grafo
+
+# deteccion de ciclos (Sebastián) — 6 casos
+gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
+    tests/exportacion-ciclos/test_exportacion.c src/exportacion.c src/requisitos.c \
+    lib/cjson/cJSON.c -o build/test_exportacion && \
+    ./build/test_exportacion
+
+# ciclos en el JSON de salida (Sebastián) — 5 casos
+gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
+    tests/exportacion-ciclos/test_ciclos_json.c src/exportacion.c src/requisitos.c \
+    src/carga.c lib/cjson/cJSON.c -o build/test_ciclos_json && \
+    ./build/test_ciclos_json
 ```
+
+`test_ciclos_json.c` enlaza además con `src/carga.c`, porque necesita
+`cargar_catalogo()` para leer el catálogo real.
+
+### Qué cubre cada suite
+
+| Suite | Casos |
+|---|---|
+| `tests/requisitos/test_requisitos.c` | Búsqueda en el historial, cursos con y sin requisitos, requisito no aprobado, requisito fuera del catálogo, curso ya aprobado, correquisitos mutuos sin recursión, y guardas de `NULL`. |
+| `tests/grafo-requisitos/test_grafo.c` | Cadena de requisitos, requisito inexistente que se omite sin romper índices, ciclo que sí queda representado en el grafo, y guardas de `NULL`. |
+| `tests/exportacion-ciclos/test_exportacion.c` | Cadena sin ciclos, requisito compartido sin falso positivo, ciclo de tres cursos, autorrequisito, ciclo en un componente separado, llamada directa al DFS, y catálogo vacío o nulo. |
+| `tests/exportacion-ciclos/test_ciclos_json.c` | Diamante sin falso ciclo, ciclos de todos los componentes guardados en el JSON, exportaciones consecutivas sin datos viejos, manejo de fallos de memoria, y conservación de los 45 cursos reales con todos sus campos. |
+
+En total son 23 casos entre las cuatro suites.
 
 
 ### Valores de referencia sobre el dataset real
@@ -422,15 +433,13 @@ Sirven para verificar cualquier cambio futuro:
 | Nodos y aristas del grafo | 45 / 35 |
 | Ciclos detectados | 0 |
 
----
-
 ## 8. Flujo de trabajo del repositorio
 
 - `main` recibe únicamente los merges de `develop` ya verificados (build limpio
-  y módulos probados). No se comitea directo a `main`.
+  y módulos probados). 
 - `develop` es la rama de integración: todo el trabajo del día a día pasa por
   ahí.
-- Cada quien trabaja en su rama de feature a partir de `develop`
+- Cada quién trabaja en su rama de feature a partir de `develop`
   (`feature/cargar-horarios`, `feature/choques`, `feature/requisitos`,
   `feature/grafo-requisitos`, `feature/exportacion-ciclos`) y la integra a
   `develop` mediante pull request conforme se prueba.
@@ -438,6 +447,3 @@ Sirven para verificar cualquier cambio futuro:
   probado por separado.
 - Cuando la etapa está completa y verificada en `develop`, se hace merge a
   `main` como entrega final.
-
-Más detalle de cronograma y checklist de entregables en
-[distribucion-tareas-etapa1-cemestre.md](distribucion-tareas-etapa1-cemestre.md).

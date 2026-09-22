@@ -7,7 +7,7 @@
 static int analizar_ciclos(const Catalogo *catalogo, cJSON *ciclos,
                            int imprimir);
 
-/* Modulo de Sebastian. Conserva el contrato JSON de data/README.md. */
+/* Modulo de Sebastian. Conserva el contrato JSON de data/data_doc.md. */
 static int cantidad_valida(int cantidad, int maximo) {
     return cantidad >= 0 && cantidad <= maximo;
 }
