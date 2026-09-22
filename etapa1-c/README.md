@@ -233,57 +233,55 @@ Archivos: `include/choques.h`, `src/choques.c`.
 
 ### 4.3 Módulo de requisitos y matriculabilidad — Javier
 
-Archivos: `include/requisitos.h`, `src/requisitos.c`.
-**Documentación detallada: [`docs/requisitos-grafo.md`](docs/requisitos-grafo.md).**
-
 #### 4.3.1 Arquitectura
 
-El módulo responde una pregunta por curso: ¿puede el estudiante matricularlo?
-La respuesta se calcula cruzando los requisitos y correquisitos declarados por
+Este módulo define, para cada curso de catálogo, si el estudiante puede matricularlo,
+según los requisitos y correquisitos del mismo.
+Esto se logra comparando los requisitos y correquisitos declarados por
 el curso contra el historial de cursos aprobados, y queda escrita en el campo
 `matriculable` de cada `Curso`.
 
-Además construye el **grafo de requisitos**, una lista de adyacencia donde cada
-curso apunta a los cursos que son requisito directo suyo. Ese grafo no lo usa
-este módulo: se lo entrega al módulo de exportación para la detección de ciclos.
+Además, construye el **grafo de requisitos**, una lista de adyacencia donde cada
+curso apunta a los cursos que son requisito directo suyo.
 
 Entra al flujo en dos momentos: `determinar_matriculable()` lo llama `main.c`
 después del cálculo de choques, y `construir_grafo_requisitos()` lo llama
 `detectar_ciclos()` desde `exportacion.c`. Las dos entradas son independientes
 entre sí.
 
+En `main.c` se hace la llamada a `determinar_matriculable()` después del cálculo de choques,
+y `construir_grafo_requisitos()` se llama desde `exportacion.c`. Ambas entradas son independientes
+entre sí.
+
 #### 4.3.2 Decisiones de diseño
 
-- **Semántica de correquisitos.** Un correquisito se cursa al mismo tiempo que
-  el curso, así que no se puede exigir que esté aprobado. La regla adoptada es
-  que se cumple si ya está aprobado **o** si existe en el catálogo. La regla es
-  deliberadamente no recursiva: en el dataset hay correquisitos mutuos
-  (`QU1102`↔`QU1106` y `QU1104`↔`QU1107`) y una implementación recursiva no
-  terminaría.
-- **`matriculable` no toma en cuenta `choca_con_otro`.** Un choque es una
-  relación entre dos cursos y se resuelve eligiendo grupos, que es trabajo de la
-  etapa 2. Mezclarlo haría que el campo significara dos cosas a la vez y la
-  etapa de Racket no podría distinguir un curso que el estudiante no puede
-  llevar de uno que sí puede pero colisiona con otra opción.
-- **Los cursos ya aprobados quedan en `matriculable = 0`.** No se rematricula
-  un curso aprobado.
-- **El grafo guarda índices, no códigos.** El DFS salta de nodo a nodo; con
-  índices el salto es directo, con strings cada paso sería una búsqueda lineal.
-  La traducción se paga una sola vez, al construir el grafo.
+- **Semántica de correquisitos.** Un correquisito se debe llevar al mismo tiempo que
+  el curso, así que no se puede exigir que esté aprobado. Un correquisito 
+  se cumple si ya está aprobado, o si existe en el catálogo. Esta condición no es
+  recursiva ya que en el dataset hay correquisitos mutuos.
+  Por ejemplo: (`QU1102`↔`QU1106` y `QU1104`↔`QU1107`) donde una implementación recursiva
+  no terminaría.
+- **`matriculable` no toma en cuenta `choca_con_otro`.** La etapa de choque
+  entre dos cursos no corresponde a la etapa1-c, esto es resuelto durante la etapa
+  de etapa2-racket.
+- **Los cursos ya aprobados quedan en `matriculable = 0`.** Se les define este valor
+  a los cursos que el estudiante puede matricular ese semestre.
+- **El grafo guarda índices, no códigos.** El DFS salta de nodo a nodo, ya que
+  al utilziar índices el salto es directo, con strings cada paso sería una búsqueda lineal.
 
 #### 4.3.3 Estructuras de datos
 
-El módulo define `GrafoRequisitos` en `include/requisitos.h`: una lista de
+El módulo define `GrafoRequisitos` en `include/requisitos.h` una lista de
 adyacencia sobre arreglos estáticos, donde `adyacentes[i][k]` es el índice del
 k-ésimo curso que es requisito del curso `i`, `cantidad_adyacentes[i]` cuántos
 tiene, y `cantidad_nodos` el total de nodos. Una arista `i -> j` se lee como
 "el curso i tiene como requisito al curso j".
 
 De las estructuras compartidas lee `codigo`, `requisitos[]`, `correquisitos[]`
-y `aprobados[]`, y escribe únicamente `matriculable`.
+y `aprobados[]`, y define únicamente `matriculable`.
 
-Sobre el dataset real: **12 cursos matriculables de 45**, y un grafo de **45
-nodos con 35 aristas**.
+Sobre el dataset real define **12 cursos matriculables de 45**, y un grafo de 45
+nodos con 35 aristas.
 
 ### 4.4 Módulo de exportación y detección de ciclos — Sebastián
 
