@@ -6,7 +6,6 @@
 /*
  * Modulo: Estructuras, constantes y carga de archivos
  * Responsable: Jose
- * Rubro: Carga de datos (10) + Memoria/estructuras (15)
  */
 
 /* Carga el catalogo de cursos desde el archivo JSON en 'ruta' hacia 'catalogo'.

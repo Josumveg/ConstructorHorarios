@@ -2,12 +2,7 @@
 #define CONSTANTES_H
 
 /*
- * Constantes globales del proyecto CEmestre - Etapa 1.
- *
- * Estos valores son un punto de partida: si el dataset real (4 semestres
- * de las 2 carreras elegidas) necesita mas espacio, ajustenlos aqui y
- * recompilen. Mantener las constantes separadas de estructuras.h permite
- * cambiarlas sin tocar las definiciones de los structs.
+ * Constantes globales del proyecto- Etapa 1.
  */
 
 /* ---- Longitudes de texto ---- */

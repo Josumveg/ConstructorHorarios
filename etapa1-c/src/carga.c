@@ -11,7 +11,7 @@
  * Formato de entrada: JSON (catalogo.json, historial.json), parseado con
  * cJSON (vendorizada en lib/cjson/, ver lib/cjson/README.md). El esquema
  * completo (nombres de campo, anidamiento de grupos/bloques) esta
- * documentado en data/README.md; los nombres de campo del JSON son
+ * documentado en data/data_doc.md; los nombres de campo del JSON son
  * identicos a los del struct, asi que el mapeo es directo.
  */
 

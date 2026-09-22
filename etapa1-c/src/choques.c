@@ -5,14 +5,22 @@
  * Modulo: Choques de horario
  * Responsable: Pablo
  *
- * TODO (Pablo):
- *   - Implementar bloques_se_solapan comparando dia y el rango [hora_inicio, hora_fin).
- *   - Implementar grupos_chocan reutilizando bloques_se_solapan para cada
- *     par de bloques entre los dos grupos.
- *   - Implementar calcular_choques recorriendo el catalogo y marcando
- *     curso->choca_con_otro cuando corresponda (definir con el equipo que
- *     significa "chocar": entre grupos del mismo curso, o entre cursos
- *     distintos que el estudiante quisiera matricular a la vez).
+ * Determina, para cada curso del catálogo, si su horario se cruza con el de algún otro curso. 
+ * Trabaja en tres niveles que se apoyan uno en otro donde:
+ * primero compara dos bloques horarios sueltos, 
+ * luego dos grupos completos, 
+ * y al final recorre el catálogo entero comparando cada curso con los demas.
+ *
+ * Salidas:
+ *   - El campo choca_con_otro (0/1) de cada curso del catálogo, escrito por calcular_choques(). 
+ *
+ * Dos bloques se solapan si son el mismo dia y sus rangos se cruzan en intervalo semiabierto [inicio, fin).
+ * Por ejemplo: un curso que termina a las 9:20 y otro que empieza a las 9:20 NO chocan.
+ * Las horas son enteros en formato HHMM (730 = 7:30), asi que se comparan directamente con < y > sin convertir nada.
+ * Solo se comparan cursos DISTINTOS. Que los grupos de un mismo curso se solapen es normal, 
+ * el estudiante matricula uno solo.
+ * Un curso se marca si algún grupo suyo choca con algún grupo de otro curso. 
+ * Con el dataset real eso deja los 45 cursos marcados, porque a nivel de curso el choque es casi inevitable.
  */
 
 int bloques_se_solapan(const BloqueHorario *a, const BloqueHorario *b) {
