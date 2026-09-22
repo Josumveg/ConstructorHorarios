@@ -144,3 +144,15 @@ tests/exportacion-ciclos/test_exportacion.c
 
 La validación completa de matriculabilidad queda pendiente de integrar
 la implementación correspondiente del equipo.
+
+La salida JSON incluye, además de `cursos`, los campos `ciclos` y
+`hay_ciclos`. Cada elemento de `ciclos` contiene los códigos de un
+recorrido cerrado detectado mediante DFS, repitiendo el código inicial
+al final. Si no se detectan ciclos, se exportan `[]` y `false`,
+respectivamente. El análisis recorre todo el catálogo y conserva
+también el reporte en terminal.
+
+Las pruebas de `tests/exportacion-ciclos/test_ciclos_json.c` verifican
+ciclos en componentes separados, autorrequisitos, casos sin ciclos,
+exportaciones consecutivas, manejo de fallos de memoria y conservación
+de los 45 cursos del catálogo real.

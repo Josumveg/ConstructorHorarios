@@ -3,6 +3,10 @@
 #include "cJSON.h"
 #include "../include/exportacion.h"
 
+
+static int analizar_ciclos(const Catalogo *catalogo, cJSON *ciclos,
+                           int imprimir);
+
 /* Modulo de Sebastian. Conserva el contrato JSON de data/README.md. */
 static int cantidad_valida(int cantidad, int maximo) {
     return cantidad >= 0 && cantidad <= maximo;
@@ -83,10 +87,10 @@ static int serializar_curso(cJSON *objeto, const Curso *curso) {
 }
 
 int exportar_catalogo(const Catalogo *catalogo, const char *ruta_salida) {
-    cJSON *raiz, *cursos;
+    cJSON *raiz, *cursos, *ciclos;
     char *texto;
     FILE *archivo;
-    int i, resultado = EXITO;
+    int i, hay_ciclos, resultado = EXITO;
     size_t longitud;
     if (!catalogo || !ruta_salida) return ERROR_ARCHIVO;
     if (!catalogo_valido(catalogo)) return ERROR_FORMATO;
@@ -101,6 +105,23 @@ int exportar_catalogo(const Catalogo *catalogo, const char *ruta_salida) {
             return ERROR_MEMORIA;
         }
     }
+
+    ciclos = cJSON_AddArrayToObject(raiz, "ciclos");
+    if (!ciclos) {
+        cJSON_Delete(raiz);
+        return ERROR_MEMORIA;
+    }
+
+    hay_ciclos = analizar_ciclos(catalogo, ciclos, 0);
+    if (hay_ciclos < 0) {
+        cJSON_Delete(raiz);
+        return ERROR_MEMORIA;
+    }
+    if (!cJSON_AddBoolToObject(raiz, "hay_ciclos", hay_ciclos)) {
+        cJSON_Delete(raiz);
+        return ERROR_MEMORIA;
+    }
+
     texto = cJSON_Print(raiz);
     cJSON_Delete(raiz);
     if (!texto) return ERROR_MEMORIA;
@@ -120,7 +141,8 @@ int exportar_catalogo(const Catalogo *catalogo, const char *ruta_salida) {
  * El mismo recorrido sirve a ambas funciones publicas, sin estado global. */
 static int recorrer_dfs(const GrafoRequisitos *grafo, int nodo,
                         int *visitados, int *en_pila, int *camino,
-                        int profundidad, const Catalogo *catalogo) {
+                        int profundidad, const Catalogo *catalogo,
+                        cJSON *ciclos, int imprimir) {
     int i, hay_ciclo = 0;
     visitados[nodo] = 1;
     en_pila[nodo] = 1;
@@ -132,14 +154,40 @@ static int recorrer_dfs(const GrafoRequisitos *grafo, int nodo,
             if (catalogo) {
                 int inicio = 0, j;
                 while (inicio <= profundidad && camino[inicio] != vecino) inicio++;
-                printf("Ciclo de requisitos: ");
-                for (j = inicio; j <= profundidad; j++)
-                    printf("%s -> ", catalogo->cursos[camino[j]].codigo);
-                printf("%s\n", catalogo->cursos[vecino].codigo);
+                if (imprimir) {
+                    printf("Ciclo de requisitos: ");
+                    for (j = inicio; j <= profundidad; j++) {
+                        printf("%s", catalogo->cursos[camino[j]].codigo);
+                    }
+                    printf("%s\n", catalogo->cursos[vecino].codigo);
+                }
+
+                if (ciclos) {
+                    cJSON *ciclo = cJSON_CreateArray();
+                    if (!agregar_elemento(ciclos, ciclo)) {
+                        en_pila[nodo] = 0;
+                        return -1;
+                    }
+                    for (j = inicio; j <= profundidad; j++) {
+                        if (!agregar_elemento(ciclo, cJSON_CreateString(catalogo->cursos[camino[j]].codigo))) {
+                            en_pila[nodo] = 0;
+                            return -1;
+                        }
+                    }
+                    if (!agregar_elemento(ciclo, cJSON_CreateString(catalogo->cursos[vecino].codigo))) {
+                        en_pila[nodo] = 0;
+                        return -1;
+                    }
+                }
             }
         } else if (!visitados[vecino]) {
-            if (recorrer_dfs(grafo, vecino, visitados, en_pila, camino,
-                             profundidad + 1, catalogo)) hay_ciclo = 1;
+            int resultado = recorrer_dfs(grafo, vecino, visitados, en_pila, camino, profundidad + 1, catalogo, ciclos, imprimir);
+            if (resultado < 0) {
+                en_pila[nodo] = 0;
+                return -1;
+            }
+
+            if (resultado) hay_ciclo = 1;
         }
     }
     en_pila[nodo] = 0;
@@ -165,18 +213,36 @@ int dfs_detectar_ciclo(const GrafoRequisitos *grafo, int nodo,
         nodo < 0 || nodo >= grafo->cantidad_nodos) return 0;
     if (en_pila[nodo]) return 1;
     if (visitados[nodo]) return 0;
-    return recorrer_dfs(grafo, nodo, visitados, en_pila, camino, 0, NULL);
+    return recorrer_dfs(grafo, nodo, visitados, en_pila, camino, 0, NULL, NULL, 0);
+}
+
+static int analizar_ciclos(const Catalogo *catalogo, cJSON *ciclos,
+                           int imprimir) {
+    GrafoRequisitos grafo = {0};
+    int visitados[MAX_CURSOS] = {0};
+    int en_pila[MAX_CURSOS] = {0};
+    int camino[MAX_CURSOS];
+    int i, hay_ciclo = 0;
+
+    construir_grafo_requisitos(catalogo, &grafo);
+
+    for (i = 0; i < grafo.cantidad_nodos; i++) {
+        if (!visitados[i]) {
+            int resultado = recorrer_dfs(
+                &grafo, i, visitados, en_pila,
+                camino, 0, catalogo, ciclos, imprimir
+            );
+
+            if (resultado < 0) return -1;
+            if (resultado) hay_ciclo = 1;
+        }
+    }
+
+    return hay_ciclo;
 }
 
 int detectar_ciclos(Catalogo *catalogo) {
-    GrafoRequisitos grafo = {0};
-    int visitados[MAX_CURSOS] = {0}, en_pila[MAX_CURSOS] = {0};
-    int camino[MAX_CURSOS], i, hay_ciclo = 0;
     if (!catalogo || !catalogo_valido(catalogo)) return 0;
-    construir_grafo_requisitos(catalogo, &grafo);
-    if (!grafo_valido(&grafo)) return 0;
-    for (i = 0; i < grafo.cantidad_nodos; i++)
-        if (!visitados[i] && recorrer_dfs(&grafo, i, visitados, en_pila,
-                                         camino, 0, catalogo)) hay_ciclo = 1;
-    return hay_ciclo;
+
+    return analizar_ciclos(catalogo, NULL, 1);
 }
