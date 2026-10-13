@@ -1,0 +1,11 @@
+{
+  "creditos_min": 9,
+  "creditos_max": 12,
+  "intereses": [
+    { "codigo": "CE1106", "grupos": [1, 2] },
+    { "codigo": "CI1106", "grupos": [1, 2, 3] },
+    { "codigo": "MI2101", "grupos": [1, 2] },
+    { "codigo": "QU1107", "grupos": [1, 2, 3] },
+    { "codigo": "FI2103", "grupos": [1, 2] }
+  ]
+}
