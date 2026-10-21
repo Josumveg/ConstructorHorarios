@@ -28,7 +28,7 @@
          total-en-rango-5-7)
 
 (define (curso-simple codigo creditos grupos)
-  (curso codigo creditos "Carrera X" grupos #t))
+  (curso codigo creditos (list "Carrera X") grupos #t))
 
 (define curso-a
   (curso-simple "A" 3

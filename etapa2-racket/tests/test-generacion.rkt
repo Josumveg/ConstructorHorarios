@@ -54,7 +54,7 @@
   (let* ([n 20]
          [opciones
           (for/list ([i (in-range n)])
-            (let ([c (curso (format "X~a" i) 1 "Carrera X"
+            (let ([c (curso (format "X~a" i) 1 '("Carrera X")
                             (for/list ([g (in-range 1 4)])
                               (grupo g (list (bloque 'L (+ 700 (* i 10)) (+ 705 (* i 10))))))
                             #t)])

@@ -21,8 +21,7 @@ resultado es únicamente un archivo.
 | Javier | Generación con streams y poda | `src/generacion.rkt` |
 | Sebastián | Filtros (polimorfismo) y exportación | `src/filtros.rkt`, `src/exportacion.rkt` |
 
-La distribución de tareas, los cambios pendientes en C, el cronograma y el
-checklist de entregables están en
+La distribución de tareas, el cronograma y el checklist de entregables están en
 [distribucion-tareas-etapa2-cemestre.md](distribucion-tareas-etapa2-cemestre.md).
 
 ## Estado actual
@@ -33,10 +32,8 @@ ejemplo y una suite de pruebas por módulo. La lógica de cada módulo está
 pendiente (cada función lanza `error "TODO (nombre)"`); las pruebas de
 `tests/` son la especificación y fallan hasta que se implementa cada módulo.
 
-> El esqueleto se escribió **sin poder compilarlo** (no había Racket
-> instalado en la máquina donde se armó). Lo primero que debe hacer cada
-> integrante es correr `make` y reportar cualquier error de sintaxis o de
-> contrato en el esqueleto.
+> El esqueleto compila (`make`) y todas las pruebas fallan únicamente con
+> mensajes `TODO (nombre)`; ninguna falla por sintaxis o contratos.
 
 ## Cómo está organizado este documento
 
@@ -64,7 +61,7 @@ combinaciones.
 
 ```mermaid
 flowchart TD
-    A["catalogo_salida.json<br/>salida de la etapa 1, con carrera por curso"] --> C
+    A["catalogo_salida.json<br/>salida de la etapa 1, con las carreras de cada curso"] --> C
     B["preferencias.json<br/>cursos y grupos de interés, rango de créditos"] --> C
     C["JOSE — Leer<br/>pasar los JSON a structs con contratos"] --> D
     D["PABLO — Candidatos<br/>cursos de interés, matriculables, con sus grupos elegibles"] --> E
@@ -88,7 +85,7 @@ flowchart TD
 │   ├── choques.rkt           # ¿chocan dos grupos? (Pablo)
 │   ├── candidatos.rkt        # catálogo + preferencias -> opciones (Pablo)
 │   ├── generacion.rkt        # opciones -> stream de combinaciones, con poda (Javier)
-│   ├── filtros.rkt          # filtros polimórficos y filtro de créditos (Sebastián)
+│   ├── filtros.rkt           # filtros polimórficos y filtro de créditos (Sebastián)
 │   └── exportacion.rkt       # stream de combinaciones -> JSON (Sebastián)
 ├── tests/                    # una suite rackunit por módulo + ejemplos.rkt compartido
 ├── data/
@@ -107,7 +104,7 @@ El esquema completo de cada archivo está en
 
 | Archivo | Rol |
 |---|---|
-| `data/catalogo_salida.json` | Entrada. Salida de la etapa 1 más el campo nuevo `carrera` por curso. Debe cubrir 6 semestres por carrera. |
+| `data/catalogo_salida.json` | Entrada. Salida de la etapa 1 sin cambios de formato. Debe cubrir 6 semestres por carrera. |
 | `data/preferencias.json` | Entrada. Cursos y grupos de interés (más de un grupo por curso) y créditos mínimo y máximo. |
 | `data/combinaciones.json` | Salida. Una entrada por combinación: pares curso-grupo, créditos totales y carrera de cada curso. Contrato con la etapa 3. |
 
@@ -155,15 +152,17 @@ combinaciones, la memoria usada es la de una sola.
 **Decisión 6 — `seleccion` guarda los structs completos.** Una selección
 guarda el `curso` y el `grupo` enteros, no solo `(codigo . numero)`. Así la
 poda puede revisar los bloques de los grupos ya elegidos y la exportación
-puede escribir créditos y carrera sin volver a buscar en el catálogo.
+puede escribir créditos y carreras sin volver a buscar en el catálogo.
 
-**Decisión 7 — Una sola `carrera` por curso.** El enunciado pide "cuál de las
-dos carreras lo aporta". Para un curso compartido (ej. `MA1102`) se usa la
-carrera del plan del que se tomaron sus datos, la misma que ya se eligió curso
-por curso para los requisitos en conflicto (ver `etapa1-c/data/data_doc.md`).
+**Decisión 7 — La carrera por curso es el campo `carreras` de la etapa 1.** El
+enunciado pide "cuál de las dos carreras lo aporta". La salida de C ya trae
+`carreras`: una carrera para los cursos exclusivos y las dos para los
+compartidos (ej. `MA1102`). Se usa tal cual, sin cambiar C, y se exporta como
+`carreras` en cada selección. Si el profesor espera un único valor por curso,
+habría que elegirlo en `lectura.rkt`.
 
 **Decisión 8 — Solo se leen los campos que se usan.** `lectura.rkt` toma
-`codigo`, `creditos`, `carrera`, `grupos` y `matriculable` del catálogo, y
+`codigo`, `creditos`, `carreras`, `grupos` y `matriculable` del catálogo, y
 ignora el resto. Menos código de lectura y menos structs que mantener.
 
 **Decisión 9 — Grupos y cursos que no se pueden usar se ignoran sin aviso.**
@@ -206,7 +205,7 @@ stream (criterio de evaluación aparte).
 > Campos extra (el enunciado pide justificarlos): `creditos` y `bloques` por
 > selección, además de los tres mínimos. Esta etapa no se modifica después de
 > entregarla y Prolog lee solo este archivo, así que `creditos` le permite
-> sumar créditos por carrera (con solo el total y la carrera no podría) y
+> sumar créditos por carrera (con solo el total y las carreras no podría) y
 > `bloques` aplicar reglas de horario sin releer el catálogo. No se agregó
 > ningún otro campo. Ver `data/data_doc.md`.
 
@@ -220,7 +219,7 @@ igual que `estructuras.h` en la etapa 1. **Todas son inmutables.**
 |---|---|
 | `bloque` | Una franja horaria. `dia` es un símbolo (`'L 'K 'M 'J 'V 'S`; `'K` es martes porque `'M` ya es miércoles, igual que en C); las horas son enteros `HHMM` para compararlas con `<` y `>` sin parsear. |
 | `grupo` | Un grupo con uno o varios bloques (ej. martes y jueves). |
-| `curso` | Un curso del catálogo: `codigo`, `creditos`, `carrera` (campo nuevo), `grupos` y `matriculable` (calculado por la etapa 1). |
+| `curso` | Un curso del catálogo: `codigo`, `creditos`, `carreras`, `grupos` y `matriculable` (calculado por la etapa 1). |
 | `catalogo` | La lista de cursos leída del JSON. |
 | `interes` / `preferencias` | Lo que pide el estudiante: cursos y grupos de interés, créditos mínimo y máximo. |
 | `opcion` | Un curso candidato ya reducido a los grupos elegibles. Es la entrada de la generación. |
@@ -309,8 +308,8 @@ Igual que en la etapa 1:
   | Javier | `feature/generacion-streams` |
   | Sebastián | `feature/filtros-exportacion` |
 
-- Los cambios en C (campo `carrera`, semestres 5 y 6) van en ramas propias
-  sobre `etapa1-c/` y se integran a `develop` antes de regenerar el catálogo.
+- Los datos de los semestres 5 y 6 van en ramas propias sobre `etapa1-c/` y se
+  integran a `develop` antes de regenerar el catálogo.
 - `main.rkt` se completa en conjunto, en `develop`, una vez que cada módulo
   pasa sus pruebas.
 - Cuando la etapa está completa y verificada en `develop`, se hace merge a
