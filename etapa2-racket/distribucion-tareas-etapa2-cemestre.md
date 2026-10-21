@@ -10,7 +10,7 @@
 ## 1. Alcance de esta etapa
 
 El programa en Racket debe:
-1. Leer el catálogo que exporta la etapa 1 (ahora con el campo `carrera` por curso y **6 semestres** por carrera, no 4).
+1. Leer el catálogo que exporta la etapa 1 (**6 semestres** por carrera, no 4).
 2. Leer un archivo de preferencias del estudiante: cursos y grupos de interés (más de un grupo por curso) y créditos mínimos y máximos.
 3. Generar las combinaciones válidas de horario: un grupo por cada curso incluido, **sin choques** entre los grupos elegidos, usando **streams** (no se arma la lista completa).
 4. Por ser grupo de 4: **descartar una combinación apenas se detecta un choque**, en vez de generarla completa y descartarla después (poda).
@@ -35,7 +35,7 @@ Todas inmutables, exportadas con `contract-out`. Equivalen a `estructuras.h` de 
 |---|---|---|---|
 | `bloque` | `dia` (símbolo `'L 'K 'M 'J 'V 'S`), `inicio`, `fin` (HHMM) | `lectura.rkt` | `choques.rkt`, `exportacion.rkt` |
 | `grupo` | `numero`, `bloques` | `lectura.rkt` | todos |
-| `curso` | `codigo creditos carrera grupos matriculable` | `lectura.rkt` | `candidatos.rkt`, `exportacion.rkt` |
+| `curso` | `codigo creditos carreras grupos matriculable` | `lectura.rkt` | `candidatos.rkt`, `exportacion.rkt` |
 | `catalogo` | `cursos` | `lectura.rkt` | `candidatos.rkt` |
 | `interes` | `codigo`, `grupos` (enteros) | `lectura.rkt` | `candidatos.rkt` |
 | `preferencias` | `intereses`, `creditos-min`, `creditos-max` | `lectura.rkt` | `candidatos.rkt`, `filtros.rkt`, `exportacion.rkt` |
@@ -79,29 +79,27 @@ preferencias.json  ───┘                │
 
 ## 4. Datos y cambios en la etapa 1
 
-El enunciado pide dos cosas sobre los datos: ampliar el plan de estudios a **6 semestres** (antes 4) y agregar el campo **`carrera`** por curso. Ambas se hacen reutilizando el módulo de C, **sin tocar la lógica de choques ni de requisitos**.
+El enunciado pide dos cosas sobre los datos: ampliar el plan de estudios a **6 semestres** (antes 4) y que cada curso indique su carrera. Lo segundo ya está resuelto: el campo `carreras` de la etapa 1 trae una carrera, o las dos si el curso es compartido. Lo primero se hace reutilizando el módulo de C con más datos, **sin tocar la lógica de choques ni de requisitos**.
 
 ### 4.1 Recolección de los semestres 5 y 6
 
-Mismo criterio que la etapa 1 (nadie recolecta un plan completo solo). Cada quien limpia y valida sus datos (códigos, créditos, requisitos, correquisitos, horarios y, ahora, **`carrera`**) antes de integrarlos a `etapa1-c/data/catalogo.json`:
+**Responsable: Jose**, los cuatro bloques (a diferencia de la etapa 1, donde se repartió por semestre). Limpia y valida los datos (códigos, créditos, requisitos, correquisitos, horarios y `carreras`) y los integra a `etapa1-c/data/catalogo.json`:
 
-| Carrera | Semestre | Responsable |
-|---|---|---|
-| Ingeniería en Computadores | 5 | Jose |
-| Ingeniería en Computadores | 6 | Pablo |
-| Ingeniería en Producción Industrial | 5 | Javier |
-| Ingeniería en Producción Industrial | 6 | Sebastian |
+| Carrera | Semestre |
+|---|---|
+| Ingeniería en Computadores | 5 |
+| Ingeniería en Computadores | 6 |
+| Ingeniería en Producción Industrial | 5 |
+| Ingeniería en Producción Industrial | 6 |
 
 Los semestres 5 y 6 traen requisitos hacia cursos de los semestres 1-4: revisar que cada código referenciado exista en el catálogo (si no, documentarlo como caso límite, igual que `CI1230` en la etapa 1).
 
-### 4.2 Cambios en el código de C
+### 4.2 Ajustes en C (solo si hacen falta)
 
 | Cambio | Archivos | Responsable |
 |---|---|---|
-| Agregar `carrera` (string) a `Curso` y leerlo del JSON de entrada | `etapa1-c/include/estructuras.h`, `etapa1-c/src/carga.c` | Jose |
-| Escribir `carrera` en `catalogo_salida.json` | `etapa1-c/src/exportacion.c` | Sebastian |
 | Si el catálogo de 6 semestres no carga por tamaño, subir `MAX_TAMANO_JSON` (131 072 bytes; el catálogo de 45 cursos pesa 51 KB, `MAX_CURSOS` = 150 alcanza) | `etapa1-c/include/constantes.h` | Jose |
-| Corregir solo los tests de C que fallen por tener más cursos (ej. los que cuentan los 45 cursos reales) | `etapa1-c/tests/` | Cada quien con su módulo |
+| Corregir solo los tests de C que fallen por tener más cursos (ej. los que cuentan los 45 cursos reales) | `etapa1-c/tests/` | Jose |
 
 Al terminar, se regenera `etapa1-c` y se **copia** su salida a `etapa2-racket/data/catalogo_salida.json`.
 
@@ -121,12 +119,17 @@ No se asignan a una sola persona porque afectan la nota de todos, y porque en la
 
 ---
 
-## 6. Cronograma sugerido (hoy 8 de octubre → 30 de octubre)
+## 6. Cronograma (actualizado al 20 de octubre → 30 de octubre)
 
-| Semana | Meta |
+| Fechas | Meta |
 |---|---|
+| 20–23 oct | Todos los módulos con su suite de `tests/` pasando en su rama. Datos de los semestres 5 y 6 terminados (Jose). Consultar al profesor la interpretación de "combinación" y de `carreras` (README, decisiones 2 y 7). |
+| 24–27 oct | Integración en `develop`: catálogo de 6 semestres copiado a `data/`, `main.rkt` de punta a punta, caso límite real documentado. Primer `make exe`. |
+| 28–30 oct | Redacción final del README, revisión cruzada de código, ensayo de la defensa. **Último commit antes del viernes 30 a las 9:30 a.m.** |
+
+---|---|
 | 1 (8–14 oct) | Acordar en conjunto los structs de `tipos.rkt` y el formato de entrada/salida (`data/data_doc.md`). Consultar al profesor la interpretación de "combinación" (README, decisión 2). Iniciar recolección de los semestres 5 y 6. |
-| 2 (15–21 oct) | Cada quien programa su módulo y hace pasar su suite de `tests/`. Cambios en C (campo `carrera`). Datos de 6 semestres terminados. |
+| 2 (15–21 oct) | Cada quien programa su módulo y hace pasar su suite de `tests/`. Datos de 6 semestres terminados. |
 | 3 (22–27 oct) | Integración en `main.rkt`, pruebas con el catálogo completo de 6 semestres, caso límite real. Primer `make exe`. |
 | 4 (28–30 oct) | Redacción final del README, revisión cruzada de código, ensayo de la defensa. **Último commit antes del viernes 30 a las 9:30 a.m.** |
 
@@ -135,7 +138,7 @@ No se asignan a una sola persona porque afectan la nota de todos, y porque en la
 ## 7. Checklist final de entregables
 
 - [ ] Structs con contratos en `tipos.rkt`, todos inmutables
-- [ ] Catálogo de 6 semestres por carrera con el campo `carrera`, y `etapa1-c` regenerada y copiada a `data/`
+- [ ] Catálogo de 6 semestres por carrera con `carreras` en cada curso, y `etapa1-c` regenerada y copiada a `data/`
 - [ ] `preferencias.json` de ejemplo con más de un grupo por curso
 - [ ] Lectura de catálogo y preferencias sin errores, con mensajes claros ante archivos faltantes o mal formados
 - [ ] Combinaciones generadas **con streams** (sin `stream->list` en el flujo principal)

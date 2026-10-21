@@ -15,7 +15,7 @@ organizado en una carpeta por etapa/lenguaje.
 | # | Carpeta | Lenguaje | Paradigma | Funcionalidad | Estado |
 |---|---------|----------|-----------|----------------|--------|
 | 1 | [`etapa1-c/`](etapa1-c/) | C | Imperativo | Construye el catálogo de cursos y calcula, para cada uno, si tiene choque de horario con otros y si el estudiante cumple sus prerrequisitos. | En progreso |
-| 2 | [`etapa2-racket/`](etapa2-racket/) | Racket | Funcional | Genera y filtra combinaciones posibles de horario a partir del catálogo validado por la etapa 1. | Pendiente |
+| 2 | [`etapa2-racket/`](etapa2-racket/) | Racket | Funcional | Genera, con streams, las combinaciones de horario sin choques a partir del catálogo validado por la etapa 1 y las filtra por rango de créditos. | En progreso |
 | 3 | [`etapa3-prolog/`](etapa3-prolog/) | Prolog | Lógico | Aplica reglas de restricción (créditos máximos, compatibilidades) sobre las combinaciones generadas por la etapa 2. | Pendiente |
 | 4 | [`etapa4-java/`](etapa4-java/) | Java | Orientado a objetos | Integra el resultado final y lo presenta al usuario. | Pendiente |
 
@@ -23,7 +23,7 @@ organizado en una carpeta por etapa/lenguaje.
 
 Jose, Pablo, Javier, Sebastian.
 
-## Etapa 1 (actual)
+## Etapa 1
 
 El trabajo activo está en [`etapa1-c/`](etapa1-c/README.md), incluyendo cómo
 compilar y ejecutar, la estructura de módulos y responsables, y el
@@ -32,3 +32,13 @@ documento de distribución de tareas
 
 Entrega de la etapa 1: último commit antes del martes 22 de setiembre de
 2026, 8:00 a.m.
+
+## Etapa 2 (actual)
+
+El trabajo activo está en [`etapa2-racket/`](etapa2-racket/README.md),
+incluyendo la estructura de módulos y responsables, cómo compilar, ejecutar y
+probar, y el documento de distribución de tareas
+([`etapa2-racket/distribucion-tareas-etapa2-cemestre.md`](etapa2-racket/distribucion-tareas-etapa2-cemestre.md)).
+
+Entrega de la etapa 2: último commit antes del viernes 30 de octubre de
+2026, 9:30 a.m.

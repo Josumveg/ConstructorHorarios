@@ -8,21 +8,20 @@ aprender nombres nuevos.
 
 | Archivo | Rol | Quien lo produce |
 |---|---|---|
-| `catalogo_salida.json` | Entrada. Salida de la etapa 1 (C) con el campo nuevo `carrera`. | `etapa1-c` (se copia aqui) |
+| `catalogo_salida.json` | Entrada. Salida de la etapa 1 (C), sin cambios de formato. | `etapa1-c` (se copia aqui) |
 | `preferencias.json` | Entrada. Cursos y grupos de interes y rango de creditos. | El estudiante (a mano) |
 | `combinaciones.json` | Salida. Contrato con la etapa 3 (Prolog). | `main.rkt` |
 
 > **Estado de `catalogo_salida.json`:** la copia que hay hoy en el repo es
-> la salida de la etapa 1 sobre el catalogo de 4 semestres, **sin** el campo
-> `carrera`. Se reemplaza cuando el equipo termine los 6 semestres y el
-> cambio en C (ver
+> la salida de la etapa 1 sobre el catalogo de 4 semestres. Se reemplaza
+> cuando el equipo termine los 6 semestres (ver
 > [`../distribucion-tareas-etapa2-cemestre.md`](../distribucion-tareas-etapa2-cemestre.md),
-> seccion 4). `lectura.rkt` acepta ambas versiones.
+> seccion 4).
 
 ## `catalogo_salida.json` (entrada)
 
-Mismo esquema que la salida de la etapa 1 (ver su `data_doc.md`), con un campo
-nuevo por curso:
+Es exactamente la salida de la etapa 1 (ver su `data_doc.md`). El campo
+`carreras` ya indica la carrera de cada curso:
 
 ```jsonc
 {
@@ -31,8 +30,7 @@ nuevo por curso:
       "codigo": "CE1106",
       "nombre": "Paradigmas de Programación",
       "creditos": 3,
-      "carrera": "Ingeniería en Computadores",      // NUEVO, obligatorio
-      "carreras": ["Ingeniería en Computadores"],     // igual que en la etapa 1
+      "carreras": ["Ingeniería en Computadores"],     // una carrera, o las dos si el curso es compartido
       "requisitos": ["CE2103"],
       "correquisitos": [],
       "grupos": [
@@ -48,12 +46,12 @@ nuevo por curso:
 }
 ```
 
-Esta etapa **solo lee** `codigo`, `creditos`, `carrera`, `grupos` y
+Esta etapa **solo lee** `codigo`, `creditos`, `carreras`, `grupos` y
 `matriculable`; el resto del JSON se ignora.
 
 | Campo | Notas para esta etapa |
 |---|---|
-| `carrera` | **Nuevo.** Carrera que *aporta* el curso: una sola por curso. Para un curso compartido por las dos carreras (ej. `MA1102`) es la carrera del plan del que se tomaron sus datos (la misma que ya se eligió curso por curso para los requisitos en conflicto). Si falta, `lectura.rkt` usa el primer elemento de `carreras`. |
+| `carreras` | Carrera(s) que aportan el curso: una sola para los exclusivos de una carrera, o las dos para los compartidos (ej. `MA1102`). Es la "carrera por curso" que pide el enunciado. |
 | `matriculable` | Solo los cursos con `true` ("habilitados") pueden entrar a una combinación. Ya viene calculado, esta etapa no recalcula requisitos. |
 | `choca_con_otro` | **Se ignora.** Está a nivel de curso y es `true` para los 45 cursos; esta etapa recalcula choques entre grupos concretos. |
 | `dia` | `"L"`, `"K"` (martes), `"M"` (miércoles), `"J"`, `"V"`, `"S"`. Se convierte a símbolo (`'M`) al leer. |
@@ -89,7 +87,7 @@ catálogo. Si no, se ignora.
   "combinaciones": [
     {
       "selecciones": [
-        { "curso": "CE1106", "grupo": 1, "carrera": "Ingeniería en Computadores",
+        { "curso": "CE1106", "grupo": 1, "carreras": ["Ingeniería en Computadores"],
           "creditos": 3,
           "bloques": [
             { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
@@ -108,7 +106,7 @@ Campos que exige el enunciado:
 |---|---|
 | `selecciones[].curso` + `selecciones[].grupo` | Lista de pares curso-grupo seleccionados. |
 | `creditos_totales` | Suma de los créditos de los cursos de la combinación. |
-| `selecciones[].carrera` | Carrera de origen de cada curso incluido. |
+| `selecciones[].carreras` | Carrera(s) de origen de cada curso incluido (una, o las dos si es compartido). |
 
 Campos extra (justificados en el README, sección 2.3):
 
