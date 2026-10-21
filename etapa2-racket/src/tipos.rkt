@@ -25,7 +25,7 @@
                          [bloques (listof bloque?)]))
           (struct curso ([codigo string?]
                          [creditos exact-nonnegative-integer?]
-                         [carrera string?]
+                         [carreras (listof string?)]
                          [grupos (listof grupo?)]
                          [matriculable boolean?]))
           (struct catalogo ([cursos (listof curso?)]))
@@ -59,12 +59,13 @@
 (struct grupo (numero bloques) #:transparent)
 
 ;; Un curso del catalogo exportado por la etapa 1.
-;;   carrera      : la carrera que APORTA el curso (campo nuevo de esta etapa).
+;;   carreras     : carreras que aportan el curso (campo `carreras` de la etapa 1):
+;;                  una sola, o las dos si el curso es compartido ("ambas").
 ;;   matriculable : bandera calculada por la etapa 1 (cumple requisitos y
 ;;                  correquisitos). Es lo que significa "curso habilitado".
 ;; El `choca_con_otro` de la etapa 1 no se lee: esta a nivel de curso y esta
 ;; etapa necesita choques entre grupos (ver choques.rkt).
-(struct curso (codigo creditos carrera grupos matriculable) #:transparent)
+(struct curso (codigo creditos carreras grupos matriculable) #:transparent)
 
 ;; El catalogo completo leido de catalogo_salida.json.
 (struct catalogo (cursos) #:transparent)
@@ -83,7 +84,7 @@
 
 ;; Un par curso-grupo elegido. Guarda los structs completos (no solo el
 ;; codigo y el numero) para que la generacion pueda revisar choques
-;; y la exportacion pueda escribir creditos, carrera y bloques sin volver
+;; y la exportacion pueda escribir creditos, carreras y bloques sin volver
 ;; a buscar en el catalogo.
 (struct seleccion (curso grupo) #:transparent)
 

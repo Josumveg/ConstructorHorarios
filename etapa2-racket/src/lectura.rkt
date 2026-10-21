@@ -19,9 +19,9 @@
 ;;   - Leer los archivos con (call-with-input-file ruta read-json).
 ;;   - dia: el JSON trae un string de 1 caracter ("M"); convertirlo al
 ;;     simbolo correspondiente ('M). Rechazar cualquier otro valor.
-;;   - carrera: usar el campo "carrera" del curso si existe; si el JSON aun
-;;     no lo trae (catalogo viejo), usar el primer elemento de "carreras".
-;;     Asi el modulo funciona antes y despues del cambio en C.
+;;   - carreras: lista de strings del campo "carreras" del curso (una o las
+;;     dos carreras). Ya viene en la salida de la etapa 1, no hay que
+;;     cambiar nada en C.
 ;;   - matriculable es un booleano JSON (#t / #f). `grupos` puede venir vacio.
 ;;   - Ignorar (sin fallar) el resto de campos: nombre, requisitos,
 ;;     correquisitos, choca_con_otro, ciclos, hay_ciclos.
@@ -55,7 +55,7 @@
 (define (jsexpr->grupo js)
   (error 'jsexpr->grupo "TODO (Jose)"))
 
-;; Objeto de curso (con o sin "carrera") -> curso
+;; Objeto de curso -> curso
 (define (jsexpr->curso js)
   (error 'jsexpr->curso "TODO (Jose)"))
 

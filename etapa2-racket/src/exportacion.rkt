@@ -10,7 +10,7 @@
 ;;
 ;; Por cada combinacion contiene los tres campos minimos que exige el
 ;; enunciado (pares curso-grupo, creditos totales y carrera de origen de
-;; cada curso) y, por cada seleccion, DOS campos extra: `creditos` y
+;; cada curso, en `carreras`) y, por cada seleccion, DOS campos extra: `creditos` y
 ;; `bloques`. Se agregan porque el archivo es lo unico que lee Prolog
 ;; (etapa 3) y esta etapa no se vuelve a modificar: con `creditos` Prolog
 ;; puede sumar creditos por carrera, y con `bloques` aplicar reglas de
@@ -19,7 +19,7 @@
 ;;   {
 ;;     "combinaciones": [
 ;;       { "selecciones": [
-;;           { "curso": "CE1106", "grupo": 1, "carrera": "Ingenieria en Computadores",
+;;           { "curso": "CE1106", "grupo": 1, "carreras": ["Ingenieria en Computadores"],
 ;;             "creditos": 3,
 ;;             "bloques": [ {"dia": "K", "hora_inicio": 1700, "hora_fin": 1850} ] }
 ;;         ],

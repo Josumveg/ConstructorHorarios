@@ -17,18 +17,15 @@
   (check-exn exn:fail?
              (lambda () (jsexpr->bloque (hasheq 'dia "X" 'hora_inicio 730 'hora_fin 920)))))
 
-(test-case "jsexpr->curso: sin campo carrera usa el primer elemento de carreras"
-  (let ([c (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
-                                  'carreras '("Carrera X" "Carrera Y")
-                                  'grupos '() 'matriculable #t))])
-    (check-equal? (curso-carrera c) "Carrera X")))
-
-(test-case "jsexpr->curso: el campo carrera tiene prioridad"
-  (let ([c (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
-                                  'carrera "Carrera Y"
-                                  'carreras '("Carrera X" "Carrera Y")
-                                  'grupos '() 'matriculable #t))])
-    (check-equal? (curso-carrera c) "Carrera Y")))
+(test-case "jsexpr->curso: lee las carreras (una o ambas)"
+  (let ([una (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
+                                    'carreras '("Carrera X")
+                                    'grupos '() 'matriculable #t))]
+        [ambas (jsexpr->curso (hasheq 'codigo "A2" 'nombre "Curso" 'creditos 3
+                                      'carreras '("Carrera X" "Carrera Y")
+                                      'grupos '() 'matriculable #t))])
+    (check-equal? (curso-carreras una) '("Carrera X"))
+    (check-equal? (curso-carreras ambas) '("Carrera X" "Carrera Y"))))
 
 (test-case "jsexpr->curso: falta un campo obligatorio"
   (check-exn exn:fail? (lambda () (jsexpr->curso (hasheq 'nombre "Sin codigo" 'creditos 3)))))
