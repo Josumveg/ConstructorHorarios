@@ -140,7 +140,7 @@ tipo `A`, el contrato lo detectaría.
 **Decisión 4 — Choques recalculados por grupo, no heredados de C.** El
 `choca_con_otro` de nuestra etapa 1 está **a nivel de curso** (es `true` si
 *algún* grupo del curso choca con *algún* grupo de otro) y en el catálogo real
-es `true` para los 45 cursos: no sirve para decidir qué grupos pueden ir
+es `true` para todos los cursos del catálogo: no sirve para decidir qué grupos pueden ir
 juntos. Como además no se debe modificar la lógica de choques de C,
 `choques.rkt` compara bloque contra bloque los grupos concretos (mismas
 reglas que la etapa 1: intervalo semiabierto `[inicio, fin)`, mismo día).
@@ -184,7 +184,7 @@ stream (criterio de evaluación aparte).
 > con datos del catálogo y cómo se resolvió. Candidatos que ya se ven desde
 > el diseño:
 >
-> - `choca_con_otro` de la etapa 1 está en `true` para los 45 cursos (a nivel
+> - `choca_con_otro` de la etapa 1 está en `true` para todos los cursos (a nivel
 >   de curso), inútil para decidir combinaciones (decisión 4).
 > - Cursos con grupos de horario idéntico (ej. `CE1106` grupos 1 y 3 tienen
 >   los mismos bloques): generan combinaciones distintas con el mismo
