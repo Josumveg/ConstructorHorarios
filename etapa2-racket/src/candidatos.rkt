@@ -40,12 +40,32 @@
 
 ;; El curso del catalogo con ese codigo, o #f si no existe.
 (define (buscar-curso cat codigo)
-  (error 'buscar-curso "TODO (Pablo)"))
+  (findf
+   (lambda (c)
+     (string=? (curso-codigo c) codigo))
+   (catalogo-cursos cat)))
 
 ;; Los grupos de `c` cuyo numero esta en (interes-grupos i).
 (define (grupos-elegibles c i)
-  (error 'grupos-elegibles "TODO (Pablo)"))
+  (filter
+   (lambda (g)
+     (member (grupo-numero g)
+             (interes-grupos i)))
+   (curso-grupos c)))
 
 ;; Una `opcion` por cada curso de interes que sea candidato valido.
 (define (construir-opciones cat prefs)
-  (error 'construir-opciones "TODO (Pablo)"))
+  (filter-map
+   (lambda (i)
+     (define c (buscar-curso cat (interes-codigo i)))
+     (cond
+       [(not c)
+        #f]
+       [(not (curso-matriculable c))
+        #f]
+       [else
+        (define grupos (grupos-elegibles c i))
+        (if (empty? grupos)
+            #f
+            (opcion c grupos))]))
+   (preferencias-intereses prefs)))
