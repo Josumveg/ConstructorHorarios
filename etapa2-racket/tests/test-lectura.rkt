@@ -4,6 +4,7 @@
 ;; Correr: raco test tests/test-lectura.rkt
 
 (require rackunit
+         json
          racket/runtime-path
          "../src/tipos.rkt"
          "../src/lectura.rkt")
@@ -34,9 +35,10 @@
 (test-case "jsexpr->curso: falta un campo obligatorio"
   (check-exn exn:fail? (lambda () (jsexpr->curso (hasheq 'nombre "Sin codigo" 'creditos 3)))))
 
-(test-case "leer-catalogo: el catalogo real tiene 45 cursos (4 semestres)"
-  ;; Actualizar el 45 cuando se reemplace data/catalogo_salida.json por el de 6 semestres.
-  (check-equal? (length (catalogo-cursos (leer-catalogo ruta-catalogo))) 45))
+(test-case "leer-catalogo: trae todos los cursos del json"
+  (let ([js (call-with-input-file ruta-catalogo read-json)])
+    (check-equal? (length (catalogo-cursos (leer-catalogo ruta-catalogo)))
+                  (length (hash-ref js 'cursos)))))
 
 (test-case "leer-preferencias: el ejemplo trae mas de un grupo por curso"
   (let ([p (leer-preferencias ruta-preferencias)])

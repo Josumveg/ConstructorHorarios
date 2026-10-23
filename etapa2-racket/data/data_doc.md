@@ -53,7 +53,7 @@ Esta etapa **solo lee** `codigo`, `creditos`, `carreras`, `grupos` y
 |---|---|
 | `carreras` | Carrera(s) que aportan el curso: una sola para los exclusivos de una carrera, o las dos para los compartidos (ej. `MA1102`). Es la "carrera por curso" que pide el enunciado. |
 | `matriculable` | Solo los cursos con `true` ("habilitados") pueden entrar a una combinación. Ya viene calculado, esta etapa no recalcula requisitos. |
-| `choca_con_otro` | **Se ignora.** Está a nivel de curso y es `true` para los 45 cursos; esta etapa recalcula choques entre grupos concretos. |
+| `choca_con_otro` | **Se ignora.** Está a nivel de curso y es `true` para todos los cursos del catálogo; esta etapa recalcula choques entre grupos concretos. |
 | `dia` | `"L"`, `"K"` (martes), `"M"` (miércoles), `"J"`, `"V"`, `"S"`. Se convierte a símbolo (`'M`) al leer. |
 
 ## `preferencias.json` (entrada)
