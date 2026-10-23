@@ -39,13 +39,26 @@
 
 ;; #t si los dos bloques son del mismo dia y sus intervalos se cruzan.
 (define (bloques-se-solapan? a b)
-  (error 'bloques-se-solapan? "TODO (Pablo)"))
+  (and
+   (eq? (bloque-dia a) (bloque-dia b))
+   (< (bloque-inicio a) (bloque-fin b))
+   (< (bloque-inicio b) (bloque-fin a))))
 
 ;; #t si algun bloque de g1 se solapa con algun bloque de g2.
 (define (grupos-chocan? g1 g2)
-  (error 'grupos-chocan? "TODO (Pablo)"))
+  (ormap
+   (lambda (bloque-g1)
+     (ormap
+      (lambda (bloque-g2)
+        (bloques-se-solapan? bloque-g1 bloque-g2))
+      (grupo-bloques g2)))
+   (grupo-bloques g1)))
 
 ;; #t si `g` no choca con ninguno de los grupos de `elegidos`.
 ;; Con `elegidos` vacio devuelve #t.
 (define (compatible-con-seleccion? g elegidos)
-  (error 'compatible-con-seleccion? "TODO (Pablo)"))
+  (not
+   (ormap
+    (lambda (grupo-elegido)
+      (grupos-chocan? g grupo-elegido))
+    elegidos)))
