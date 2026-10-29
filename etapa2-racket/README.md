@@ -321,8 +321,20 @@ El orden no tiene significado: la etapa 3 decide cuál conviene.
 
 ### 4.4 Filtros y exportación — Sebastián
 
-Archivos: `src/filtros.rkt`, `src/exportacion.rkt`. Pruebas:
-`tests/test-filtros.rkt`, `tests/test-exportacion.rkt`.
+**Archivos:** `src/filtros.rkt`, `src/exportacion.rkt`.
+**Pruebas:** `tests/test-filtros.rkt`, `tests/test-exportacion.rkt`
+y `tests/test-filtros_exportacion.rkt`.
+
+Se filtran las combinaciones mediante streams por un rango inclusivo de
+créditos. Los filtros son reutilizables y `por-rango` utiliza un contrato
+paramétrico, sin mutación de datos.
+
+La exportación escribe progresivamente un JSON con cursos, grupos,
+carreras, créditos y bloques horarios para su uso en Prolog. Si no hay
+resultados, exporta una lista vacía.
+
+**Validación:** 56 pruebas aprobadas y 60 combinaciones exportadas con
+los datos y preferencias actuales.
 
 > TODO (Sebastián)
 
