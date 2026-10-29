@@ -87,15 +87,17 @@
 (define (exportar-combinaciones flujo ruta)
   (call-with-output-file ruta
     (lambda (salida)
-      (display "{\"combinaciones\":[" salida)
+      (display "{\"combinaciones\": [\n" salida)
 
       (for/fold ([primera? #t])
                 ([c (in-stream flujo)])
         (unless primera?
-          (display "," salida))
+          (display ",\n" salida))
 
-        (write-json (combinacion->jsexpr c) salida)
+        (write-json (combinacion->jsexpr c)
+                    salida
+                    #:indent 2)
         #f)
 
-      (display "]}\n" salida))
+      (display "\n]}\n" salida))
     #:exists 'truncate))
