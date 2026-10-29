@@ -47,6 +47,8 @@
 ;;   - Justificar el formato JSON en el README (seccion 2.3).
 
 (require json
+         racket/contract
+         racket/stream
          "tipos.rkt")
 
 (provide
@@ -56,9 +58,44 @@
 
 ;; Convierte una combinacion al objeto JSON descrito arriba.
 (define (combinacion->jsexpr c)
-  (error 'combinacion->jsexpr "TODO (Sebastian)"))
+  (define (bloque->jsexpr b)
+    (hasheq
+     'dia (symbol->string (bloque-dia b))
+     'hora_inicio (bloque-inicio b)
+     'hora_fin (bloque-fin b)))
+
+  (define (seleccion->jsexpr s)
+    (let ([curso-elegido (seleccion-curso s)]
+          [grupo-elegido (seleccion-grupo s)])
+      (hasheq
+       'curso (curso-codigo curso-elegido)
+       'grupo (grupo-numero grupo-elegido)
+       'carreras (curso-carreras curso-elegido)
+       'creditos (curso-creditos curso-elegido)
+       'bloques
+       (map bloque->jsexpr
+            (grupo-bloques grupo-elegido)))))
+
+  (hasheq
+   'selecciones
+   (map seleccion->jsexpr (combinacion-selecciones c))
+   'creditos_totales
+   (combinacion-creditos-totales c)))
 
 ;; Escribe en `ruta` todas las combinaciones del stream. Consume el stream
 ;; una sola vez.
 (define (exportar-combinaciones flujo ruta)
-  (error 'exportar-combinaciones "TODO (Sebastian)"))
+  (call-with-output-file ruta
+    (lambda (salida)
+      (display "{\"combinaciones\":[" salida)
+
+      (for/fold ([primera? #t])
+                ([c (in-stream flujo)])
+        (unless primera?
+          (display "," salida))
+
+        (write-json (combinacion->jsexpr c) salida)
+        #f)
+
+      (display "]}\n" salida))
+    #:exists 'truncate))
