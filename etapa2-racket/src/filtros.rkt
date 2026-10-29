@@ -12,12 +12,11 @@
 ;;   filtrar-flujo : (A -> boolean) x (stream A) -> (stream A)
 ;;   por-rango     : (A -> real) x real x real   -> (A -> boolean)
 ;;
-;; `A` es una variable de tipo: las funciones no saben ni les importa que
-;; son los elementos (combinaciones, numeros, strings...). El contrato
-;; `parametric->/c` lo hace cumplir en tiempo de ejecucion: si la funcion
-;; intentara inspeccionar un elemento de tipo A (por ejemplo sumarle algo),
-;; el contrato falla. Eso es polimorfismo parametrico de verdad, no solo
-;; una funcion generica por casualidad.
+;; filtrar-flujo reutiliza el mismo algoritmo con distintos tipos de
+;; elementos y criterios. Su contrato verifica el predicado y los streams.
+;; por-rango conserva el contrato parametrico: recibe un extractor que
+;; obtiene un numero de un elemento de tipo A y devuelve un predicado
+;; para elementos del mismo tipo.
 ;;
 ;; La unica funcion especifica del dominio es `filtrar-por-creditos`, y
 ;; esta construida COMPONIENDO las genericas: demuestra la reutilizacion.
@@ -33,12 +32,14 @@
 ;;     sobre numeros) para evidenciar que no es especifica de combinaciones.
 ;;   - Sin set!.
 
-(require "tipos.rkt")
+(require racket/contract
+         racket/stream
+         "tipos.rkt")
 
 (provide
  (contract-out
   [filtrar-flujo
-   (parametric->/c [A] (-> (-> A boolean?) (stream/c A) (stream/c A)))]
+   (-> (-> any/c boolean?) stream? stream?)]
   [por-rango
    (parametric->/c [A] (-> (-> A real?) real? real? (-> A boolean?)))]
   [filtrar-por-creditos
@@ -47,14 +48,19 @@
 ;; Los elementos de `flujo` para los que `criterio` devuelve #t, sin
 ;; evaluar el resto del stream por adelantado.
 (define (filtrar-flujo criterio flujo)
-  (error 'filtrar-flujo "TODO (Sebastian)"))
+  (stream-filter criterio flujo))
 
 ;; Predicado: el valor numerico que `extractor` saca de x esta entre
 ;; `minimo` y `maximo`, ambos incluidos.
 (define (por-rango extractor minimo maximo)
-  (error 'por-rango "TODO (Sebastian)"))
+  (lambda (elemento)
+    (<= minimo (extractor elemento) maximo)))
 
 ;; Las combinaciones cuyos creditos totales estan dentro del rango
 ;; [creditos-min, creditos-max] de las preferencias.
 (define (filtrar-por-creditos prefs flujo)
-  (error 'filtrar-por-creditos "TODO (Sebastian)"))
+  (filtrar-flujo
+   (por-rango combinacion-creditos-totales
+              (preferencias-creditos-min prefs)
+              (preferencias-creditos-max prefs))
+   flujo))
