@@ -253,7 +253,71 @@ Archivos: `src/choques.rkt`, `src/candidatos.rkt`. Pruebas:
 
 Archivo: `src/generacion.rkt`. Pruebas: `tests/test-generacion.rkt`.
 
-> TODO (Javier)
+**Qué hace.** Recibe la lista de `opcion` de `candidatos.rkt` y devuelve un
+`(stream/c combinacion?)` con todas las combinaciones sin choques (decisión 2:
+subconjuntos no vacíos, un grupo por curso incluido).
+
+| Función | Contrato | Descripción |
+|---|---|---|
+| `generar-combinaciones` | `(-> (listof opcion?) (stream/c combinacion?))` | Punto de entrada. Arranca la recursión con los acumuladores vacíos. |
+| `armar-combinacion` | `(-> (listof seleccion?) combinacion?)` | Suma los créditos con `foldl` y construye la `combinacion`. |
+| `descender` (privada) | opciones, elegidas, grupos-elegidos → stream | Recursión principal: por cada curso, la rama "no tomarlo" seguida de la rama "tomarlo con cada grupo". |
+| `tomar-con-cada-grupo` (privada) | curso, grupos, … → stream | Una rama por grupo del curso. **Aquí está la poda.** |
+| `anexar-perezoso` (privada) | `(stream A)` × `(-> (stream A))` → `(stream A)` | Concatena dos streams sin construir el segundo hasta que el primero se agota. |
+
+**Algoritmo.** Es un recorrido en profundidad de un árbol de decisiones: en
+cada nivel se decide sobre un curso (no tomarlo, o tomarlo con alguno de sus
+grupos). Con el mini-catálogo de `tests/ejemplos.rkt` (A1 choca con B1):
+
+```
+                     (inicio)
+         ___________/   |   \___________
+     sin A            A1               A2
+    /  |  \        /  |   \         /  |  \
+ sinB  B1  B2   sinB B1(X) B2    sinB  B1  B2
+```
+
+Cada hoja con al menos un curso elegido es una combinación. El resultado son
+las 15 combinaciones que calcula a mano `ejemplos.rkt`.
+
+**Poda (criterio de grupos de 4).** Antes de bajar a la rama "tomar el curso
+con el grupo g", `tomar-con-cada-grupo` revisa
+`(compatible-con-seleccion? g grupos-elegidos)` (de `choques.rkt`). Si g choca
+con algo ya elegido, la rama se salta en ese mismo nivel: en el ejemplo, en
+`(X)` se corta todo lo que colgaría de A1+B1 (A1+B1 y A1+B1+C), sin
+construirlo. No se genera ninguna combinación completa para luego
+descartarla.
+
+**Streams y pereza.**
+- Cada elemento se entrega con `stream-cons`, cuyo resto no se evalúa hasta
+  que alguien lo pide.
+- La segunda rama de cada decisión viaja como *thunk* (`(lambda () ...)`) y
+  `anexar-perezoso` solo la llama cuando la primera se agotó. No se usa
+  `stream-append` porque es una función: Racket evaluaría las dos ramas antes
+  de llamarla.
+- Pedir la primera combinación solo recorre un camino del árbol. La prueba de
+  pereza (20 cursos × 3 grupos, unas 4²⁰ ≈ 10¹² combinaciones) toma 50 al
+  instante.
+
+**Diseño funcional.** No hay `set!` ni estructuras mutables. El estado de la
+búsqueda (lo elegido hasta el momento) viaja como argumentos de la recursión,
+y cada rama recibe su propia lista construida con `cons`. Las demás ramas
+nunca ven esa lista, así que no hace falta "deshacer" una elección al
+retroceder, como sí haría falta con un arreglo mutable en C.
+
+**Estructuras auxiliares (acumuladores de la recursión).**
+- `elegidas` (`(listof seleccion)`): las selecciones de la rama actual, en
+  orden **inverso**. `cons` agrega al frente en O(1), y la lista se invierte
+  una sola vez al armar la combinación, así que las selecciones salen en el
+  mismo orden que la lista de interés.
+- `grupos-elegidos` (`(listof grupo)`): los mismos grupos de `elegidas`, ya
+  separados. Es lo que recibe `compatible-con-seleccion?`. Llevarlo como
+  acumulador evita recalcular `(map seleccion-grupo elegidas)` cada vez que se
+  revisa un grupo.
+
+**Orden de salida.** Primero salen las combinaciones que *no* incluyen el
+primer curso de interés, y al final las que lo incluyen con su último grupo.
+El orden no tiene significado: la etapa 3 decide cuál conviene.
 
 ### 4.4 Filtros y exportación — Sebastián
 
