@@ -22,13 +22,6 @@
 ;; el catalogo se ignora. Un curso sin grupos elegibles no entra.
 ;; Los cursos de interes que no existen en el catalogo o no son
 ;; matriculables tambien se ignoran, sin mensaje.
-;;
-;; TODO (Pablo):
-;;   - buscar-curso: encontrar un curso por codigo en el catalogo.
-;;   - grupos-elegibles: aplicar la regla de grupos de interes.
-;;   - construir-opciones: combinar lo anterior; conserva el orden de la
-;;     lista de interes.
-;;   - Sin set!; usar filter-map / for/list.
 
 (require "tipos.rkt")
 

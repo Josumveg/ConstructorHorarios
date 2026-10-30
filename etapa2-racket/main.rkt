@@ -9,11 +9,6 @@
 ;;     -> filtrar por rango de creditos   (Sebastian)
 ;;     -> exportar a JSON                 (Sebastian)
 ;;
-;; Tarea compartida por todo el equipo (ver distribucion-tareas-etapa2-
-;; cemestre.md, seccion 5): se completa en conjunto cuando cada modulo
-;; este probado por separado. El flujo ya esta conectado; mientras los
-;; modulos tengan TODO, lanzaran un error que dice cual falta.
-;;
 ;; Uso:
 ;;   racket main.rkt [catalogo] [preferencias] [salida]
 ;; Sin argumentos usa las rutas por defecto de abajo.

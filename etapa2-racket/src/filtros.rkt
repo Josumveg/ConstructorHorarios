@@ -20,17 +20,6 @@
 ;;
 ;; La unica funcion especifica del dominio es `filtrar-por-creditos`, y
 ;; esta construida COMPONIENDO las genericas: demuestra la reutilizacion.
-;;
-;; TODO (Sebastian):
-;;   - filtrar-flujo: stream-filter con el predicado (tambien se puede
-;;     escribir con recursion explicita y stream-cons; lo importante es que
-;;     siga siendo PEREZOSO).
-;;   - por-rango: devuelve un predicado; (extractor x) debe caer en
-;;     [minimo, maximo] (extremos incluidos).
-;;   - filtrar-por-creditos: usa por-rango con combinacion-creditos-totales.
-;;   - Agregar una segunda aplicacion de filtrar-flujo en las pruebas (ej.
-;;     sobre numeros) para evidenciar que no es especifica de combinaciones.
-;;   - Sin set!.
 
 (require racket/contract
          racket/stream
