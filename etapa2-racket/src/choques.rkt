@@ -10,7 +10,7 @@
 ;;
 ;; Por que se recalculan aqui y no se reutiliza `choca_con_otro` de C:
 ;; esa bandera esta a nivel de CURSO ("este curso choca con algun otro
-;; curso") y en el catalogo real casi todos los cursos la tienen en true.
+;; curso") y en el catalogo real todos los cursos la tienen en true.
 ;; Esta etapa necesita saber si DOS GRUPOS CONCRETOS chocan, asi que se
 ;; compara bloque contra bloque, igual que hace choques.c en la etapa 1.
 ;;
@@ -20,14 +20,6 @@
 ;;   - Dos bloques solo chocan si son del MISMO dia.
 ;;   - Solo se comparan grupos de cursos distintos (de un mismo curso se
 ;;     elige un unico grupo, asi que nunca hay que compararlos entre si).
-;;
-;; TODO (Pablo):
-;;   - bloques-se-solapan?: mismo dia y (and (< inicio-a fin-b) (< inicio-b fin-a)).
-;;   - grupos-chocan?: algun bloque de g1 solapa con algun bloque de g2.
-;;     Pista: ormap sobre los bloques de g1, con ormap interno sobre los de g2.
-;;   - compatible-con-seleccion?: el grupo no choca con NINGUNO de los grupos
-;;     ya elegidos. Es la funcion que hace posible la poda.
-;;   - Sin set!, sin estructuras mutables.
 
 (require "tipos.rkt")
 
