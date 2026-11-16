@@ -1,0 +1,78 @@
+:- module(reglas, [viola/2,
+                   viola_balance/1,
+                   viola_area/1,
+                   viola_incompatibilidad/1,
+                   creditos_carrera/3,
+                   incompatibles/2]).
+
+% Modulo: Reglas de politica
+% Responsable: Pablo
+% Rubro: Reglas de politica correctas (24) + Predicado usable en mas de un
+%        modo (6)
+%
+% Las tres reglas son predicados parametrizados por los hechos de politica
+% (data/politica.pl): ninguna tiene un numero ni un par escrito en el
+% codigo. Cada una recibe la lista de cursos de una combinacion y TIENEN
+% EXITO cuando la combinacion la VIOLA.
+%
+%   Regla 1, balance_carreras:
+%     Los creditos de una carrera son los de sus cursos; un curso
+%     compartido reparte sus creditos en partes iguales entre sus carreras
+%     (README, decision 4). La regla se viola si algun
+%     creditos_carrera * 100 > max_porcentaje_carrera * creditos_totales.
+%     Se compara sin dividir (y con rdiv para el reparto) para evitar
+%     errores de redondeo con floats. Una combinacion de una sola carrera
+%     es valida mientras no pase su maximo.
+%
+%   Regla 2, limite_area:
+%     Se viola si alguna area tiene mas de max_cursos_area(N) cursos.
+%
+%   Regla 3, incompatibilidad:
+%     Se viola si la combinacion tiene los dos cursos de un par declarado
+%     con par_incompatible/2. La relacion es simetrica (incompatibles/2).
+%
+% Predicado usable en mas de un modo (requerimiento funcional 5):
+%   incompatibles/2 y creditos_carrera/3. Ejemplos de consulta de cada
+%   modo en el README, seccion 2.3.
+%
+% Politica: max_porcentaje_carrera/2, max_cursos_area/1 y
+% par_incompatible/2 estan definidos en el modulo user (data/politica.pl).
+%
+% TODO (Pablo):
+%   - creditos_carrera(+Cursos, ?Carrera, ?Creditos): con Carrera
+%     instanciada calcula sus creditos; sin instanciar enumera por
+%     backtracking cada carrera de la combinacion con los suyos. Los
+%     creditos pueden ser racionales (rdiv).
+%   - viola_balance, viola_area, viola_incompatibilidad.
+%   - incompatibles(?A, ?B): simetrica. Debe servir para verificar un par,
+%     para encontrar los incompatibles de un curso (A o B instanciado) y
+%     para enumerar todos los pares.
+%   - Sin assert/retract y sin variables globales.
+
+:- use_module(modelo).
+
+% viola(?Regla, +Cursos): la combinacion viola la regla. Con Regla sin
+% instanciar enumera todas las reglas violadas.
+viola(balance_carreras, Cursos) :- viola_balance(Cursos).
+viola(limite_area, Cursos) :- viola_area(Cursos).
+viola(incompatibilidad, Cursos) :- viola_incompatibilidad(Cursos).
+
+% Alguna carrera pasa su porcentaje maximo.
+viola_balance(_Cursos) :-
+    pendiente(viola_balance, 'Pablo').
+
+% Alguna area tiene mas cursos que max_cursos_area.
+viola_area(_Cursos) :-
+    pendiente(viola_area, 'Pablo').
+
+% La combinacion trae los dos cursos de un par incompatible.
+viola_incompatibilidad(_Cursos) :-
+    pendiente(viola_incompatibilidad, 'Pablo').
+
+% creditos_carrera(+Cursos, ?Carrera, ?Creditos)
+creditos_carrera(_Cursos, _Carrera, _Creditos) :-
+    pendiente(creditos_carrera, 'Pablo').
+
+% incompatibles(?A, ?B)
+incompatibles(_A, _B) :-
+    pendiente(incompatibles, 'Pablo').

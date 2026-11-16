@@ -16,7 +16,7 @@ organizado en una carpeta por etapa/lenguaje.
 |---|---------|----------|-----------|----------------|--------|
 | 1 | [`etapa1-c/`](etapa1-c/) | C | Imperativo | Construye el catálogo de cursos y calcula, para cada uno, si tiene choque de horario con otros y si el estudiante cumple sus prerrequisitos. | En progreso |
 | 2 | [`etapa2-racket/`](etapa2-racket/) | Racket | Funcional | Genera, con streams, las combinaciones de horario sin choques a partir del catálogo validado por la etapa 1 y las filtra por rango de créditos. | En progreso |
-| 3 | [`etapa3-prolog/`](etapa3-prolog/) | Prolog | Lógico | Aplica reglas de restricción (créditos máximos, compatibilidades) sobre las combinaciones generadas por la etapa 2. | Pendiente |
+| 3 | [`etapa3-prolog/`](etapa3-prolog/) | Prolog | Lógico | Evalúa cada combinación de la etapa 2 contra reglas de política (balance entre carreras, límite por área, incompatibilidad) e indica si la cumple o cuál es la primera regla que viola. | En progreso |
 | 4 | [`etapa4-java/`](etapa4-java/) | Java | Orientado a objetos | Integra el resultado final y lo presenta al usuario. | Pendiente |
 
 ## Equipo
@@ -33,12 +33,23 @@ documento de distribución de tareas
 Entrega de la etapa 1: último commit antes del martes 22 de setiembre de
 2026, 8:00 a.m.
 
-## Etapa 2 (actual)
+## Etapa 2
 
-El trabajo activo está en [`etapa2-racket/`](etapa2-racket/README.md),
+El trabajo está en [`etapa2-racket/`](etapa2-racket/README.md),
 incluyendo la estructura de módulos y responsables, cómo compilar, ejecutar y
 probar, y el documento de distribución de tareas
 ([`etapa2-racket/distribucion-tareas-etapa2-cemestre.md`](etapa2-racket/distribucion-tareas-etapa2-cemestre.md)).
 
 Entrega de la etapa 2: último commit antes del viernes 30 de octubre de
+2026, 9:30 a.m.
+
+## Etapa 3 (actual)
+
+El trabajo activo está en [`etapa3-prolog/`](etapa3-prolog/README.md),
+incluyendo la estructura de módulos y responsables, cómo ejecutar y probar, y
+el documento de distribución de tareas
+([`etapa3-prolog/distribucion-tareas-etapa3-cemestre.md`](etapa3-prolog/distribucion-tareas-etapa3-cemestre.md)).
+Esta etapa también extiende las etapas 1 y 2 (8 semestres y el campo `area`).
+
+Entrega de la etapa 3: último commit antes del sábado 21 de noviembre de
 2026, 9:30 a.m.

@@ -1,0 +1,4322 @@
+{"combinaciones": [
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1950,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1950,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 12,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    }
+  ]
+},
+{
+  "creditos_totales": 12,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 1
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        },
+        {
+          "dia": "J",
+          "hora_fin": 1850,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 12,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 9,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    }
+  ]
+},
+{
+  "creditos_totales": 12,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1020,
+          "hora_inicio": 730
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 1
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "L",
+          "hora_fin": 2050,
+          "hora_inicio": 1800
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 2050,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "MI2101",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1950,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1450,
+          "hora_inicio": 1300
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+},
+{
+  "creditos_totales": 11,
+  "selecciones": [
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Computadores"
+      ],
+      "creditos": 3,
+      "curso": "CE1106",
+      "grupo": 2
+    },
+    {
+      "bloques": [
+        {
+          "dia": "K",
+          "hora_fin": 1950,
+          "hora_inicio": 1700
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 2,
+      "curso": "CI1106",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "J",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        },
+        {
+          "dia": "K",
+          "hora_fin": 1120,
+          "hora_inicio": 930
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "QU1107",
+      "grupo": 3
+    },
+    {
+      "bloques": [
+        {
+          "dia": "M",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        },
+        {
+          "dia": "V",
+          "hora_fin": 1650,
+          "hora_inicio": 1500
+        }
+      ],
+      "carreras": [
+        "Ingeniería en Producción Industrial"
+      ],
+      "creditos": 3,
+      "curso": "FI2103",
+      "grupo": 2
+    }
+  ]
+}
+]}
