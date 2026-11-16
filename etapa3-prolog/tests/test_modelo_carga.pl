@@ -9,7 +9,8 @@
 :- begin_tests(modelo).
 
 test(accesores) :-
-    ejemplo(1, _, [Curso|_]),
+    ejemplo(1, _, Cursos),
+    Cursos = [Curso|_],
     curso_codigo(Curso, 'CE1106'),
     curso_grupo(Curso, 1),
     curso_creditos(Curso, 3),
@@ -51,10 +52,16 @@ test(cargar_dos_veces_no_duplica) :-
     findall(Id, combinacion(Id, _), Ids),
     length(Ids, 5).
 
-test(archivo_inexistente, [error(_)]) :-
-    cargar_combinaciones('no_existe.json').
+% El error debe venir de la carga, no del "pendiente" del esqueleto.
+test(archivo_inexistente) :-
+    catch(cargar_combinaciones('no_existe.json'), error(Formal, _), true),
+    nonvar(Formal),
+    Formal \= pendiente(_, _).
 
-test(curso_sin_area, [error(_)]) :-
-    json_a_curso(_{curso: "CE1106", grupo: 1, creditos: 3, carreras: []}, _).
+test(curso_sin_area) :-
+    catch(json_a_curso(_{curso: "CE1106", grupo: 1, creditos: 3, carreras: []}, _),
+          error(Formal, _), true),
+    nonvar(Formal),
+    Formal \= pendiente(_, _).
 
 :- end_tests(carga).

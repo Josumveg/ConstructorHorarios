@@ -35,13 +35,16 @@ lógica de cada módulo está pendiente (cada predicado lanza un error
 implementar"); las pruebas de `tests/` son la especificación y fallan hasta
 que se implementa cada módulo.
 
-> El esqueleto se escribió **sin poder compilarlo** (no había SWI-Prolog
-> instalado en la máquina donde se armó). Lo primero que debe hacer cada
-> integrante es correr `make` y `make test` y reportar cualquier error de
-> sintaxis o de carga del esqueleto.
+> El esqueleto se probó con SWI-Prolog 10.0.2: `make` carga todos los módulos
+> sin errores y `make test` solo falla por los `pendiente(...)` de lo que falta
+> implementar. Los resultados esperados de `tests/ejemplos.pl` se validaron
+> con una implementación de referencia (descartada), y los ejemplos de la
+> sección 2.3 son lo que **deben** devolver los predicados una vez
+> implementados.
 >
-> Los ejemplos de la sección 2.3 son lo que **deben** devolver los predicados
-> una vez implementados; hay que verificarlos y corregir lo que no coincida.
+> En SWI-Prolog 10 `make run` imprime el aviso `Library was moved:
+> library(http/json) --> library(json)`. Es inofensivo y se deja porque
+> `library(http/json)` también existe en las versiones 9.x.
 
 ## Cómo está organizado este documento
 

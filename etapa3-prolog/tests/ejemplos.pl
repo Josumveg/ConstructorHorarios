@@ -32,11 +32,11 @@
 %                         fisica_quimica: viola balance_carreras Y
 %                         limite_area. La razon depende del orden.
 %
-% Los acentos van escapados (í, ó) para no depender del encoding
+% Los acentos van como escapes hexadecimales (\x00ED\ y \x00F3\) para no depender del encoding
 % de este archivo.
 
-carrera(ce, 'Ingeniería en Computadores').
-carrera(pi, 'Ingeniería en Producción Industrial').
+carrera(ce, 'Ingenier\x00ED\a en Computadores').
+carrera(pi, 'Ingenier\x00ED\a en Producci\x00F3\n Industrial').
 
 % curso_ej(+Codigo, +Grupo, +Creditos, +ClavesCarrera, +Area, -Curso)
 curso_ej(Codigo, Grupo, Creditos, Claves, Area,

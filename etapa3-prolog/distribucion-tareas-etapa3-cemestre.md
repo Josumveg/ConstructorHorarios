@@ -142,7 +142,7 @@ No se asignan a una sola persona porque afectan la nota de todos, y porque en la
 
 | Fechas | Meta |
 |---|---|
-| Lun 16 – mar 17 nov | Revisar y acordar `modelo.pl` y los formatos de `data/data_doc.md`. Correr `make` y reportar cualquier error de sintaxis del esqueleto (no se pudo compilar al armarlo). Jose inicia el campo `area` en C y los semestres 7 y 8. Los demás programan su módulo con los datos de ejemplo de `tests/ejemplos.pl`. |
+| Lun 16 – mar 17 nov | Revisar y acordar `modelo.pl` y los formatos de `data/data_doc.md`. Instalar SWI-Prolog (10.0.2 o similar) y correr `make` y `make test`. Jose inicia el campo `area` en C y los semestres 7 y 8. Los demás programan su módulo con los datos de ejemplo de `tests/ejemplos.pl`. |
 | Mié 18 – jue 19 nov | Cada quien con su suite de `tests/` pasando en su rama. Extensión de C y Racket terminada; `combinaciones.json` real copiado a `data/` (Jose). Pares incompatibles revisados (Sebastian). |
 | Vie 20 nov | Integración en `develop`, `main.pl` de punta a punta con los datos reales, caso límite real y caso del orden de reglas documentados. Redacción final del README, revisión cruzada, ensayo de la defensa. |
 | Sáb 21 nov | **Último commit antes de las 9:30 a.m.** Solo correcciones menores. |
