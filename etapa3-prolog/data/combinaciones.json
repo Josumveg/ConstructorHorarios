@@ -1,0 +1,59 @@
+{
+  "combinaciones": [
+    {
+      "creditos_totales": 6,
+      "selecciones": [
+        { "curso": "CE1106", "grupo": 1, "carreras": ["Ingeniería en Computadores"], "creditos": 3, "area": "computacion",
+          "bloques": [ { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 }, { "dia": "J", "hora_inicio": 1700, "hora_fin": 1850 } ] },
+        { "curso": "MI2101", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 3, "area": "industrial",
+          "bloques": [ { "dia": "M", "hora_inicio": 730, "hora_fin": 1120 } ] }
+      ]
+    },
+    {
+      "creditos_totales": 8,
+      "selecciones": [
+        { "curso": "MI2101", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 3, "area": "industrial",
+          "bloques": [ { "dia": "M", "hora_inicio": 730, "hora_fin": 1120 } ] },
+        { "curso": "QU1107", "grupo": 2, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 3, "area": "fisica_quimica",
+          "bloques": [ { "dia": "M", "hora_inicio": 1300, "hora_fin": 1450 }, { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 } ] },
+        { "curso": "CI1106", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 2, "area": "humanidades",
+          "bloques": [ { "dia": "L", "hora_inicio": 1500, "hora_fin": 1650 } ] }
+      ]
+    },
+    {
+      "creditos_totales": 10,
+      "selecciones": [
+        { "curso": "CE1106", "grupo": 2, "carreras": ["Ingeniería en Computadores"], "creditos": 3, "area": "computacion",
+          "bloques": [ { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 }, { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 } ] },
+        { "curso": "QU1106", "grupo": 1, "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"], "creditos": 3, "area": "fisica_quimica",
+          "bloques": [ { "dia": "K", "hora_inicio": 730, "hora_fin": 920 } ] },
+        { "curso": "FI1101", "grupo": 1, "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"], "creditos": 3, "area": "fisica_quimica",
+          "bloques": [ { "dia": "L", "hora_inicio": 730, "hora_fin": 920 } ] },
+        { "curso": "FI1201", "grupo": 1, "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"], "creditos": 1, "area": "fisica_quimica",
+          "bloques": [ { "dia": "J", "hora_inicio": 1300, "hora_fin": 1450 } ] }
+      ]
+    },
+    {
+      "creditos_totales": 8,
+      "selecciones": [
+        { "curso": "CI1407", "grupo": 1, "carreras": ["Ingeniería en Computadores"], "creditos": 2, "area": "humanidades",
+          "bloques": [ { "dia": "L", "hora_inicio": 930, "hora_fin": 1120 } ] },
+        { "curso": "CI1106", "grupo": 2, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 2, "area": "humanidades",
+          "bloques": [ { "dia": "J", "hora_inicio": 930, "hora_fin": 1120 } ] },
+        { "curso": "MA1102", "grupo": 1, "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"], "creditos": 4, "area": "matematica",
+          "bloques": [ { "dia": "K", "hora_inicio": 1300, "hora_fin": 1450 }, { "dia": "V", "hora_inicio": 1300, "hora_fin": 1450 } ] }
+      ]
+    },
+    {
+      "creditos_totales": 7,
+      "selecciones": [
+        { "curso": "QU1107", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 3, "area": "fisica_quimica",
+          "bloques": [ { "dia": "M", "hora_inicio": 930, "hora_fin": 1120 }, { "dia": "V", "hora_inicio": 930, "hora_fin": 1120 } ] },
+        { "curso": "FI2103", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 3, "area": "fisica_quimica",
+          "bloques": [ { "dia": "K", "hora_inicio": 1500, "hora_fin": 1650 } ] },
+        { "curso": "QU1104", "grupo": 1, "carreras": ["Ingeniería en Producción Industrial"], "creditos": 1, "area": "fisica_quimica",
+          "bloques": [ { "dia": "L", "hora_inicio": 1300, "hora_fin": 1450 } ] }
+      ]
+    }
+  ]
+}
