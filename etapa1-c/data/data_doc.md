@@ -12,7 +12,7 @@ sin necesidad de traducir nombres.
 Catálogo de cursos recolectado de la Guía de Horarios y el plan de estudios
 del TEC (ver sección 4 de
 [../distribucion-tareas-etapa1-cemestre.md](../distribucion-tareas-etapa1-cemestre.md)).
-Cubre **solo los primeros 4 semestres** de las 2 carreras del grupo
+Cubre los **primeros 8 semestres** de las 2 carreras del grupo
 (Ingeniería en Computadores + Ingeniería en Producción Industrial), todos los
 cursos de ambas carreras van en el mismo arreglo `cursos`.
 
@@ -23,6 +23,7 @@ cursos de ambas carreras van en el mismo arreglo `cursos`.
       "codigo": "CE1101",
       "nombre": "Introducción a la Programación",
       "creditos": 3,
+      "area": "computacion",
       "carreras": ["Ingeniería en Computadores"],
       "requisitos": [],
       "correquisitos": [],
@@ -47,6 +48,7 @@ cursos de ambas carreras van en el mismo arreglo `cursos`.
       "codigo": "MA1102",
       "nombre": "Cálculo Diferencial e Integral",
       "creditos": 4,
+      "area": "matematica",
       "carreras": ["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
       "requisitos": ["MA0101"],
       "correquisitos": [],
@@ -63,6 +65,7 @@ cursos de ambas carreras van en el mismo arreglo `cursos`.
 | `codigo` | string | `codigo` | Ej. `"CE1101"`. Debe ser único en el catálogo — es la clave que usan `requisitos`/`correquisitos`/`aprobados` para referenciar cursos. |
 | `nombre` | string | `nombre` | Tal como aparece en la Guía de Horarios/plan de estudios. |
 | `creditos` | number (entero) | `creditos` | |
+| `area` | string | `area` | Área del curso, obligatoria (si falta, la carga devuelve `ERROR_FORMATO`). Una de `matematica`, `fisica_quimica`, `computacion`, `electronica`, `industrial` o `humanidades`. Se asigna por disciplina del contenido, casi siempre igual al prefijo del código (criterio en `etapa3-prolog/distribucion-tareas-etapa3-cemestre.md`, sección 4.1). La usa la etapa 3 (Prolog). |
 | `carreras` | array de strings | `carreras[]` / `cantidad_carreras` | Casi siempre un solo elemento. Si un curso es compartido entre las 2 carreras (ej. `MA1102`, `QU1102`, `FI1201` — cursos generales que ambos planes comparten), se listan ambas en vez de duplicar la entrada del curso. |
 | `requisitos` | array de strings | `requisitos[]` / `cantidad_requisitos` | Lista de `codigo` de otros cursos. Arreglo vacío `[]` si no tiene. Si un requisito queda fuera del catálogo (ej. `MA0101`, Bloque 0 / nivelación, no cubierto por este proyecto), documentarlo como caso límite en el README de `etapa1-c/` — no se puede validar automáticamente. |
 | `correquisitos` | array de strings | `correquisitos[]` / `cantidad_correquisitos` | Mismo formato que `requisitos`. |
@@ -115,6 +118,7 @@ al esquema, justificada"):
       "codigo": "CE1101",
       "nombre": "Introducción a la Programación",
       "creditos": 3,
+      "area": "computacion",
       "carreras": ["Ingeniería en Computadores"],
       "requisitos": [],
       "correquisitos": [],
@@ -138,17 +142,18 @@ no un parser propio — ver la justificación en ese README.
 
 ## Estado de los datos
 
-- **`catalogo.json`**: **45 cursos**, primeros 4 semestres de las 2
-  carreras — 29 de Ingeniería en Computadores y 16 exclusivos de
-  Ingeniería en Producción Industrial (más 14 cursos compartidos entre
+- **`catalogo.json`**: **85 cursos**, primeros 8 semestres de las 2
+  carreras — 32 exclusivos de Ingeniería en Computadores y 36 exclusivos de
+  Ingeniería en Producción Industrial (más 17 cursos compartidos entre
   ambas, marcados con las 2 carreras en `carreras`). Todos con
-  código/nombre/créditos/requisitos/correquisitos reales. Cada curso
+  código/nombre/créditos/requisitos/correquisitos/área reales. Cada curso
   tiene **como máximo 5 grupos** — límite de diseño del equipo
   (`MAX_GRUPOS` no se subió más allá de 10); en los cursos que en la
   realidad tienen más secciones abiertas (algunos como `FI1201` llegan a
   25), se eligieron 5 al azar.
-  - **Los 45 cursos tienen horario real** (`grupos` con datos) — catálogo
-    completo, campus Cartago, ambas carreras.
+  - **83 de los 85 cursos tienen horario real** (`grupos` con datos), campus
+    Cartago, ambas carreras. Las dos electivas (`CE5701` y `PI4308`) no
+    aparecen en la Guía de Horarios y quedan con `grupos: []`.
 - **`historial.json`**: 25 cursos aprobados de un estudiante real de
   prueba (Jose), extraídos de su propio Expediente Estudiantil. Son
   todos de Computadores — falta un historial de prueba para un
@@ -166,6 +171,7 @@ carrera. El equipo decidió, curso por curso, cuál de las 2 versiones usar
 | `FI1101` | Requisitos: `MA1102` / Correquisitos: ninguno | Requisitos: ninguno / Correquisitos: `MA1102` | **Computadores** |
 | `CS2101` | Requisitos: ninguno | Requisitos: `CI1107` | **Producción Industrial** |
 | `FI1102` | Requisitos: `FI1101` / Correquisitos: `MA1102` | Requisitos: `FI1101, FI1201, MA1102` / Correquisitos: `FI1202` | **Computadores** |
+| `SO4604` | Requisitos: ninguno / Correquisitos: `FI1102` | Requisitos: `PI3308` / Correquisitos: ninguno | **Computadores** |
 
 ### Casos límite encontrados (para la sección de README del enunciado)
 
@@ -176,11 +182,12 @@ carrera. El equipo decidió, curso por curso, cuál de las 2 versiones usar
   resultó que `MA0101` **sí** es un curso normal de su Bloque 1 — así que
   ya está en el catálogo con datos y horario reales, `carreras: ["Ingeniería en Producción Industrial"]`.
   Esto resuelve la referencia colgante que existía antes.
-- **`CI1230` (Inglés I, Producción Industrial) requiere cursos fuera del
-  catálogo:** `CI0200` y `CI0202` son cursos de nivelación de inglés que
-  no aparecen en ninguno de los 2 planes de primeros 4 semestres — quedan
-  como referencias sin resolver en `requisitos`, igual que pasaba con
-  `MA0101` antes de encontrar sus datos reales.
+- **`CI1230` (Inglés I, Producción Industrial) y `CI3203` (Inglés
+  Especializado, Computadores) requieren cursos fuera del catálogo:**
+  `CI0200`, `CI0202` y `CI0205` son cursos de nivelación de inglés que
+  no aparecen en ninguno de los 2 planes — quedan como referencias sin
+  resolver en `requisitos`, igual que pasaba con `MA0101` antes de
+  encontrar sus datos reales.
 - **La Guía de Horarios no expone un número de grupo oficial:** la tabla
   de TEC-Digital solo lista pares (profesor, horario) por curso, sin un
   campo "Grupo 01/02/03". Se le asignó `numero_grupo` secuencial (1, 2,
@@ -194,6 +201,23 @@ carrera. El equipo decidió, curso por curso, cuál de las 2 versiones usar
   5 por curso). En esos casos se tomó una muestra aleatoria de 5 grupos
   reales (no inventados) en vez de subir el límite — decisión del equipo
   para mantener el dataset manejable.
+- **Bloques 7 y 8 de Computadores (etapa 3):** se agregaron 9 cursos con los
+  mismos criterios de arriba (campus Cartago, un grupo por profesor y
+  horario, máximo 5 grupos al azar). `AE4208` tiene 7 secciones reales y se
+  tomaron 5. `CE5701` (Electiva I) no aparece en la Guía de Horarios, así que
+  queda con `grupos: []` y no entra a ninguna combinación. `CS3404` ya estaba
+  por Producción Industrial y ahora lleva las 2 carreras, con los mismos
+  requisitos en ambos planes. Los requisitos de los 9 cursos nuevos existen
+  en el catálogo.
+- **Bloques 7 y 8 de Producción Industrial (etapa 3):** se agregaron 10
+  cursos con los mismos criterios. `CS4402` no aparece en la guía de la
+  Escuela de PI sino en la de Computadores (20 secciones en Cartago, se
+  tomaron 5). `PI4308` (Electiva I) no aparece en ninguna guía, así que queda
+  con `grupos: []`. `SO4604` ya estaba por Computadores y ahora lleva las 2
+  carreras; sus requisitos difieren entre planes (Computadores: correquisito
+  `FI1102`; Producción Industrial: requisito `PI3308`) y se dejó la versión
+  de **Computadores**, que ya estaba en el catálogo. `PI4306` y `PI4307` son
+  correquisitos mutuos, igual que el caso ya cubierto por las pruebas.
 - **Los códigos de "actividad" del plan no siempre coinciden con los de
   la oferta real:** `SE1100`/`SE1200`/`SE1400` (Actividad Cultural/
   Deportiva) aparecen en el plan de estudios, pero la Guía de Horarios
@@ -228,4 +252,4 @@ también el reporte en terminal.
 Las pruebas de `tests/exportacion-ciclos/test_ciclos_json.c` verifican
 ciclos en componentes separados, autorrequisitos, casos sin ciclos,
 exportaciones consecutivas, manejo de fallos de memoria y conservación
-de los 45 cursos del catálogo real.
+de los 85 cursos del catálogo real.

@@ -151,7 +151,16 @@ Básica II y `FI2103` Física General III son `fisica_quimica` (dos de los tres
 cursos que hacen violar el límite en la combinación `e_orden` de
 `tests/ejemplos.pl`); `PI2610` Probabilidad y Estadística I es `matematica`
 aunque su prefijo sea de Producción Industrial.
-TODO (Jose): completar con los ejemplos de los semestres 7 y 8.
+
+En los semestres 7 y 8 pasa lo mismo. `CE1111` Análisis Numérico para la
+Ingeniería es `matematica` y no `computacion`, igual que `CM3207` Métodos
+Numéricos; `CE1112` Taller de Señales Mixtas es `electronica`, como `CE1110`;
+`AE4208` Desarrollo de Emprendedores tiene un prefijo que no está en ninguna
+área, y se asignó a `industrial` porque es gestión, como `PI3501` Costos
+Industriales I; `CS4402` Seminario de Estudios Costarricenses es
+`humanidades`. Los 85 cursos del catálogo quedan repartidos en 22 de
+`industrial`, 19 de `computacion`, 15 de `humanidades`, 11 de `matematica`,
+10 de `fisica_quimica` y 8 de `electronica`.
 
 **Decisión 3 — Reparto de créditos de un curso compartido.** Un curso de las
 dos carreras reparte sus créditos **en partes iguales** entre ellas para la
@@ -212,7 +221,7 @@ Los tres primeros puntos están en las decisiones 1 a 4. Falta el caso donde el
 orden de las reglas cambia la razón reportada.
 
 **Caso del orden de reglas.** La combinación `e_orden` (`tests/ejemplos.pl`,
-también la quinta de `data/combinaciones.json`) tiene tres cursos solo de
+también la quinta de `tests/combinaciones_ejemplo.json`) tiene tres cursos solo de
 Producción Industrial y de `fisica_quimica`: `QU1107` grupo 1, `FI2103` grupo 1
 y `QU1104` grupo 1. Viola dos reglas a la vez: los tres cursos son de una sola
 carrera (100 % > 70 %, `balance_carreras`) y son 3 cursos de la misma área
@@ -313,6 +322,37 @@ A = 'PI2609', B = 'PI2610' ;
 
 `creditos_carrera/3` también sirve en dos modos: con la carrera dada calcula sus
 créditos, y sin ella enumera cada carrera de la combinación con los suyos.
+
+### 3.4 Carga de los datos
+
+Está en [`src/carga.pl`](src/carga.pl) y es el único módulo que ve JSON crudo
+y el único que usa `assertz`, porque solo carga datos de entrada.
+
+- `cargar_politica(+Ruta)` consulta `data/politica.pl` en el módulo `user`, así
+  que los hechos de política los ven todos los módulos.
+- `cargar_combinaciones(+Ruta)` lee el JSON de Racket en UTF-8 con
+  `json_read_dict/2`. Primero convierte **todas** las combinaciones y solo
+  después borra las anteriores y guarda las nuevas, para no dejar la carga a
+  medias si una viene mal. Cada combinación queda como `combinacion(Id, Cursos)`
+  con `Id` igual a su posición en el archivo (desde 1).
+- De cada selección solo se usan `curso`, `grupo`, `creditos`, `carreras` y
+  `area`; `bloques` y `creditos_totales` se ignoran.
+- Los strings del JSON pasan a átomos con `atom_string/2`, tanto el código del
+  curso como el área y cada carrera. Así `'CE1106'` y
+  `'Ingeniería en Computadores'` son los mismos átomos que usan los hechos de
+  `data/politica.pl` y la unificación funciona sin conversiones.
+- Los errores dicen qué pasó: archivo inexistente (`source_sink ... does not
+  exist`), JSON mal formado o vacío (error de sintaxis de JSON) y campo
+  faltante (`campo 'area' does not exist`).
+
+```prolog
+?- cargar_combinaciones('data/combinaciones.json'), combinacion(1, Cursos).
+Cursos = [curso('MI2101', 1, 3, ['Ingeniería en Producción Industrial'], industrial),
+          curso('QU1107', 2, 3, ['Ingeniería en Producción Industrial'], fisica_quimica),
+          curso('FI2103', 2, 3, ['Ingeniería en Producción Industrial'], fisica_quimica)].
+```
+
+Con los datos del repositorio se cargan 60 combinaciones.
 
 ## 4. Compilar, ejecutar y probar
 

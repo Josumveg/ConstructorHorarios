@@ -35,6 +35,9 @@ typedef struct {
     char carreras[MAX_CARRERAS][MAX_LONG_NOMBRE_CARRERA];
     int cantidad_carreras;
 
+    /* Area del curso (ej. "matematica"), la usa la etapa de Prolog. */
+    char area[MAX_LONG_AREA];
+
     Grupo grupos[MAX_GRUPOS];
     int cantidad_grupos;
 

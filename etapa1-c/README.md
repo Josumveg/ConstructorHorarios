@@ -96,7 +96,7 @@ documentado en **[`data/data_doc.md`](data/data_doc.md)**.
 
 | Archivo | Rol |
 |---|---|
-| `data/catalogo.json` | Entrada. 45 cursos de los primeros 4 semestres de Ingeniería en Computadores e Ingeniería en Producción Industrial. |
+| `data/catalogo.json` | Entrada. 85 cursos de los primeros 8 semestres de Ingeniería en Computadores e Ingeniería en Producción Industrial, cada uno con su `area`. |
 | `data/historial.json` | Entrada. 25 códigos de cursos ya aprobados por un estudiante de prueba. |
 | `data/catalogo_salida.json` | Salida. El catálogo completo más los campos calculados. Contrato con la etapa 2. |
 
@@ -154,6 +154,10 @@ campo porque hay cursos que pertenecen a las dos carreras del catálogo a la
 vez — `MA1102` lo llevan tanto Computadores como Producción Industrial.
 Guardarlo así evita duplicar la entrada completa del curso una vez por
 carrera.
+
+`area` es una cadena corta (`char area[MAX_LONG_AREA]`, por ejemplo
+`"matematica"`) que se agregó para la etapa 3: Prolog la usa para limitar los
+cursos por área. En C solo se carga y se exporta, ningún módulo la usa.
 
 **`Catalogo` e `Historial`.** Los dos usan arreglos de tamaño fijo
 (`Curso cursos[MAX_CURSOS]`, `char aprobados[MAX_CURSOS][MAX_LONG_CODIGO]`) en
@@ -226,7 +230,7 @@ buffer destino; si un nombre de curso en el JSON fuera más largo que
 `strncpy()` no lo garantiza cuando el string de origen es igual o más largo
 que el límite.
 
-**Campos obligatorios vs. opcionales.** `codigo`, `nombre` y `creditos` son
+**Campos obligatorios vs. opcionales.** `codigo`, `nombre`, `creditos` y `area` son
 obligatorios: si a un curso le falta alguno, `cargar_curso()` corta el
 parseo completo con `ERROR_FORMATO`. `carreras`, `requisitos`,
 `correquisitos` y `grupos` pueden venir vacíos (`[]`) sin que sea un error —
@@ -243,7 +247,7 @@ leer; `ERROR_FORMATO` si el JSON no es válido, si falta la clave esperada
 
 Los nombres de campo del JSON (esquema completo en
 [`data/data_doc.md`](data/data_doc.md)) son idénticos a los del struct a
-propósito — `codigo`, `nombre`, `creditos`, `carreras`, `requisitos`,
+propósito — `codigo`, `nombre`, `creditos`, `area`, `carreras`, `requisitos`,
 `correquisitos`, `grupos`, `numero_grupo`, `bloques`, `dia`, `hora_inicio`,
 `hora_fin` — así que `cargar_curso()` es un mapeo directo: por cada campo del
 struct hay un `cJSON_GetObjectItemCaseSensitive()` con exactamente el mismo
@@ -365,8 +369,8 @@ tiene, y `cantidad_nodos` el total de nodos. Una arista `i -> j` se lee como
 De las estructuras compartidas lee `codigo`, `requisitos[]`, `correquisitos[]`
 y `aprobados[]`, y define únicamente `matriculable`.
 
-Sobre el dataset real define 12 cursos matriculables de 45, y un grafo de 45
-nodos con 35 aristas.
+Sobre el dataset real define 17 cursos matriculables de 85, y un grafo de 85
+nodos con 90 aristas.
 
 ### 4.4 Módulo de exportación y detección de ciclos — Sebastián
 
@@ -416,21 +420,22 @@ por DFS, no todas las combinaciones posibles de ciclos simples.
 
 ## 5. Casos límite encontrados
 
-CI1230 requiere CI0200 y CI0202, ausentes del catálogo. El grafo
-omite esas conexiones y emite avisos; la exportación conserva los códigos.
+CI1230 requiere CI0200 y CI0202, y CI3203 requiere CI0205, todos ausentes
+del catálogo. El grafo omite esas conexiones y emite avisos; la exportación
+conserva los códigos.
 
 La validación los busca en el historial. Como no aparecen aprobados en
 el historial de prueba, CI1230 queda no matriculable. No se pueden
 detectar ciclos que atraviesen cursos ausentes del catálogo.
 Requisitos que no existen en el catálogo: `CI1230` (Inglés I) declara los
-requisitos `CI0200` y `CI0202`, cursos de nivelación que no están en el
-catálogo de los primeros 4 semestres. 
-Son los únicos dos casos del dataset de los 37 requisitos declarados, 35 se resuelven y estos 2 no.
+requisitos `CI0200` y `CI0202`, y `CI3203` (Inglés Especializado) declara
+`CI0205`; son cursos de nivelación de inglés que no están en el catálogo.
+Son los únicos tres casos del dataset: de los 93 requisitos declarados, 90 se resuelven y estos 3 no.
 
 El grafo omite esas aristas y avisa por `stderr`, porque no puede apuntar a
 un nodo inexistente. La exportación conserva ambos códigos en el archivo de
 salida; y la validación de requisitos sí los cuenta como incumplidos, así
-que `CI1230` queda con `matriculable: false`. El tratamiento distinto en cada
+que `CI1230` y `CI3203` quedan con `matriculable: false`. El tratamiento distinto en cada
 módulo es deliberado, ya que el grafo sirve para verificar integridad de los datos y
 la validación para decidir matrícula.
 
@@ -491,7 +496,7 @@ gcc -Wall -Wextra -std=c11 -Iinclude -Ilib/cjson -g \
 | `tests/requisitos/test_requisitos.c` | Búsqueda en el historial, cursos con y sin requisitos, requisito no aprobado, requisito fuera del catálogo, curso ya aprobado, correquisitos mutuos sin recursión, y guardas de `NULL`. |
 | `tests/grafo-requisitos/test_grafo.c` | Cadena de requisitos, requisito inexistente que se omite sin romper índices, ciclo que sí queda representado en el grafo, y guardas de `NULL`. |
 | `tests/exportacion-ciclos/test_exportacion.c` | Cadena sin ciclos, requisito compartido sin falso positivo, ciclo de tres cursos, autorrequisito, ciclo en un componente separado, llamada directa al DFS, y catálogo vacío o nulo. |
-| `tests/exportacion-ciclos/test_ciclos_json.c` | Diamante sin falso ciclo, ciclos de todos los componentes guardados en el JSON, exportaciones consecutivas sin datos viejos, manejo de fallos de memoria, y conservación de los 45 cursos reales con todos sus campos. |
+| `tests/exportacion-ciclos/test_ciclos_json.c` | Diamante sin falso ciclo, ciclos de todos los componentes guardados en el JSON, exportaciones consecutivas sin datos viejos, manejo de fallos de memoria, y conservación de los 85 cursos reales con todos sus campos. |
 
 En total son 23 casos entre las cuatro suites.
 
@@ -502,12 +507,12 @@ Sirven para verificar cualquier cambio futuro:
 
 | Métrica | Valor |
 |---|---|
-| Cursos cargados | 45 |
+| Cursos cargados | 85 |
 | Cursos aprobados en el historial | 25 |
-| Cursos matriculables | 12 |
-| Grupos / bloques horarios | 206 / 295 |
-| Requisitos declarados / sin resolver | 37 / 2 |
-| Nodos y aristas del grafo | 45 / 35 |
+| Cursos matriculables | 17 |
+| Grupos / bloques horarios | 303 / 417 |
+| Requisitos declarados / sin resolver | 93 / 3 |
+| Nodos y aristas del grafo | 85 / 90 |
 | Ciclos detectados | 0 |
 
 ## 8. Flujo de trabajo del repositorio

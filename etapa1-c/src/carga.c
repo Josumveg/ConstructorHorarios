@@ -85,19 +85,22 @@ static void cargar_lista_codigos(const cJSON *array_json, char destino[][MAX_LON
 
 /* Llena 'curso' a partir de un objeto JSON del arreglo "cursos". Retorna
  * EXITO o ERROR_FORMATO si le faltan los campos obligatorios (codigo,
- * nombre, creditos). */
+ * nombre, creditos, area). */
 static int cargar_curso(const cJSON *curso_json, Curso *curso) {
     const cJSON *codigo = cJSON_GetObjectItemCaseSensitive(curso_json, "codigo");
     const cJSON *nombre = cJSON_GetObjectItemCaseSensitive(curso_json, "nombre");
     const cJSON *creditos = cJSON_GetObjectItemCaseSensitive(curso_json, "creditos");
+    const cJSON *area = cJSON_GetObjectItemCaseSensitive(curso_json, "area");
 
-    if (!cJSON_IsString(codigo) || !cJSON_IsString(nombre) || !cJSON_IsNumber(creditos)) {
+    if (!cJSON_IsString(codigo) || !cJSON_IsString(nombre) || !cJSON_IsNumber(creditos)
+        || !cJSON_IsString(area)) {
         return ERROR_FORMATO;
     }
 
     copiar_seguro(curso->codigo, codigo->valuestring, MAX_LONG_CODIGO);
     copiar_seguro(curso->nombre, nombre->valuestring, MAX_LONG_NOMBRE);
     curso->creditos = creditos->valueint;
+    copiar_seguro(curso->area, area->valuestring, MAX_LONG_AREA);
 
     /* choca_con_otro y matriculable no vienen en el archivo de entrada:
      * los calculan los modulos de choques y requisitos mas adelante. Se

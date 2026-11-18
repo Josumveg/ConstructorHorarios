@@ -7,7 +7,7 @@
 ;; de tipos.rkt. Es el unico modulo que trabaja con jsexpr, el resto del
 ;; programa solo ve structs.
 ;;
-;; Del catalogo solo se leen codigo, creditos, carreras, grupos y
+;; Del catalogo solo se leen codigo, creditos, carreras, area, grupos y
 ;; matriculable. Lo demas (nombre, requisitos, choca_con_otro, ciclos...)
 ;; se ignora.
 
@@ -70,6 +70,7 @@
   (curso (requerido js 'codigo)
          (requerido js 'creditos)
          (hash-ref js 'carreras '())
+         (requerido js 'area)
          (map jsexpr->grupo (hash-ref js 'grupos '()))
          (requerido js 'matriculable)))
 

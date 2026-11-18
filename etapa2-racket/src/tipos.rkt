@@ -26,6 +26,7 @@
           (struct curso ([codigo string?]
                          [creditos exact-nonnegative-integer?]
                          [carreras (listof string?)]
+                         [area string?]
                          [grupos (listof grupo?)]
                          [matriculable boolean?]))
           (struct catalogo ([cursos (listof curso?)]))
@@ -61,11 +62,13 @@
 ;; Un curso del catalogo exportado por la etapa 1.
 ;;   carreras     : carreras que aportan el curso (campo `carreras` de la etapa 1):
 ;;                  una sola, o las dos si el curso es compartido ("ambas").
+;;   area         : area del curso (ej. "matematica"), campo de la etapa 1 que
+;;                  solo se propaga para la etapa 3.
 ;;   matriculable : bandera calculada por la etapa 1 (cumple requisitos y
 ;;                  correquisitos). Es lo que significa "curso habilitado".
 ;; El `choca_con_otro` de la etapa 1 no se lee: esta a nivel de curso y esta
 ;; etapa necesita choques entre grupos (ver choques.rkt).
-(struct curso (codigo creditos carreras grupos matriculable) #:transparent)
+(struct curso (codigo creditos carreras area grupos matriculable) #:transparent)
 
 ;; El catalogo completo leido de catalogo_salida.json.
 (struct catalogo (cursos) #:transparent)
