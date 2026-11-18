@@ -12,11 +12,9 @@ aprender nombres nuevos.
 | `preferencias.json` | Entrada. Cursos y grupos de interes y rango de creditos. | El estudiante (a mano) |
 | `combinaciones.json` | Salida. Contrato con la etapa 3 (Prolog). | `main.rkt` |
 
-> **Estado de `catalogo_salida.json`:** la copia que hay hoy en el repo es
-> la salida de la etapa 1 sobre el catalogo de 4 semestres. Se reemplaza
-> cuando el equipo termine los 6 semestres (ver
-> [`../distribucion-tareas-etapa2-cemestre.md`](../distribucion-tareas-etapa2-cemestre.md),
-> seccion 4).
+> **Estado de `catalogo_salida.json`:** es la salida de la etapa 1 sobre el
+> catalogo de 8 semestres por carrera (85 cursos), con el campo `area` por
+> curso que pide la etapa 3.
 
 ## `catalogo_salida.json` (entrada)
 
@@ -46,14 +44,15 @@ Es exactamente la salida de la etapa 1 (ver su `data_doc.md`). El campo
 }
 ```
 
-Esta etapa **solo lee** `codigo`, `creditos`, `carreras`, `grupos` y
+Esta etapa **solo lee** `codigo`, `creditos`, `carreras`, `area`, `grupos` y
 `matriculable`; el resto del JSON se ignora.
 
 | Campo | Notas para esta etapa |
 |---|---|
 | `carreras` | Carrera(s) que aportan el curso: una sola para los exclusivos de una carrera, o las dos para los compartidos (ej. `MA1102`). Es la "carrera por curso" que pide el enunciado. |
+| `area` | Área del curso (ej. `"matematica"`), obligatoria. Solo se propaga a la salida: esta etapa no la usa para decidir nada. |
 | `matriculable` | Solo los cursos con `true` ("habilitados") pueden entrar a una combinación. Ya viene calculado, esta etapa no recalcula requisitos. |
-| `choca_con_otro` | **Se ignora.** Está a nivel de curso y es `true` para todos los cursos del catálogo; esta etapa recalcula choques entre grupos concretos. |
+| `choca_con_otro` | **Se ignora.** Está a nivel de curso y es `true` para casi todos los cursos del catálogo; esta etapa recalcula choques entre grupos concretos. |
 | `dia` | `"L"`, `"K"` (martes), `"M"` (miércoles), `"J"`, `"V"`, `"S"`. Se convierte a símbolo (`'M`) al leer. |
 
 ## `preferencias.json` (entrada)
@@ -88,6 +87,7 @@ catálogo. Si no, se ignora.
     {
       "selecciones": [
         { "curso": "CE1106", "grupo": 1, "carreras": ["Ingeniería en Computadores"],
+          "area": "computacion",
           "creditos": 3,
           "bloques": [
             { "dia": "K", "hora_inicio": 1700, "hora_fin": 1850 },
@@ -112,10 +112,12 @@ Campos extra (justificados en el README, sección 2.3):
 
 | Campo | Por qué |
 |---|---|
+| `selecciones[].area` | Área del curso. Campo nuevo obligatorio de la etapa 3, que viene de C: Prolog la necesita para el límite de cursos por área. |
 | `selecciones[].creditos` | Créditos del curso. Con solo el total y la carrera, Prolog no podría sumar créditos por carrera. |
 | `selecciones[].bloques` | Días y horas del grupo (mismo formato que el catálogo; `dia` como string). Permite a Prolog aplicar reglas de horario sin releer el catálogo. |
 
-Esta etapa no se vuelve a modificar después de entregarla y Prolog lee solo
-este archivo, por eso estos dos datos se incluyen desde ya. No se agregó
+Prolog lee solo este archivo, por eso estos datos se incluyen desde ya.
+`area` es el único campo agregado después de entregar la etapa 2, porque lo
+exige el enunciado de la etapa 3; no se modificó ninguna lógica. No se agregó
 ningún otro campo. Si ninguna combinación cumple, el archivo igual es JSON
 válido: `{ "combinaciones": [] }`.

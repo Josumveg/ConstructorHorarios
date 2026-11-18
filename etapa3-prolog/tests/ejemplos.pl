@@ -2,11 +2,12 @@
                      ejemplo/3,
                      esperado/4,
                      ruta_datos/2,
+                     ruta_ejemplo/2,
                      politica_ejemplo/0]).
 
 % Datos de prueba compartidos por todas las suites de tests/.
 %
-% Son las 5 combinaciones de data/combinaciones.json con la politica de
+% Son las 5 combinaciones de tests/combinaciones_ejemplo.json con la politica de
 % data/politica.pl (CE max 70%, PI max 70%, maximo 2 cursos por area, 4 pares
 % incompatibles, orden balance_carreras, limite_area, incompatibilidad). El
 % resultado esperado se puede calcular a mano. Un curso compartido reparte
@@ -43,7 +44,7 @@ curso_ej(Codigo, Grupo, Creditos, Claves, Area,
          curso(Codigo, Grupo, Creditos, Carreras, Area)) :-
     maplist(carrera, Claves, Carreras).
 
-% ejemplo(?Id, ?Nombre, ?Cursos): coincide con data/combinaciones.json
+% ejemplo(?Id, ?Nombre, ?Cursos): coincide con tests/combinaciones_ejemplo.json
 ejemplo(1, a_cumple, [C1, C2]) :-
     curso_ej('CE1106', 1, 3, [ce], computacion, C1),
     curso_ej('MI2101', 1, 3, [pi], industrial, C2).
@@ -79,6 +80,12 @@ ruta_datos(Archivo, Ruta) :-
     file_directory_name(Fuente, DirTests),
     file_directory_name(DirTests, Raiz),
     atomic_list_concat([Raiz, '/data/', Archivo], Ruta).
+
+% ruta_ejemplo(+Archivo, -Ruta): ruta absoluta de un archivo de tests/
+ruta_ejemplo(Archivo, Ruta) :-
+    module_property(ejemplos, file(Fuente)),
+    file_directory_name(Fuente, DirTests),
+    atomic_list_concat([DirTests, '/', Archivo], Ruta).
 
 % Carga data/politica.pl en user, sin pasar por carga.pl (asi las pruebas
 % de las reglas no dependen de que la carga este lista).

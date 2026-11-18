@@ -25,6 +25,10 @@
       (check-equal? (hash-ref (first sels) 'grupo) 1)
       (check-equal? (hash-ref (first sels) 'carreras) '("Carrera X")))))
 
+(test-case "combinacion->jsexpr: area del curso en cada seleccion"
+  (let ([sels (hash-ref (combinacion->jsexpr combinacion-ab) 'selecciones)])
+    (check-equal? (hash-ref (first sels) 'area) "area-x")))
+
 (test-case "combinacion->jsexpr: creditos del curso en cada seleccion"
   (let ([sels (hash-ref (combinacion->jsexpr combinacion-ab) 'selecciones)])
     (check-equal? (hash-ref (first sels) 'creditos) 3)

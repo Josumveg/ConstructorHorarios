@@ -10,12 +10,11 @@ Prolog** porque el enunciado pide "los parámetros como hechos".
 | `politica.pl` | Entrada. Parámetros de las tres reglas como hechos. | El equipo (a mano) |
 | `resultados.json` | Salida. Contrato con la etapa 4 (Java). | `main.pl` |
 
-> **Estado de `combinaciones.json`:** la copia que hay hoy en el repo es un
-> **ejemplo escrito a mano** con 5 combinaciones (una cumple, cuatro
-> incumplen, ver `tests/ejemplos.pl`). Se reemplaza por la salida real de
-> Racket cuando se termine la extensión de las etapas 1 y 2 (ver
-> [`../distribucion-tareas-etapa3-cemestre.md`](../distribucion-tareas-etapa3-cemestre.md),
-> sección 4).
+> **Estado de `combinaciones.json`:** es la copia de la salida real de la
+> etapa 2 (60 combinaciones, con el catálogo de 8 semestres y `area`). Las
+> pruebas no dependen de este archivo: usan un ejemplo de 5 combinaciones en
+> `tests/combinaciones_ejemplo.json` (una cumple, cuatro incumplen, ver
+> `tests/ejemplos.pl`).
 
 ## `combinaciones.json` (entrada)
 

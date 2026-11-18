@@ -5,7 +5,7 @@ Parte 2 de 4 del proyecto [CEmestre](../README.md). Lee lo que produjo
 
 Integrantes: Jose, Pablo, Javier y Sebastián.
 
-Programa en Racket que toma el catálogo validado por la etapa 1 (6 semestres de
+Programa en Racket que toma el catálogo validado por la etapa 1 (8 semestres de
 Ingeniería en Computadores y de Ingeniería en Producción Industrial) y un
 archivo de preferencias del estudiante. Con ellos **genera con streams** las
 combinaciones de horario válidas (un grupo por cada curso incluido, sin choques
@@ -73,7 +73,7 @@ flowchart TD
 
 | Archivo | Contenido |
 |---|---|
-| `data/catalogo_salida.json` | **Entrada.** Salida de la etapa 1 con 66 cursos de los primeros 6 semestres de las dos carreras (24 solo de Computadores, 27 solo de Producción Industrial y 15 compartidos), con 262 grupos y 366 bloques horarios. De cada curso se usan `codigo`, `creditos`, `carreras`, `grupos` y `matriculable`. El campo `carreras` es la carrera por curso: una sola, o las dos si el curso es compartido. |
+| `data/catalogo_salida.json` | **Entrada.** Salida de la etapa 1 con 85 cursos de los primeros 8 semestres de las dos carreras (32 solo de Computadores, 36 solo de Producción Industrial y 17 compartidos), con 303 grupos y 417 bloques horarios. De cada curso se usan `codigo`, `creditos`, `carreras`, `area`, `grupos` y `matriculable`. El campo `carreras` es la carrera por curso: una sola, o las dos si el curso es compartido. |
 | `data/preferencias.json` | **Entrada.** Lista de cursos de interés, cada uno con **más de un grupo** de interés, y los créditos mínimo y máximo deseados. El ejemplo del repositorio tiene 5 cursos y pide entre 9 y 12 créditos. |
 | `data/combinaciones.json` | **Salida.** Una entrada por combinación, con los pares curso-grupo, los créditos totales y la carrera de cada curso. Es el contrato con la etapa 3 (formato en 2.2.3). |
 
@@ -243,9 +243,9 @@ Con los datos del repositorio, el programa exporta **60 combinaciones**.
 juntos.** El enunciado dice que la etapa de C calcula los choques "a nivel de
 grupo". Nuestro módulo de C los calcula a nivel de **curso**: marca un curso
 con `choca_con_otro = true` si *algún* grupo suyo choca con *algún* grupo de otro
-curso. Con 5 grupos por curso eso casi siempre ocurre: en el catálogo real de 66
-cursos, **los 66 tienen `choca_con_otro = true`**, así que el campo no distingue
-nada.
+curso. Con 5 grupos por curso eso casi siempre ocurre: en el catálogo real de 85
+cursos, **83 tienen `choca_con_otro = true`** (los otros dos son las electivas
+sin horario), así que el campo no distingue nada.
 
 Un ejemplo real con las preferencias del repositorio: `CE1106` grupo 2,
 `QU1107` grupo 1 y `FI2103` grupo 1 se dictan los tres miércoles y viernes de
@@ -320,16 +320,19 @@ líneas; aquí se compactaron para que se lea mejor.)
 pares curso-grupo (`curso` y `grupo` de cada selección), los créditos totales
 (`creditos_totales`) y la carrera de origen de cada curso (`carreras`).
 
-**Campos agregados y su justificación.** Se agregaron dos por selección:
+**Campos agregados y su justificación.** Se agregaron tres por selección:
 
 - `creditos`: los créditos de cada curso. Con solo el total y la carrera, la
   etapa 3 no podría sumar créditos por carrera.
 - `bloques`: los días y horas del grupo, en el mismo formato del catálogo. Le
   permite a la etapa 3 aplicar reglas de horario sin volver a leer el catálogo.
+- `area`: el área del curso. El enunciado de la etapa 3 la pide como campo
+  nuevo obligatorio, que se agrega en C y se propaga por Racket; Prolog la usa
+  para el límite de cursos por área. Esta etapa solo la lee y la escribe, no
+  cambia ninguna lógica.
 
 Los agregamos porque el enunciado dice que Prolog va a leer exactamente lo que
-exportemos en esta etapa, y esta etapa no se vuelve a modificar después de
-entregarla. No se agregó ningún otro campo.
+exportemos en esta etapa. No se agregó ningún otro campo.
 
 ## 2.3 Estructuras de datos desarrolladas
 
@@ -340,7 +343,7 @@ con `contract-out`, de modo que cada campo lleva su contrato.
 |---|---|---|
 | `bloque` | `dia`, `inicio`, `fin` | Una franja horaria. El día es un símbolo (`'L 'K 'M 'J 'V 'S`; `'K` es martes porque `'M` ya es miércoles, igual que en C). Las horas son enteros `HHMM` (730 es 7:30), que se comparan con `<` y `>` sin convertir nada. |
 | `grupo` | `numero`, `bloques` | Un grupo de un curso. Tiene una lista de bloques porque puede reunirse varios días (por ejemplo martes y jueves). |
-| `curso` | `codigo`, `creditos`, `carreras`, `grupos`, `matriculable` | Un curso del catálogo. `carreras` es una lista porque un curso puede ser de las dos carreras. `matriculable` ya viene calculado por la etapa 1. |
+| `curso` | `codigo`, `creditos`, `carreras`, `area`, `grupos`, `matriculable` | Un curso del catálogo. `carreras` es una lista porque un curso puede ser de las dos carreras. `matriculable` ya viene calculado por la etapa 1. |
 | `catalogo` | `cursos` | La lista de cursos leída del JSON. |
 | `interes` | `codigo`, `grupos` | Una línea de las preferencias: un curso y los números de grupo que le interesan. |
 | `preferencias` | `intereses`, `creditos-min`, `creditos-max` | Lo que pide el estudiante: los cursos de interés y el rango de créditos. |
