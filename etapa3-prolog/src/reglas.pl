@@ -58,21 +58,85 @@ viola(limite_area, Cursos) :- viola_area(Cursos).
 viola(incompatibilidad, Cursos) :- viola_incompatibilidad(Cursos).
 
 % Alguna carrera pasa su porcentaje maximo.
-viola_balance(_Cursos) :-
-    pendiente(viola_balance, 'Pablo').
+viola_balance(Cursos) :-
+    creditos_totales(Cursos, Total),
+    max_porcentaje_carrera(Carrera, Maximo),
+    creditos_carrera(Cursos, Carrera, CreditosCarrera),
+    CreditosCarrera * 100 > Maximo * Total.
 
-% Alguna area tiene mas cursos que max_cursos_area.
-viola_area(_Cursos) :-
-    pendiente(viola_area, 'Pablo').
+
+
+% contar_area(+Cursos, +Area, -Cantidad)
+
+contar_area([], _, 0).
+
+contar_area([Cabeza|Resto], Area, Cantidad) :-
+    curso_area(Cabeza, Area),
+    contar_area(Resto, Area, Subtotal),
+    Cantidad is Subtotal + 1.
+
+contar_area([Cabeza|Resto], Area, Cantidad) :-
+    curso_area(Cabeza, AreaCurso),
+    AreaCurso \= Area,
+    contar_area(Resto, Area, Cantidad).
+
+viola_area(Cursos) :-
+    Cursos = [Cabeza|_],
+    curso_area(Cabeza, Area),
+    max_cursos_area(N),
+    contar_area(Cursos, Area, Cantidad),
+    Cantidad > N.
+
+viola_area([_|Resto]) :-
+    viola_area(Resto).
 
 % La combinacion trae los dos cursos de un par incompatible.
-viola_incompatibilidad(_Cursos) :-
-    pendiente(viola_incompatibilidad, 'Pablo').
+viola_incompatibilidad(Cursos) :-
+    Cursos=[Cabeza|Resto],
+    member(OtroCurso, Resto),
+    curso_codigo(Cabeza, Codigo1),
+    curso_codigo(OtroCurso, Codigo2),
+    incompatibles(Codigo1, Codigo2).
+
+viola_incompatibilidad([_|Resto]) :-
+    viola_incompatibilidad(Resto).
 
 % creditos_carrera(+Cursos, ?Carrera, ?Creditos)
-creditos_carrera(_Cursos, _Carrera, _Creditos) :-
-    pendiente(creditos_carrera, 'Pablo').
+creditos_carrera([], _, 0).
+
+creditos_carrera(Cursos, Carrera, Creditos) :-
+    Cursos=[Cabeza|Resto],
+    curso_carreras(Cabeza, Carreras),
+    length(Carreras, CantidadCarreras),
+    curso_creditos(Cabeza, Creditos1),
+    member(Carrera, Carreras),
+    Aporte is Creditos1 rdiv CantidadCarreras,
+    creditos_carrera(Resto, Carrera, Subtotal),
+    Creditos is Subtotal + Aporte.
+
+creditos_carrera(Cursos, Carrera, Creditos) :-
+    Cursos=[Cabeza|Resto],
+    curso_carreras(Cabeza, Carreras),
+    \+ member(Carrera, Carreras),
+    creditos_carrera(Resto, Carrera, Subtotal),
+    Creditos is Subtotal.
+
+creditos_carrera(Cursos, Carrera, Creditos) :-
+    var(Carrera),
+    member(Curso, Cursos),
+    curso_carreras(Curso, Carreras),
+    member(Carrera, Carreras),
+    creditos_carrera(Cursos, Carrera, Creditos).
+    
 
 % incompatibles(?A, ?B)
-incompatibles(_A, _B) :-
-    pendiente(incompatibles, 'Pablo').
+incompatibles(A, B) :-
+    par_incompatible(X,Y),
+    X=A, 
+    Y=B.
+incompatibles(A, B) :-
+    par_incompatible(X,Y),
+    X=B, 
+    Y=A. 
+
+    
