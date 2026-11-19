@@ -187,14 +187,106 @@ la política.** `primera_violacion/3` recibe el orden como argumento y se queda
 con la primera regla violada usando **corte**; `cumple/1` es **negación por
 falla** de `primera_violacion`. Ver 2.2.1 para el caso donde el orden cambia la
 razón.
-TODO (Javier): justificar el corte y la negación por falla con el
-comportamiento que habría sin ellos.
+
+```prolog
+primera_violacion([R0|_], Cursos, Regla) :-
+    viola(R0, Cursos),
+    !,
+    Regla = R0.
+primera_violacion([_|Resto], Cursos, Regla) :-
+    primera_violacion(Resto, Cursos, Regla).
+
+cumple(Cursos) :-
+    \+ primera_violacion(Cursos, _).
+```
+
+*Por qué el corte.* El enunciado pide **una** razón por combinación: la
+primera regla violada. Sin el corte, al pedir más soluciones por backtracking
+`primera_violacion` seguiría con la segunda cláusula y devolvería también las
+reglas siguientes que se violan. Con `e_orden`, que viola el balance y el área,
+daría `R = balance_carreras ; R = limite_area`: la "primera" violación tendría
+dos respuestas y cuál se exporta dependería de quién la consume. Además,
+`viola/2` puede tener éxito varias veces para la misma regla (por ejemplo,
+`viola_area` recorre la lista y tiene éxito una vez por cada posición donde un
+área pasa el límite), así que sin el corte la misma razón también podría
+repetirse. El corte, puesto justo después de `viola(R0, Cursos)`, descarta
+las dos cosas: las reglas siguientes y las demás formas de demostrar la misma
+regla. El predicado queda determinista.
+
+*Por qué la salida se unifica después del corte.* Si la cabeza fuera
+`primera_violacion([R|_], Cursos, R)`, una consulta con la regla ya dada se
+saltaría las reglas anteriores cuando no unifican con la cabeza. Con `e_orden`
+y el orden de la política:
+
+```prolog
+?- primera_violacion([balance_carreras, limite_area, incompatibilidad], Cursos, limite_area).
+false.   % con la salida después del corte (correcto: la primera es balance_carreras)
+true.    % si se unificara en la cabeza (incorrecto)
+```
+
+Por eso primero se toma la regla de la lista (`R0`), se corta y solo después
+se compara con `Regla`. `evaluar/2` sigue el mismo patrón: con una regla
+violada corta y devuelve `viola(Regla)`; sin el corte, al hacer backtracking
+caería en su segunda cláusula y la misma combinación saldría también como
+`cumple`.
+
+*Por qué negación por falla.* Prolog no demuestra directamente que algo *no*
+pasa; `\+ Meta` tiene éxito cuando `Meta` no se puede demostrar. Una
+combinación cumple justamente cuando no se puede demostrar ninguna violación,
+así que `cumple/1` es `\+ primera_violacion(Cursos, _)` y las reglas se
+escriben una sola vez, en positivo (`viola/2`). La alternativa sería escribir
+cada regla otra vez al revés (`cumple_balance`, `cumple_area`,
+`cumple_incompatibilidad`): la lógica quedaría en dos lugares, que pueden
+contradecirse si en la defensa se cambia una regla y no la otra. Es seguro
+porque `cumple/1` siempre se llama con `Cursos` ya conocido y solo verifica: no
+necesita dejar ninguna variable ligada, y la `_` de la razón queda dentro de la
+negación.
 
 **Decisión 7 — Curso a quitar (grupos de 4).** `cursos_a_quitar/2` devuelve
 **todos** los cursos que, quitados de uno en uno, dejan la combinación
 cumpliendo todas las reglas. Reutiliza `cumple/1`: no hay lógica de reglas
 duplicada. Una combinación que quedaría vacía no cuenta. Si ningún curso solo
 la arregla, la lista es vacía.
+
+```prolog
+cursos_a_quitar(Cursos, Codigos) :-
+    cumple(Cursos),
+    !,
+    Codigos = [].
+cursos_a_quitar(Cursos, Codigos) :-
+    findall(Codigo,
+            ( select(Curso, Cursos, Resto),
+              Resto \== [],
+              cumple(Resto),
+              curso_codigo(Curso, Codigo) ),
+            Codigos).
+```
+
+- **Se devuelven todos, no uno.** El enunciado pide "qué curso podría
+  quitarse"; cuando hay varias opciones válidas, dárselas todas a Java le
+  permite mostrarlas sin que esta etapa elija por el estudiante.
+- **Primera cláusula.** Si la combinación ya cumple no hay nada que sugerir.
+  Sin esta cláusula, una combinación válida devolvería los cursos cuya salida
+  la deja cumpliendo igual, y eso no es una sugerencia. Igual que en
+  `razon.pl`, el corte evita la segunda cláusula y `Codigos` se unifica
+  después del corte.
+- **Segunda cláusula.** `select/3` saca un curso a la vez por backtracking, en
+  el orden de la combinación, y deja los demás en `Resto`; `cumple/1` valida lo
+  que queda y `findall/3` junta los códigos que sirven (da `[]` si ninguno
+  sirve). Los códigos salen en el mismo orden que los cursos de la combinación.
+- **Combinación vacía.** Quitar el único curso deja una lista vacía, que no es
+  un horario: `Resto \== []` la descarta.
+
+Resultados con los ejemplos de `tests/ejemplos.pl` y la política de
+`data/politica.pl`:
+
+| Combinación | Razón | `cursos_a_quitar` | Por qué |
+|---|---|---|---|
+| `a_cumple` | — | `[]` | Ya cumple (primera cláusula). |
+| `b_balance` | `balance_carreras` | `[]` | Los tres cursos son solo de Producción Industrial: quitando cualquiera sigue al 100 %. |
+| `c_area` | `limite_area` | `['FI1201']` | Sin `FI1201` quedan 2 cursos de `fisica_quimica` y Computadores en 66,7 %. Sin `QU1106` o sin `FI1101` Computadores sube a 71,4 %, y sin `CE1106` siguen 3 de `fisica_quimica`. |
+| `d_incompatibilidad` | `incompatibilidad` | `['CI1407', 'CI1106']` | Quitando cualquiera de los dos se rompe el par y cada carrera queda en 66,7 % / 33,3 %; quitando `MA1102` el par sigue. |
+| `e_orden` | `balance_carreras` | `[]` | Quitando cualquiera sigue siendo solo de Producción Industrial. |
 
 **Decisión 8 — Los pares curso-grupo salen de las selecciones de Racket.**
 Esta etapa no genera ni modifica combinaciones: evalúa exactamente las que
