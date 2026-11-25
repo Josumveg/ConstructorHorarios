@@ -24,13 +24,25 @@
 
 (test-case "jsexpr->curso: lee las carreras (una o ambas)"
   (let ([una (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
-                                    'carreras '("Carrera X")
+                                    'carreras '("Carrera X") 'area "area-x"
                                     'grupos '() 'matriculable #t))]
         [ambas (jsexpr->curso (hasheq 'codigo "A2" 'nombre "Curso" 'creditos 3
-                                      'carreras '("Carrera X" "Carrera Y")
+                                      'carreras '("Carrera X" "Carrera Y") 'area "area-x"
                                       'grupos '() 'matriculable #t))])
     (check-equal? (curso-carreras una) '("Carrera X"))
     (check-equal? (curso-carreras ambas) '("Carrera X" "Carrera Y"))))
+
+(test-case "jsexpr->curso: lee el area"
+  (check-equal? (curso-area (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
+                                                   'carreras '("Carrera X") 'area "matematica"
+                                                   'grupos '() 'matriculable #t)))
+                "matematica"))
+
+(test-case "jsexpr->curso: falta el area"
+  (check-exn exn:fail?
+             (lambda () (jsexpr->curso (hasheq 'codigo "A1" 'nombre "Curso" 'creditos 3
+                                               'carreras '("Carrera X")
+                                               'grupos '() 'matriculable #t)))))
 
 (test-case "jsexpr->curso: falta un campo obligatorio"
   (check-exn exn:fail? (lambda () (jsexpr->curso (hasheq 'nombre "Sin codigo" 'creditos 3)))))

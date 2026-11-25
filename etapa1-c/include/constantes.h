@@ -9,6 +9,7 @@
 #define MAX_LONG_CODIGO          16   /* ej. "CE1101" + margen */
 #define MAX_LONG_NOMBRE          80   /* nombre completo del curso */
 #define MAX_LONG_NOMBRE_CARRERA  60   /* ej. "Ingenieria en Produccion Industrial" */
+#define MAX_LONG_AREA            24   /* ej. "fisica_quimica" */
 
 /* ---- Tamanos de colecciones dentro de un Curso ---- */
 #define MAX_BLOQUES       5    /* bloques de horario por grupo (teoria, lab, etc.) */
@@ -17,7 +18,7 @@
 #define MAX_CARRERAS      2    /* carreras a las que puede pertenecer un curso (el catalogo cubre 2) */
 
 /* ---- Tamano del catalogo e historial ---- */
-#define MAX_CURSOS        150  /* cursos totales en el catalogo (2 carreras x 4 semestres) */
+#define MAX_CURSOS        150  /* cursos totales en el catalogo (2 carreras x 8 semestres) */
 
 /* ---- Lectura de archivos ---- */
 /* Los 3 archivos (catalogo, historial, salida) son JSON: se leen completos

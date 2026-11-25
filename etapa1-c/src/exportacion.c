@@ -20,6 +20,7 @@ static int catalogo_valido(const Catalogo *catalogo) {
         const Curso *c = &catalogo->cursos[i];
         if (!memchr(c->codigo, '\0', sizeof(c->codigo)) ||
             !memchr(c->nombre, '\0', sizeof(c->nombre)) ||
+            !memchr(c->area, '\0', sizeof(c->area)) ||
             !cantidad_valida(c->cantidad_carreras, MAX_CARRERAS) ||
             !cantidad_valida(c->cantidad_grupos, MAX_GRUPOS) ||
             !cantidad_valida(c->cantidad_requisitos, MAX_REQ) ||
@@ -52,6 +53,7 @@ static int serializar_curso(cJSON *objeto, const Curso *curso) {
     if (!cJSON_AddStringToObject(objeto, "codigo", curso->codigo) ||
         !cJSON_AddStringToObject(objeto, "nombre", curso->nombre) ||
         !cJSON_AddNumberToObject(objeto, "creditos", curso->creditos) ||
+        !cJSON_AddStringToObject(objeto, "area", curso->area) ||
         !cJSON_AddBoolToObject(objeto, "choca_con_otro", curso->choca_con_otro != 0) ||
         !cJSON_AddBoolToObject(objeto, "matriculable", curso->matriculable != 0)) return 0;
     carreras = cJSON_AddArrayToObject(objeto, "carreras");

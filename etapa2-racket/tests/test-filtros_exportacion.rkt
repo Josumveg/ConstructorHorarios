@@ -112,6 +112,7 @@
     (check-equal? (hash-ref primera 'grupo) 1)
     (check-equal? (hash-ref primera 'carreras)
                   '("Carrera X"))
+    (check-equal? (hash-ref primera 'area) "area-x")
     (check-equal? (hash-ref primera 'creditos) 3)
     (check-equal?
      (hash-ref primera 'bloques)

@@ -87,7 +87,7 @@ El área se asigna **por disciplina del contenido del curso**, con un conjunto f
 | `industrial` | Prefijos `PI`, `MI`, `SO` | `MI2101` Dibujo Técnico, `PI3501` Costos Industriales I, `PI3603` Inv. de Operaciones I, `SO4604` Seguridad y Salud Ocupacional |
 | `humanidades` | Prefijos `CI`, `CS`, `SE`, `FH` | `CI1106` Comunicación Escrita, `CS3404` Seminario de Ética, `SE1100` Actividad Cultural I, `FH1000` Formación Humanística |
 
-Excepciones al prefijo (las que ya aparecen en el catálogo de 6 semestres): `PI2609`, `PI2610` y `PI3612` (Probabilidad y Estadística) son `matematica` y no `industrial`; `PI3407` y `PI3403` (computación e información) son `computacion`; `CE2201`, `CE3201`, `CE1109` y `CE1110` (circuitos, diseño digital, señales) son `electronica` y no `computacion`.
+Excepciones al prefijo (las que ya aparecen en el catálogo de 6 semestres): `PI2609`, `PI2610` y `PI3612` (Probabilidad y Estadística) son `matematica` y no `industrial`; `PI3407` y `PI3403` (computación e información) son `computacion`; `CE2201`, `CE3201`, `CE1109`, `CE1110` y `CE1112` (circuitos, diseño digital, señales) son `electronica` y no `computacion`; `CE1111` (Análisis Numérico) es `matematica`, igual que `CM3207`; `AE4208` (Desarrollo de Emprendedores, prefijo `AE`) es `industrial` por ser gestión.
 
 Jose asigna el área de **los 66 cursos actuales** y de los nuevos, y deja la tabla final (con los ejemplos reales que use) para el README, sección 2.2.1.
 

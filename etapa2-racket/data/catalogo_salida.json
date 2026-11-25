@@ -3,6 +3,7 @@
 			"codigo":	"CE1101",
 			"nombre":	"Introducción a la Programación",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -68,6 +69,7 @@
 			"codigo":	"CE1104",
 			"nombre":	"Fundamentos de Sistemas Computacionales",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -133,6 +135,7 @@
 			"codigo":	"MA1102",
 			"nombre":	"Cálculo Diferencial e Integral",
 			"creditos":	4,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -198,6 +201,7 @@
 			"codigo":	"MA1403",
 			"nombre":	"Matemática Discreta",
 			"creditos":	4,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -263,6 +267,7 @@
 			"codigo":	"QU1102",
 			"nombre":	"Laboratorio de Química Básica I",
 			"creditos":	1,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -308,6 +313,7 @@
 			"codigo":	"QU1106",
 			"nombre":	"Química Básica I",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -373,6 +379,7 @@
 			"codigo":	"SE1100",
 			"nombre":	"Actividad Cultural I",
 			"creditos":	0,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -418,6 +425,7 @@
 			"codigo":	"SE1200",
 			"nombre":	"Actividad Deportiva I",
 			"creditos":	0,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -463,6 +471,7 @@
 			"codigo":	"CE1103",
 			"nombre":	"Algoritmos y Estructuras de Datos I",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -517,6 +526,7 @@
 			"codigo":	"CE1105",
 			"nombre":	"Principios de Modelado en Ingeniería",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -560,6 +570,7 @@
 			"codigo":	"CI1407",
 			"nombre":	"Habilidades de Comunicación en Ingeniería",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -598,6 +609,7 @@
 			"codigo":	"CS1502",
 			"nombre":	"Introducción a la Técnica Ciencia y Tecnología",
 			"creditos":	1,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -643,6 +655,7 @@
 			"codigo":	"FI1101",
 			"nombre":	"Física General I",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -708,6 +721,7 @@
 			"codigo":	"FI1201",
 			"nombre":	"Laboratorio Física General I",
 			"creditos":	1,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -753,6 +767,7 @@
 			"codigo":	"MA1103",
 			"nombre":	"Cálculo y Álgebra Lineal",
 			"creditos":	4,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -818,6 +833,7 @@
 			"codigo":	"SE1400",
 			"nombre":	"Actividad Cultural-Deportiva",
 			"creditos":	0,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -863,6 +879,7 @@
 			"codigo":	"CE2103",
 			"nombre":	"Algoritmos y Estructuras de Datos II",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -906,6 +923,7 @@
 			"codigo":	"CS2101",
 			"nombre":	"Ambiente Humano",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -951,6 +969,7 @@
 			"codigo":	"EL2113",
 			"nombre":	"Circuitos Eléctricos en Corriente Continua",
 			"creditos":	4,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1001,6 +1020,7 @@
 			"codigo":	"FH1000",
 			"nombre":	"Centros de Formación Humanística",
 			"creditos":	0,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -1046,6 +1066,7 @@
 			"codigo":	"FI1102",
 			"nombre":	"Física General II",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -1111,6 +1132,7 @@
 			"codigo":	"FI1202",
 			"nombre":	"Laboratorio Física General II",
 			"creditos":	1,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1156,6 +1178,7 @@
 			"codigo":	"MA2104",
 			"nombre":	"Cálculo Superior",
 			"creditos":	4,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -1217,6 +1240,7 @@
 			"codigo":	"CE1106",
 			"nombre":	"Paradigmas de Programación",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1271,6 +1295,7 @@
 			"codigo":	"CE2201",
 			"nombre":	"Laboratorio de Circuitos Eléctricos",
 			"creditos":	1,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1309,6 +1334,7 @@
 			"codigo":	"EL2114",
 			"nombre":	"Circuitos Eléctricos en Corriente Alterna",
 			"creditos":	4,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1363,6 +1389,7 @@
 			"codigo":	"EL2207",
 			"nombre":	"Elementos Activos",
 			"creditos":	4,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1417,6 +1444,7 @@
 			"codigo":	"PI2609",
 			"nombre":	"Probabilidad y Estadística",
 			"creditos":	2,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1448,9 +1476,10 @@
 			"codigo":	"SO4604",
 			"nombre":	"Seguridad y Salud Ocupacional",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
-			"carreras":	["Ingeniería en Computadores"],
+			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
 			"requisitos":	[],
 			"correquisitos":	["FI1102"],
 			"grupos":	[{
@@ -1493,6 +1522,7 @@
 			"codigo":	"CE1107",
 			"nombre":	"Fundamentos de Arquitectura de Computadores",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1514,6 +1544,7 @@
 			"codigo":	"CE3101",
 			"nombre":	"Bases de Datos",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1546,6 +1577,7 @@
 			"codigo":	"CE3201",
 			"nombre":	"Taller de Diseño Digital",
 			"creditos":	2,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1600,6 +1632,7 @@
 			"codigo":	"MA2105",
 			"nombre":	"Ecuaciones Diferenciales",
 			"creditos":	4,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
@@ -1661,6 +1694,7 @@
 			"codigo":	"PI5516",
 			"nombre":	"Ingeniería Económica",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1685,6 +1719,7 @@
 			"codigo":	"CE1108",
 			"nombre":	"Compiladores e Intérpretes",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1706,6 +1741,7 @@
 			"codigo":	"CE1109",
 			"nombre":	"Circuitos Analógicos",
 			"creditos":	4,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1727,6 +1763,7 @@
 			"codigo":	"CE1110",
 			"nombre":	"Análisis de Señales Mixtas",
 			"creditos":	4,
+			"area":	"electronica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1748,6 +1785,7 @@
 			"codigo":	"CE4301",
 			"nombre":	"Arquitectura de Computadores I",
 			"creditos":	4,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1769,6 +1807,7 @@
 			"codigo":	"CI3203",
 			"nombre":	"Inglés Especializado para Ingenierías en Computadores",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Computadores"],
@@ -1786,6 +1825,7 @@
 			"codigo":	"CI1106",
 			"nombre":	"Comunicación Escrita",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -1831,6 +1871,7 @@
 			"codigo":	"CI1230",
 			"nombre":	"Inglés I",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -1876,6 +1917,7 @@
 			"codigo":	"MA0101",
 			"nombre":	"Matemática General",
 			"creditos":	2,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -1941,6 +1983,7 @@
 			"codigo":	"MI2101",
 			"nombre":	"Dibujo Técnico",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -1986,6 +2029,7 @@
 			"codigo":	"CI1107",
 			"nombre":	"Comunicación Oral",
 			"creditos":	1,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2031,6 +2075,7 @@
 			"codigo":	"CI1231",
 			"nombre":	"Inglés II",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2076,6 +2121,7 @@
 			"codigo":	"PI3501",
 			"nombre":	"Costos Industriales I",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2114,6 +2160,7 @@
 			"codigo":	"QU1104",
 			"nombre":	"Laboratorio de Química Básica II",
 			"creditos":	1,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2159,6 +2206,7 @@
 			"codigo":	"QU1107",
 			"nombre":	"Química Básica II",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2224,6 +2272,7 @@
 			"codigo":	"CA2125",
 			"nombre":	"Elementos de Computación",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2289,6 +2338,7 @@
 			"codigo":	"PI3502",
 			"nombre":	"Costos Industriales II",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2320,6 +2370,7 @@
 			"codigo":	"CS2303",
 			"nombre":	"Relaciones Laborales",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2365,6 +2416,7 @@
 			"codigo":	"FI2103",
 			"nombre":	"Física General III",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2430,6 +2482,7 @@
 			"codigo":	"MI2109",
 			"nombre":	"Estática",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	true,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2475,6 +2528,7 @@
 			"codigo":	"PI2304",
 			"nombre":	"Estudio del Trabajo I",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2506,6 +2560,7 @@
 			"codigo":	"PI2610",
 			"nombre":	"Probabilidad y Estadística I",
 			"creditos":	3,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2544,9 +2599,10 @@
 			"codigo":	"CS3404",
 			"nombre":	"Seminario de Ética para la Ingeniería",
 			"creditos":	2,
+			"area":	"humanidades",
 			"choca_con_otro":	true,
 			"matriculable":	false,
-			"carreras":	["Ingeniería en Producción Industrial"],
+			"carreras":	["Ingeniería en Computadores", "Ingeniería en Producción Industrial"],
 			"requisitos":	["CS2101"],
 			"correquisitos":	[],
 			"grupos":	[{
@@ -2589,6 +2645,7 @@
 			"codigo":	"MI3138",
 			"nombre":	"Máquinas y Equipos",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2613,6 +2670,7 @@
 			"codigo":	"PI3308",
 			"nombre":	"Estudio del Trabajo II",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2644,6 +2702,7 @@
 			"codigo":	"PI3407",
 			"nombre":	"Computación Industrial",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2682,6 +2741,7 @@
 			"codigo":	"PI3612",
 			"nombre":	"Probabilidad y Estadística II",
 			"creditos":	3,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2713,6 +2773,7 @@
 			"codigo":	"CM3207",
 			"nombre":	"Métodos Numéricos para Ingeniería",
 			"creditos":	3,
+			"area":	"matematica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2758,6 +2819,7 @@
 			"codigo":	"ME2208",
 			"nombre":	"Ciencias de los Materiales",
 			"creditos":	3,
+			"area":	"fisica_quimica",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2796,6 +2858,7 @@
 			"codigo":	"PI3206",
 			"nombre":	"Logística y Administración de la Cadena de Abastecimiento",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2827,6 +2890,7 @@
 			"codigo":	"PI3403",
 			"nombre":	"Sistema de Información",
 			"creditos":	3,
+			"area":	"computacion",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2858,6 +2922,7 @@
 			"codigo":	"PI3512",
 			"nombre":	"Dirección de Personal",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2882,6 +2947,7 @@
 			"codigo":	"PI3603",
 			"nombre":	"Investigación de Operaciones I",
 			"creditos":	3,
+			"area":	"industrial",
 			"choca_con_otro":	true,
 			"matriculable":	false,
 			"carreras":	["Ingeniería en Producción Industrial"],
@@ -2907,6 +2973,542 @@
 							"dia":	"L",
 							"hora_inicio":	730,
 							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"CE1111",
+			"nombre":	"Análisis Numérico para la Ingeniería",
+			"creditos":	3,
+			"area":	"matematica",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["MA2105"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	930,
+							"hora_fin":	1120
+						}, {
+							"dia":	"J",
+							"hora_inicio":	930,
+							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"CE1112",
+			"nombre":	"Taller de Señales Mixtas",
+			"creditos":	3,
+			"area":	"electronica",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE1109", "CE1110"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}, {
+							"dia":	"V",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}]
+				}]
+		}, {
+			"codigo":	"CE1116",
+			"nombre":	"Diseño y Calidad en Productos Tecnológicos",
+			"creditos":	4,
+			"area":	"computacion",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE3101", "CE4301", "PI5516"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1900,
+							"hora_fin":	2050
+						}, {
+							"dia":	"J",
+							"hora_inicio":	1900,
+							"hora_fin":	2050
+						}]
+				}]
+		}, {
+			"codigo":	"CE4302",
+			"nombre":	"Arquitectura de Computadores II",
+			"creditos":	4,
+			"area":	"computacion",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE4301"],
+			"correquisitos":	["CE4303"],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1300,
+							"hora_fin":	1450
+						}, {
+							"dia":	"J",
+							"hora_inicio":	1300,
+							"hora_fin":	1450
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1300,
+							"hora_fin":	1450
+						}, {
+							"dia":	"V",
+							"hora_inicio":	1300,
+							"hora_fin":	1450
+						}]
+				}]
+		}, {
+			"codigo":	"CE4303",
+			"nombre":	"Principios de Sistemas Operativos",
+			"creditos":	4,
+			"area":	"computacion",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE1108"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}, {
+							"dia":	"J",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}]
+				}]
+		}, {
+			"codigo":	"AE4208",
+			"nombre":	"Desarrollo de Emprendedores",
+			"creditos":	4,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CS2101"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	4,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	5,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}]
+		}, {
+			"codigo":	"CE1113",
+			"nombre":	"Sistemas Empotrados",
+			"creditos":	3,
+			"area":	"computacion",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE4303"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}, {
+							"dia":	"J",
+							"hora_inicio":	1500,
+							"hora_fin":	1650
+						}]
+				}]
+		}, {
+			"codigo":	"CE5301",
+			"nombre":	"Redes de Computadores",
+			"creditos":	4,
+			"area":	"computacion",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE1116", "CE4303"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1700,
+							"hora_fin":	1850
+						}, {
+							"dia":	"J",
+							"hora_inicio":	1700,
+							"hora_fin":	1850
+						}]
+				}]
+		}, {
+			"codigo":	"CE5701",
+			"nombre":	"Electiva I",
+			"creditos":	3,
+			"area":	"computacion",
+			"choca_con_otro":	false,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Computadores"],
+			"requisitos":	["CE4302", "CI3203"],
+			"correquisitos":	[],
+			"grupos":	[]
+		}, {
+			"codigo":	"PI4303",
+			"nombre":	"Control de Producción",
+			"creditos":	4,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3206", "PI3603"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1300,
+							"hora_fin":	1650
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"PI4306",
+			"nombre":	"Metrología y Normalización",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3308"],
+			"correquisitos":	["PI4307"],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"PI4307",
+			"nombre":	"Control de Calidad",
+			"creditos":	4,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3612"],
+			"correquisitos":	["PI4306"],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1300,
+							"hora_fin":	1650
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1300,
+							"hora_fin":	1650
+						}]
+				}, {
+					"numero_grupo":	4,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}]
+		}, {
+			"codigo":	"PI4309",
+			"nombre":	"Planeación y Diseño de Instalaciones",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3308"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"V",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"PI4505",
+			"nombre":	"Análisis Económico",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3308", "PI3502"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1300,
+							"hora_fin":	1650
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}]
+		}, {
+			"codigo":	"CS4402",
+			"nombre":	"Seminario de Estudios Costarricenses",
+			"creditos":	2,
+			"area":	"humanidades",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["CS3404"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1500,
+							"hora_fin":	1750
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1500,
+							"hora_fin":	1750
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1800,
+							"hora_fin":	2050
+						}]
+				}, {
+					"numero_grupo":	4,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1300,
+							"hora_fin":	1550
+						}]
+				}, {
+					"numero_grupo":	5,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1500,
+							"hora_fin":	1750
+						}]
+				}]
+		}, {
+			"codigo":	"PI4308",
+			"nombre":	"Electiva I",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	false,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI4303", "PI4307"],
+			"correquisitos":	[],
+			"grupos":	[]
+		}, {
+			"codigo":	"PI4802",
+			"nombre":	"Administración de Proyectos",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI4303"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"K",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}]
+		}, {
+			"codigo":	"PI4803",
+			"nombre":	"Gestión de la Innovación",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI3512"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}, {
+							"dia":	"K",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}, {
+							"dia":	"M",
+							"hora_inicio":	730,
+							"hora_fin":	1020
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
+						}]
+				}]
+		}, {
+			"codigo":	"PI5707",
+			"nombre":	"Ingeniería de la Confiabilidad",
+			"creditos":	3,
+			"area":	"industrial",
+			"choca_con_otro":	true,
+			"matriculable":	false,
+			"carreras":	["Ingeniería en Producción Industrial"],
+			"requisitos":	["PI4307"],
+			"correquisitos":	[],
+			"grupos":	[{
+					"numero_grupo":	1,
+					"bloques":	[{
+							"dia":	"L",
+							"hora_inicio":	730,
+							"hora_fin":	1120
+						}]
+				}, {
+					"numero_grupo":	2,
+					"bloques":	[{
+							"dia":	"J",
+							"hora_inicio":	1300,
+							"hora_fin":	1650
+						}]
+				}, {
+					"numero_grupo":	3,
+					"bloques":	[{
+							"dia":	"M",
+							"hora_inicio":	1700,
+							"hora_fin":	2050
 						}]
 				}]
 		}],

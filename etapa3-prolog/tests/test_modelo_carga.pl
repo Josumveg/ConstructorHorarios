@@ -35,18 +35,18 @@ test(cargar_politica) :-
     orden_reglas([balance_carreras|_]).
 
 test(cargar_combinaciones_ids) :-
-    ruta_datos('combinaciones.json', Ruta),
+    ruta_ejemplo('combinaciones_ejemplo.json', Ruta),
     cargar_combinaciones(Ruta),
     findall(Id, combinacion(Id, _), Ids),
     Ids == [1, 2, 3, 4, 5].
 
 test(combinaciones_coinciden_con_ejemplos) :-
-    ruta_datos('combinaciones.json', Ruta),
+    ruta_ejemplo('combinaciones_ejemplo.json', Ruta),
     cargar_combinaciones(Ruta),
     forall(ejemplo(Id, _, Cursos), combinacion(Id, Cursos)).
 
 test(cargar_dos_veces_no_duplica) :-
-    ruta_datos('combinaciones.json', Ruta),
+    ruta_ejemplo('combinaciones_ejemplo.json', Ruta),
     cargar_combinaciones(Ruta),
     cargar_combinaciones(Ruta),
     findall(Id, combinacion(Id, _), Ids),

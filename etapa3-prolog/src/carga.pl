@@ -5,47 +5,69 @@
 
 % Modulo: Carga de la politica y de las combinaciones
 % Responsable: Jose
-% Rubro: Modelado de datos (hechos, terminos compuestos, listas) y carga (10)
 %
-% Lee los dos archivos de entrada y los deja como hechos:
-%   - la politica (data/politica.pl) es un archivo de hechos, asi que
-%     basta consultarlo en el modulo user;
-%   - las combinaciones (JSON de Racket, esquema en data/data_doc.md) se
-%     leen con library(http/json) y se guardan como hechos
-%     modelo:combinacion/2.
-%
-% Es el unico modulo que ve JSON crudo: el resto solo ve los terminos de
-% modelo.pl. Del JSON solo se usan, por seleccion, curso, grupo, creditos,
-% carreras y area; el resto (bloques, creditos_totales) se ignora.
-%
-% TODO (Jose):
-%   - cargar_politica: consult(user:Ruta). Error claro si no existe.
-%   - cargar_combinaciones: abrir el archivo con encoding(utf8), leer con
-%     json_read_dict, borrar las combinaciones previas (retractall) y
-%     guardar una combinacion(Id, Cursos) por elemento del arreglo
-%     "combinaciones", con Id = posicion (desde 1). El assertz es el unico
-%     permitido, porque es carga de datos de entrada.
-%   - json_a_curso: dict de una seleccion -> curso/5. Los strings del JSON
-%     pasan a atomos (atom_string/2), tambien cada carrera.
-%   - json_a_combinacion: dict + Id -> combinacion/2.
-%   - Errores claros: archivo inexistente, JSON mal formado, falta un campo
-%     obligatorio (sobre todo area).
+% La politica es un archivo de hechos y se consulta tal cual. Las
+% combinaciones vienen en el JSON de Racket y quedan como hechos
+% modelo:combinacion/2. Este es el unico modulo que usa assertz, porque
+% solo carga datos de entrada.
 
 :- use_module(library(http/json)).
 :- use_module(modelo).
 
 % cargar_politica(+Ruta)
-cargar_politica(_Ruta) :-
-    pendiente(cargar_politica, 'Jose').
+cargar_politica(Ruta) :-
+    exists_file(Ruta),
+    !,
+    consult(user:Ruta).
+cargar_politica(Ruta) :-
+    throw(error(existence_error(source_sink, Ruta), _)).
 
 % cargar_combinaciones(+Ruta)
-cargar_combinaciones(_Ruta) :-
-    pendiente(cargar_combinaciones, 'Jose').
+% Convierte todo el archivo antes de guardar, para no dejar la carga a medias
+% si una combinacion viene mal.
+cargar_combinaciones(Ruta) :-
+    leer_json(Ruta, Json),
+    campo(Json, combinaciones, Diccionarios),
+    json_a_combinaciones(Diccionarios, 1, Combinaciones),
+    retractall(modelo:combinacion(_, _)),
+    guardar_combinaciones(Combinaciones).
 
-% json_a_curso(+Dict, -Curso)
-json_a_curso(_Dict, _Curso) :-
-    pendiente(json_a_curso, 'Jose').
+leer_json(Ruta, Json) :-
+    setup_call_cleanup(
+        open(Ruta, read, Flujo, [encoding(utf8)]),
+        json_read_dict(Flujo, Json),
+        close(Flujo)).
 
-% json_a_combinacion(+Dict, +Id, -Combinacion)
-json_a_combinacion(_Dict, _Id, _Combinacion) :-
-    pendiente(json_a_combinacion, 'Jose').
+json_a_combinaciones([], _, []).
+json_a_combinaciones([Diccionario|Resto], Id, [Combinacion|Combinaciones]) :-
+    json_a_combinacion(Diccionario, Id, Combinacion),
+    SiguienteId is Id + 1,
+    json_a_combinaciones(Resto, SiguienteId, Combinaciones).
+
+guardar_combinaciones([]).
+guardar_combinaciones([Combinacion|Resto]) :-
+    assertz(modelo:Combinacion),
+    guardar_combinaciones(Resto).
+
+% json_a_combinacion(+Diccionario, +Id, -Combinacion)
+json_a_combinacion(Diccionario, Id, combinacion(Id, Cursos)) :-
+    campo(Diccionario, selecciones, Selecciones),
+    maplist(json_a_curso, Selecciones, Cursos).
+
+% json_a_curso(+Diccionario, -Curso)
+json_a_curso(Diccionario, curso(Codigo, Grupo, Creditos, Carreras, Area)) :-
+    campo(Diccionario, curso, TextoCodigo),
+    campo(Diccionario, grupo, Grupo),
+    campo(Diccionario, creditos, Creditos),
+    campo(Diccionario, carreras, TextoCarreras),
+    campo(Diccionario, area, TextoArea),
+    atom_string(Codigo, TextoCodigo),
+    maplist(atom_string, Carreras, TextoCarreras),
+    atom_string(Area, TextoArea).
+
+% Campo obligatorio: si falta, el error dice cual es.
+campo(Diccionario, Clave, Valor) :-
+    (   get_dict(Clave, Diccionario, Encontrado)
+    ->  Valor = Encontrado
+    ;   throw(error(existence_error(campo, Clave), _))
+    ).
