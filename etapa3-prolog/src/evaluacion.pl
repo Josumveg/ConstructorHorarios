@@ -29,9 +29,24 @@
 :- use_module(sugerencia).
 
 % evaluar_combinacion(+Combinacion, -Resultado)
-evaluar_combinacion(_Combinacion, _Resultado) :-
-    pendiente(evaluar_combinacion, 'Sebastian').
 
-% evaluar_todas(-Resultados)
-evaluar_todas(_Resultados) :-
-    pendiente(evaluar_todas, 'Sebastian').
+% Evalua una combinacion y conserva sus cursos originales.
+evaluar_combinacion(combinacion(Id, Cursos),
+                    resultado(Id, Cursos, Cumple, Razon, CursosAQuitar)) :-
+    evaluar(Cursos, Veredicto),
+    (   Veredicto = cumple
+    ->  Cumple = true,
+        Razon = ninguna,
+        CursosAQuitar = []
+    ;   Veredicto = viola(Razon),
+        Cumple = false,
+        cursos_a_quitar(Cursos, CursosAQuitar)
+    ).
+
+% Recorre por backtracking las combinaciones cargadas.
+evaluar_todas(Resultados) :-
+    findall(Resultado,
+            ( combinacion(Id, Cursos),
+              evaluar_combinacion(combinacion(Id, Cursos), Resultado)
+            ),
+            Resultados).

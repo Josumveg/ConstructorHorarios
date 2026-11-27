@@ -38,11 +38,43 @@
 
 :- use_module(library(http/json)).
 :- use_module(modelo).
+:- use_module(library(apply)).
 
-% resultado_a_dict(+Resultado, -Dict)
-resultado_a_dict(_Resultado, _Dict) :-
-    pendiente(resultado_a_dict, 'Sebastian').
+% Convierte el resultado al formato acordado con Java.
+resultado_a_dict(resultado(Id, Cursos, Cumple, Razon, CursosAQuitar),
+                 Dict) :-
+    maplist(curso_a_dict, Cursos, Selecciones),
+    razon_a_json(Razon, RazonJSON),
+    maplist(atom_string, CursosAQuitar, CodigosJSON),
+    Dict = _{
+        id: Id,
+        selecciones: Selecciones,
+        cumple: Cumple,
+        razon: RazonJSON,
+        cursos_a_quitar: CodigosJSON
+    }.
 
-% exportar_resultados(+Ruta, +Resultados)
-exportar_resultados(_Ruta, _Resultados) :-
-    pendiente(exportar_resultados, 'Sebastian').
+% Conserva el codigo y el grupo de cada seleccion.
+curso_a_dict(Curso, Dict) :-
+    curso_codigo(Curso, Codigo),
+    curso_grupo(Curso, Grupo),
+    atom_string(Codigo, CodigoJSON),
+    Dict = _{curso: CodigoJSON, grupo: Grupo}.
+
+% Una combinacion aceptada no tiene razon de rechazo.
+razon_a_json(ninguna, null).
+razon_a_json(balance_carreras, "balance_carreras").
+razon_a_json(limite_area, "limite_area").
+razon_a_json(incompatibilidad, "incompatibilidad").
+
+% Escribe el documento completo y cierra el archivo.
+exportar_resultados(Ruta, Resultados) :-
+    maplist(resultado_a_dict, Resultados, Diccionarios),
+    Documento = _{combinaciones: Diccionarios},
+    setup_call_cleanup(
+        open(Ruta, write, Salida, [encoding(utf8)]),
+        ( json_write_dict(Salida, Documento, [width(80), step(2)]),
+          nl(Salida)
+        ),
+        close(Salida)
+    ).
